@@ -18,9 +18,6 @@
 				<p><a href="listing.php" class="nav-top-link">Browse</a></p>
 				<p><a href="login.php" class="nav-top-link">Sign In</a></p>
 				<p><a href="join.php" class="nav-top-link" id="join">Join</a></p>
-
-
-				//////////////////
 			</div>
 		</section>
 </body>
