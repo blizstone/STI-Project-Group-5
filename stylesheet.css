@@ -28,7 +28,7 @@ body {
 }
 
 #logo {
-	background-image: url("https://i.imgur.com/kwmRHWR.png");
+	background-image: url("  ");
 	height: 4rem;
 	width: 8rem;
 	background-size: contain;
@@ -130,7 +130,7 @@ body {
 /* header information */
 
 #header {
-	background-image: url("https://images.theconversation.com/files/246960/original/file-20181123-149721-109zmdp.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop");
+	background-image: url("  ");
 	background-size: cover;
 	height: 35rem;
 	background-attachment: fixed;
@@ -196,7 +196,7 @@ body {
 
 /* customize background to each service box */
 .service-home-box:nth-child(1) {
-	background-image: url("https://focuswashington.com/wp-content/uploads/2017/12/hackers-678x381.jpg");
+	background-image: url("");
 	background-position: left;
 }
 
