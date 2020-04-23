@@ -130,11 +130,7 @@ body {
 /* header information */
 
 #header {
-<<<<<<< HEAD
-	background-image: url("  ");
-=======
 	background-image: url();
->>>>>>> 68a7ec3c0afbf4630c6e0f0b6cce40c2315824b6
 	background-size: cover;
 	height: 35rem;
 	background-attachment: fixed;
