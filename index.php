@@ -3,7 +3,7 @@
 		<title>STI scam alert site</title>
 		<link rel="stylesheet" href="stylesheet.css">
 	</head>
-	<body style="overflow-x:hidden;">
+	<body style="overflow-x:hidden;" onload="">
 		<section id="nav">
 			<a href="index.php" id="logo"></a>
 			<div id="nav-search-section">
@@ -25,14 +25,39 @@
 		</section>
 	
 <?php
- 
-$a =1;
-$b =2;
-$c =$a+$b;
+$con = new mysqli("localhost","root","","scamtest");
+$count = 0;
+$query = mysqli_query($con,"SELECT * FROM `reports`");
+foreach($query as $row){
+ $count++;
 
-echo $c
+echo "<form name='form' method='post' action='listing_details.php'>";
+echo "<table width='100%'>";
+echo "<tr>";
+echo "<td>";
+echo "<section id='grid-container'>";
+echo "<div class='card'>";
+$postId= $row['postId'];
+echo "<input type='hidden' name='service_array' value=".$postId .">";
 
-
+echo"<p>". $row['username'] ."</p>";
+echo"<p>". $row['content'] ."</p>";
+echo"<p>"."$". $row['category']."</p>";
+//echo"<p>".$row["date_created"] ."</p>";
+echo"<input type='submit' id='detailsButton' value='More Details'>";
+echo"</div>
+ </section>
+</td>
+</tr>
+</table>
+</form>";
 ?>
-	</body>
+<?php
+if($count == 3) { // three items in a row
+        echo '</tr><tr>';
+        $count = 0;
+    }
+} ?>
+ 
+</body>
 </html>
