@@ -17,7 +17,7 @@ if(isset($_POST['signup']))
     // Password encryption by using Sha256
     $hasedpassword=hash('sha256',$password);
     // Query for validation of username and email-id
-    $ret="SELECT * FROM test.userdata where (UserName=:uname ||  UserEmail=:uemail)";
+    $ret="SELECT * FROM digiscam.userdata where (UserName=:uname ||  UserEmail=:uemail)";
     $queryt = $dbh -> prepare($ret);
     $queryt->bindParam(':uemail',$email,PDO::PARAM_STR);
     $queryt->bindParam(':uname',$username,PDO::PARAM_STR);
@@ -26,7 +26,7 @@ if(isset($_POST['signup']))
     if($queryt -> rowCount() == 0)
     {
         // Query for Insertion
-        $sql="INSERT INTO test.userdata(FullName,UserName,UserEmail,UserMobileNumber,LoginPassword) VALUES(:fname,:uname,:uemail,:umobile,:upassword)";
+        $sql="INSERT INTO digiscam.userdata(FullName,UserName,UserEmail,UserMobileNumber,LoginPassword) VALUES(:fname,:uname,:uemail,:umobile,:upassword)";
         $query = $dbh->prepare($sql);
         // Binding Post Values
         $query->bindParam(':fname',$fullname,PDO::PARAM_STR);
