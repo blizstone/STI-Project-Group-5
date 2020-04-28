@@ -31,7 +31,7 @@
 
 	<tr>
 		<td>Account Id : </td>
-		<td><input type="text" name="id" /></td> 
+		<td><input type="text" name="accountId" /></td> 
 	</tr>
 <br>	
 	<tr>
