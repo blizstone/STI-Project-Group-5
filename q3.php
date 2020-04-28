@@ -31,11 +31,11 @@ if($update || $delete ){
     echo $delete  ." ". $update ;
     //include "q4.php";
     if($update){ // Update functionality
-        $query= $con->prepare("Update digiscam.userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, LoginPassword=? where accountId =?");
+        $query= $con->prepare("Update userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, LoginPassword=? where accountId =?");
         $query->bind_param('sssiss', $FullName, $UserName, $UserEmail, $UserMobileNumber, $hasedpassword, $accountId);
         echo "done";
     }else{ //Delete functionality
-        $query= $con->prepare("Delete from digiscam.userdata where accountId = ?");
+        $query= $con->prepare("Delete from userdata where accountId = ?");
         $query->bind_param('s', $accountId ); //bind the parameters
         
     }
