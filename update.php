@@ -30,7 +30,7 @@
 <table border="3">
 
 	<tr>
-		<td>id : </td>
+		<td>Account Id : </td>
 		<td><input type="text" name="id" /></td> 
 	</tr>
 <br>	
