@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 //Database Configuration File
@@ -132,4 +133,5 @@ if(isset($_POST['login']))
 </script>
 </body>
 
+</html>
 </html>
