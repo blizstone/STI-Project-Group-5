@@ -5,7 +5,7 @@ session_start();
 echo "" . $_SESSION["username_login"] . ".<br>";
 
 //Establish connection to database named mock
-$con = mysqli_connect("localhost","root","","test");
+$con = mysqli_connect("localhost","root","","digiscam");
 if (!$con){
     die('Could not connect: ' . mysqli_connect_errno());
 }
@@ -17,7 +17,7 @@ $delete = $actiontype === "Delete";
 //This part is for assigning variables to the textfields from Q2 based on their �name�
 if($update || $delete ){
     
-    $id = $_POST["id"];
+    $accountId = $_POST["accountId"];
     $FullName = $_POST["FullName"];
     $UserName = $_POST["UserName"];
     $UserEmail = $_POST["UserEmail"];
@@ -27,16 +27,16 @@ if($update || $delete ){
     
     $hasedpassword=hash('sha256',$LoginPassword);
     //Creates the table and the table headers
-    echo "<tr><td>". $id ."</td><td>". $FullName ."</td><td>". $UserName . "</td><td>". $UserEmail. "</td><td>". $UserMobileNumber ."</td><td>". $LoginPassword ."</td><</tr>";
+    echo "<tr><td>". $accountId ."</td><td>". $FullName ."</td><td>". $UserName . "</td><td>". $UserEmail. "</td><td>". $UserMobileNumber ."</td><td>". $LoginPassword ."</td><</tr>";
     echo $delete  ." ". $update ;
     //include "q4.php";
     if($update){ // Update functionality
-        $query= $con->prepare("Update userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, LoginPassword=? where id =?");
-        $query->bind_param('sssiss', $FullName, $UserName, $UserEmail, $UserMobileNumber, $hasedpassword, $id);
+        $query= $con->prepare("Update digiscam.userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, LoginPassword=? where accountId =?");
+        $query->bind_param('sssiss', $FullName, $UserName, $UserEmail, $UserMobileNumber, $hasedpassword, $accountId);
         echo "done";
     }else{ //Delete functionality
-        $query= $con->prepare("Delete from userdata where id = ?");
-        $query->bind_param('s', $id ); //bind the parameters
+        $query= $con->prepare("Delete from digiscam.userdata where accountId = ?");
+        $query->bind_param('s', $accountId ); //bind the parameters
         
     }
     if ($query->execute()){  //execute query
@@ -46,18 +46,18 @@ if($update || $delete ){
         echo "Error executing query.";
     }
 }else { //List all
-    $query= $con->prepare("Select id, FullName, UserName, UserEmail, UserMobileNumber, LoginPassword, RegDate  from userdata where UserName ='".$_SESSION["username_login"]."'" );    
+    $query= $con->prepare("Select accountId, FullName, UserName, UserEmail, UserMobileNumber, LoginPassword, RegDate  from digiscam.userdata where UserName ='".$_SESSION["username_login"]."'" );    
     $query->execute(); 
     $query->store_result();
-    $query->bind_result($id, $FullName, $UserName, $UserEmail, $UserMobileNumber, $LoginPassword, $RegDate);
+    $query->bind_result($accountId, $FullName, $UserName, $UserEmail, $UserMobileNumber, $LoginPassword, $RegDate);
     if($query->num_rows == 0) exit('No rows');
     //Displays the header
     echo "<h2>Your Info</h2>";
     echo "<table border=1>" ;
-    echo "<tr><td>id</td><br><td>Full Name</td><td>UserName</td><td>User Email</td><td>UserMobileNumber</td><td>LoginPassword</td><td>RegDate</td>";
+    echo "<tr><td>accountId</td><br><td>Full Name</td><td>UserName</td><td>User Email</td><td>UserMobileNumber</td><td>LoginPassword</td><td>RegDate</td>";
     while($query->fetch()){
         //starts listing the row
-        echo "<tr><td>". $id ."</td><td>". $FullName ."</td><td>". $UserName . "</td><td>". $UserEmail. "</td><td>". $UserMobileNumber ."</td><td>". $LoginPassword ."</td><td>". $RegDate ."</td><td>";
+        echo "<tr><td>". $accountId ."</td><td>". $FullName ."</td><td>". $UserName . "</td><td>". $UserEmail. "</td><td>". $UserMobileNumber ."</td><td>". $LoginPassword ."</td><td>". $RegDate ."</td><td>";
     }
     
     echo "</table>";
