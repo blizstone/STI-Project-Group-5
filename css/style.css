@@ -48,3 +48,30 @@ body{
     background: #926239;
     color: #fff;
 }
+
+#section-a{
+    padding: 20px;
+    background: #926239;
+    color: #fff;
+    text-align: center;
+}
+
+#section-b{
+    padding: 20px;
+    background: #926239;
+    color: #fff;
+    text-align: center;
+}
+
+#section-c{
+    display: flex;
+}
+
+#section-c div{
+    padding: 20px;
+}
+
+#section-c .box-1, #section-c .box-3{
+    background: #926239;
+    
+}
