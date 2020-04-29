@@ -3,21 +3,17 @@
 // Put this code in first line of web page.
 session_start();
 echo "" . $_SESSION["username_login"] . ".<br>";
+print($_SESSION["logged_in"]);
 
-if (isset($_SESSION['timeout'])) {
-    $sessionTTL = time() - $_SESSION["timeout"];
-    if ($sessionTTL > $inactive) {
-        session_destroy();
-        header("Location: logout.php"); 
-    }
-}
-$_SESSION["timeout"] = time();
-
-if (isset($_SESSION['randnum'])) {
+if (($_SESSION['logged_in'] == '1')) {
     echo "Welcome " ; 
    
-}else {
-        header("location:mjo.php");
+//}else if(($_SESSION['logged_in'] == '2')){
+	//echo 'Admin';
+
+}
+else {
+        header("location:index.php");
 }
 
 ?>
