@@ -4,8 +4,13 @@ session_start();
 //Database Configuration File
 include('config.php');
 error_reporting(0);
+print($_SESSION["logged_in"]);
+if(isset($_SESSION["logged_in"])) {
+    print("Session is set");
+    header("location:home.php");
+    }
 
-if(isset($_POST['login']))
+else if(isset($_POST['login']))
 {
     
     //Genrating random number for salt
@@ -50,6 +55,8 @@ if(isset($_POST['login']))
     {
         foreach ($results as $result) {
             $fetchpassword=$result->LoginPassword;
+            // $role=$result->Role;
+
             // hashing for stored password
             $storedpass= hash('sha256',$fetchpassword.$_SESSION['randnum']);
         }
@@ -61,11 +68,13 @@ if(isset($_POST['login']))
         $hash= password_hash($saltedpasswrd,PASSWORD_DEFAULT, $options);
         // Verifying Post password againt stored password
         if(password_verify($storedpass,$hash)){
+            // if($role=='admin'){
+            //     $_SESSION["logged_in"] = '2';
+            // }
             
             $_SESSION["username_login"]= $uname;
+            $_SESSION["logged_in"] = '1';
             
-
-            echo "<script type='text/javascript'> document.location = 'home.php'; </script>";
         }
         
         else {
