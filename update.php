@@ -6,7 +6,13 @@ session_start();
 echo "" . $_SESSION["username_login"] . ".<br>";
 if (($_SESSION['logged_in'] == '1')) {
     echo "Welcome " ;   
-}else {
+} 
+else if(($_SESSION['logged_in'] == '2')){
+	echo "Admin";
+
+}
+else 
+{
         header("location:mjo.php");
 }
 ?>

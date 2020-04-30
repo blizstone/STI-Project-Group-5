@@ -2,23 +2,13 @@
 // Check if session is not registered, redirect back to main page.
 // Put this code in first line of web page.
 session_start();
-echo "" . $_SESSION["username_login"] . ".<br>";
-print($_SESSION["logged_in"]);
-
-if (($_SESSION['logged_in'] == '1')) {
-    echo "Welcome " ; 
-   
-}  else if(($_SESSION['logged_in'] == '2')){
-	echo 'Admin Section';
-	header("Location: adminhome.php");
-	
-	
-
+if (($_SESSION['logged_in'] == '2')) {
+    echo "Welcome " ;   
 }
-else {
-        header("location:index.php");
+else 
+{
+        header("location:mjo.php");
 }
-
 ?>
 
 <html>
@@ -36,11 +26,10 @@ else {
 				</form>
 			</div>
 			<div id="nav-top">
-				<p><a href="update.php" class="nav-top-link">Profile</a></p>
 				<p><a href="blog.php" class="nav-top-link">Blog</a></p>
 				<p><a href="listing.php" class="nav-top-link">Browse</a></p>
 				<p><a href="logout.php" class="nav-top-link">Logout</a></p>
-				<p><a href="join.php" class="nav-top-link" id="join">Join</a></p>
+				<p><a href="adminupdate.php" class="nav-top-link" id="Members">Members</a></p>
 
 			</div>
 		</section>
