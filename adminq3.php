@@ -46,7 +46,6 @@ $delete = "Delete";
 				</form>
 			</div>
 			<div id="nav-top">
-				<p><a href="adminupdate.php" class="nav-top-link">Profile</a></p>
 				<p><a href="blog.php" class="nav-top-link">Blog</a></p>
 				<p><a href="listing.php" class="nav-top-link">Browse</a></p>
 				<p><a href="logout.php" class="nav-top-link">Logout</a></p>
