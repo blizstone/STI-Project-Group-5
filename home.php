@@ -8,11 +8,13 @@ print($_SESSION["logged_in"]);
 if (($_SESSION['logged_in'] == '1')) {
     echo "Welcome " ; 
    
-}//else if(($_SESSION['logged_in'] == '2')){
-	//echo 'Admin';
+}  else if(($_SESSION['logged_in'] == '2')){
+	echo 'Admin Section';
+	header("Location: adminhome.php");
+	
 	
 
-
+}
 else {
         header("location:index.php");
 }
