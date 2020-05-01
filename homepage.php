@@ -10,7 +10,7 @@
 <body>
 <header id="showcase">
     <h1>Welcome To DigiScam</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi officiis ipsum officia numquam expedita ullam.</p>
+    <p>.</p>
     <a href="index.php" class="button">Login or Create an Account</a>
   </header>
   <section id="section-a">
