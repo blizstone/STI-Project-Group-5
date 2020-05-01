@@ -63,14 +63,19 @@ if($update || $delete ){
     if($query->num_rows == 0) exit('No rows');
     //Displays the header
     echo "<h2>Your Info</h2>";
-    echo "<table border=1>" ;
-    echo "<tr><td>accountId</td><br><td>Full Name</td><td>UserName</td><td>User Email</td><td>UserMobileNumber</td><td>LoginPassword</td><td>RegDate</td>";
+    echo "<table>";
+    
     while($query->fetch()){
         //starts listing the row
-        echo "<tr><td>". $accountId ."</td><td>". $FullName ."</td><td>". $UserName . "</td><td>". $UserEmail. "</td><td>". $UserMobileNumber ."</td><td>". $LoginPassword ."</td><td>". $RegDate ."</td><td>";
+     echo "<tr><th>Account Id:</th><td>". $accountId ."</td></tr>
+     <tr><th>Full Name:</th><td>". $FullName ."</td></tr>
+     <tr><th>User Name:</th><td>". $UserName ."</td></tr><tr>
+     <tr><th>User Email:</th><td>". $UserEmail ."</td></tr>
+     <tr><th>Mobile Number:</th><td>". $UserMobileNumber ."</td></tr>
+     <tr><th>User Password:</th><td>". $LoginPassword ."</td></tr>
+     <tr><th>Registered Date:</th><td>". $RegDate ."</td></tr>";
     }
     
-    echo "</table>";
    
 
     $con->close();
@@ -80,21 +85,52 @@ if($update || $delete ){
 ?>
  <style>
     table {
-        border-collapse: collapse;   
-        width: 70%;
-        background-color: lightcyan;  
-        padding: 10px
+        text-align:left;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 205px;
+        margin-left: 138px;
+        line-height: 70px;
+
+        
+
     }
+    th{
+        width: 20%;
+        height: 12%;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    tr {
+        font-size: 20px;
+    }
+    td {
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+    
         </style>
 
 <html>
+<!-- <style>
+  body {
+  background-image: url('https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-relay.png');
+  background-repeat: no-repeat;
+  background-position: top;
+
+  
+}    -->
+</style>
+<body>
 	<head>
 		<title>STI scam alert site</title>
 		<link rel="stylesheet" href="stylesheet.css">
-	</head>
-	<body style="overflow-x:hidden;" onload="">
+    </head>
+    
+    <body style="overflow-x:hidden;" onload="">
+    
 		<section id="nav">
-			<a href="index.php" id="logo"></a>
+            <a href="index.php" id="logo" ></a>
+    
 			<div id="nav-search-section">
 				<form action="search.php">
 					<input type="text" id="nav-search">
