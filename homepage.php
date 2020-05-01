@@ -10,7 +10,7 @@
 <body>
 <header id="showcase">
     <h1>Welcome To DigiScam</h1>
-    <p>.</p>
+    <p>Our country is plagued with scams, and you have the right to know on the current and trending scams. Join us in fighting against scams</p>
     <a href="index.php" class="button">Login or Create an Account</a>
   </header>
   <section id="section-a">
