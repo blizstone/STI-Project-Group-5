@@ -11,7 +11,7 @@
 <header id="showcase">
     <h1>Welcome To DigiScam</h1>
     <p>Our country is plagued with scams, and you have the right to know on the current and trending scams. Join us in fighting against scams</p>
-    <a href="login.php" class="button">Login or Create an Account</a>
+    <a href="login.php" class="button">Login Create an Account</a>
   </header>
   <section id="section-a">
     <p>Scams are designed to trick people into giving away their money or personal information. While many people think scams target only certain groups of individuals, the truth is anyone can be a victim of a scam. We are all at risk. That's why it is important that everyone stays informed and vigilant against scams.</p>
