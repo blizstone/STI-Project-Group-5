@@ -7,7 +7,7 @@ echo "" . $_SESSION["username_login"] . ".<br>";
 if (($_SESSION['logged_in'] == '1')) {
     echo "Welcome " ;   
 } 
-else if(($_SESSION['logged_in'] == '2')){
+else if(($_SESSION['logged_in'] == '1')){
 	echo "Admin";
 
 }
@@ -40,6 +40,7 @@ else
     </td>
 </table1>
 <style> table1 {
+	
 		border-collapse: collapse;   
 		   width: 100%;
 		   margin-left: 12px;
