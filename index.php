@@ -29,7 +29,7 @@
       Second common scam. The lottery scam. In this scam, someone will call you claiming that you have a won a huge sum of money. However, to send this sum of money to you, they might ask you for your bank login details or to transfer an amount of money to cover 'fees'. Do not hand over your banking information or transfer any money to them.
     </div>
     <div class="box-3">
-      Third most common scam is the
+      Third most common scam is the kidnap scam. In this scam, someone would claim to have kidnapped your loved ones and would demand a ransom. Do not panic and do not pay the ransom. Contact your loved one and ask them if they are safe. If you are unable to contact your loved one, contact your other family members first and should there be no news of them. Call the police immediately and seek assistance.
     </div>
   </section>
 </body>
