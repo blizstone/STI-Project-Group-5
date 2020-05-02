@@ -23,10 +23,10 @@
   </section>
   <section id="section-c">
     <div class="box-1">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolorum est, molestias dolores quis sunt nobis temporibus veritatis libero odio!
+      The first common scam. Police impersonation scam. In this scam, someone alleging to be a police officer will contact you saying that someone has committed a crime using your identity and you are under investigation and ask for a desposit to handle the case. No law enforcement agency will call you and ask for a sum. 
     </div>
     <div class="box-2">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolorum est, molestias dolores quis sunt nobis temporibus veritatis libero odio!
+      Second common scam. The lottery scam. In this scam, someone will call you claiming that you have a won a huge sum of money. However, to send this sum of money to you, they might ask you for your bank login details or to transfer an amount of money to cover 'fees'. Do not hand over your banking information or transfer any money to them. 
     </div>
     <div class="box-3">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolorum est, molestias dolores quis sunt nobis temporibus veritatis libero odio!
