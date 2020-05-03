@@ -158,8 +158,8 @@ error:function (){
       <!-- Mobile Number -->
       <label class="control-label" for="mobilenumber">Mobile Number </label>
       <div class="controls">
-        <input type="text" id="mobilenumber" name="mobilenumber" pattern="[0-9]{10}" maxlength="10"  title="10 numeric digits only"   class="input-xlarge" required>
-        <p class="help-block">Mobile Number Contain only 10 digit numeric values</p>
+        <input type="text" id="mobilenumber" name="mobilenumber" pattern="[0-8]{8}" maxlength="8"  title="10 numeric digits only"   class="input-xlarge" required>
+        <p class="help-block">Mobile Number Contain only 8 digit numeric values</p>
       </div>
     </div>
     <div class="control-group">
