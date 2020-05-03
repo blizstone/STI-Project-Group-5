@@ -54,8 +54,7 @@ else {
 </form>
 <div>
 <h1> Guide.. <h1>
-<p>Successfull updation can login with new credentials.<br>
-	Failed Updations will redirect to current page.</p>
+<p>Successfull updation can login with new credentials.<br></p>
 <style>
 
   body {
