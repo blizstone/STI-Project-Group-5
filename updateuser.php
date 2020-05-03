@@ -42,13 +42,13 @@ else {
  Update</h1>
 
 <table>
-	<tr><th>Account Id:</th><td><input type="text" name="accountId" required/></td></tr>
-     <tr><th>Full Name:</th><td><input type="text" name="FullName" required/></td></tr>
-     <tr><th>User Name:</th><td><input type="text" name="UserName" required/></td><tr>
-     <tr><th>User Email:</th><td><input type="text" name="UserEmail"required/></td></tr>
-     <tr><th>Mobile Number:</th><td><input type="text" name="UserMobileNumber" required/></td></tr>
-	 <tr><th>User Password:</th><td><input type="password" name="LoginPassword" required/></td></tr>
-	 <td><input type="submit" value="Action" /> Update </td>
+	  <tr><th>Account Id:</th><td>Please input Account ID</td><td><input type="text" name="accountId"  pattern="[0-9]"></td></tr>
+     <tr><th>Full Name:</th><td>Fully can contain Letters Only</td><td><input type="text" name="FullName"  pattern="[a-zA-Z\s]+" required/></td></tr>
+     <tr><th>User Name:</th><td>Username can contain any letters or numbers, without spaces 6 to 12 chars</td><td><input type="text" name="UserName" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{5,12}$" required/></td><tr>
+     <tr><th>User Email:</th><td>Provide valide Email</td><td><input type="email" name="UserEmail"required/></td></tr>
+     <tr><th>Mobile Number:</th><td>Please provide valid number</td><td><input type="text" name="UserMobileNumber" pattern="[0-8]{8}" maxlength="8" required/></td></tr>
+	 <tr><th>User Password:</th><td>Password must contain atleast 4 numbers</td><td><input type="password" name="LoginPassword" pattern="^\S{4,}$" required/></td></tr>
+	 <td><input type="submit" value="Update"/></td>
 	
 </table>
 </form>
@@ -86,7 +86,9 @@ font-size: 20px;
 td {
 font-size: 20px;
  font-family: 'Times New Roman', Times, serif;
- width: 70%;
+ font-size: 14px;
+ 
+ text-align: left;
 }
 </style>
 </div>
