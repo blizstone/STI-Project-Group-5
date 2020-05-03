@@ -37,8 +37,7 @@ else {
 				<p><a href="blog.php" class="nav-top-link">Blog</a></p>
 				<p><a href="listing.php" class="nav-top-link">Browse</a></p>
 				<p><a href="logout.php" class="nav-top-link">Logout</a></p>
-				<p><a href="join.php" class="nav-top-link" id="join">Join</a></p>
-
+				
 			</div>
 		</section>
 
