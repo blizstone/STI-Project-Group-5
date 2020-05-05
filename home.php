@@ -22,6 +22,15 @@ else {
 	<head>
 		<title>STI scam alert site</title>
 		<link rel="stylesheet" href="stylesheet.css">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    	<script src="dist/upvote/upvote.vanilla.js"></script>
+
+    	<link rel="stylesheet" href="dist/upvote/upvote.css">
+    	<style type="text/css"></style>
+
 	</head>
 	<body style="overflow-x:hidden;" onload="">
 		<section id="nav">
@@ -43,9 +52,9 @@ else {
 
 
 <?php
-$con = new mysqli("localhost","root","","scamtest");
+$con = new mysqli("localhost","root","","digiscam");
 $count = 0;
-$query = mysqli_query($con,"SELECT * FROM `reports`");
+$query = mysqli_query($con,"SELECT * FROM `post`");
 foreach($query as $row){
  $count++;
 
@@ -58,7 +67,20 @@ echo "<div class='card'>";
 $postId= $row['postId'];
 echo "<input type='hidden' name='service_array' value=".$postId .">";
 
-echo"<p>". $row['username'] ."</p>";
+echo "<div class='row'>";
+echo "<div class='span6'>";
+echo "<h3>Basic</h3>";
+echo "<div class='row'>";
+echo "<div class='span1'>";
+echo "<div class='upvote'>";
+echo "<a class='upvote'></a>";
+echo "<span class='count'>5</span>";
+echo "<a class='downvote'></a>";
+echo "<a class='star'></a>";
+echo "</div>";
+echo "</div>";                       
+
+echo"<p>". $row['accountId'] ."</p>";
 echo"<p>". $row['content'] ."</p>";
 echo"<p>"."$". $row['category']."</p>";
 //echo"<p>".$row["date_created"] ."</p>";
