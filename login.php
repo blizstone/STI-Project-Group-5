@@ -69,29 +69,25 @@ if(isset($_SESSION["logged_in"])) {
         if(password_verify($storedpass,$hash)){
              if($role=='admin'){
                  $_SESSION["logged_in"] = '2';
-             }
-           
+                 header("Location: home.php");
+             }          
             else {
                 $_SESSION["username_login"]= $uname;
             $_SESSION["logged_in"] = '1';
+            header("Location: home.php");
+
                 
             }
         }
-        
         else {
-            echo "<script>alert('Wrong password');</script>";
-            
+            echo "<script>alert('Invalid Details');</script>";            
         }
-        
     }
-    
-    
     else{
         echo "<script>alert('Invalid Details');</script>";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
