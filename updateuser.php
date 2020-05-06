@@ -7,40 +7,23 @@ if (($_SESSION['logged_in'] == '1')) {
 else {
         header("location:mjo.php");
 }
+
 ?>
 <html>
 <body>
-<h1>Your Profile</h1>
-
-
-</body>
-</html>
-
 <div class="hero-text">
 	<br>
 	<h1>Update Personal Details</h1>  
 	<img src="https://image.flaticon.com/icons/svg/1177/1177568.svg">
     </div>
-	
 <form action="updatecode.php" method ="POST" name="listall">
-
-<table>
-		
-      
+<table>   
         <br>
-
- 
         <br>
         <input type="radio" name="actiontype" value="Update" required>Update
-        <br>
-         
-    
+        <br>        
 </table>
-<p>
-
-<h1>
- Update</h1>
-
+<h1> Update</h1>
 <table>
 	  <tr><th>Account Id:</th><td>Please input Account ID</td><td><input type="text" name="accountId"  pattern="[0-9]"></td></tr>
      <tr><th>Full Name:</th><td>Fully can contain Letters Only</td><td><input type="text" name="FullName"  pattern="[a-zA-Z\s]+" required/></td></tr>
@@ -51,6 +34,7 @@ else {
 	 <td><input type="submit" value="Update"/></td>
 	
 </table>
+
 </form>
 <div>
 <h1> Guide.. <h1>
