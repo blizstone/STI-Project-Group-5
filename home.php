@@ -2,14 +2,10 @@
 // Check if session is not registered, redirect back to main page.
 // Put this code in first line of web page.
 session_start();
-
-
 if (($_SESSION['logged_in'] == '1')) {
    
 }  else if(($_SESSION['logged_in'] == '2')){
 	header("Location: adminhome.php");
-	
-	
 
 }
 else {
@@ -50,6 +46,8 @@ else {
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
+  <a href="viewprofile.php">My Account</a>
+
   <a href="logout.php">logout</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
