@@ -18,16 +18,15 @@ if (!$con){
     echo "connected";
 }
 
-$accountId=intval($_SESSION['accountId']);
+$postId=$_POST['post_update'];
 $title = $_POST['title'];
 $content = $_POST['content'];
 //$price = $_POST["price"];
 $category = $_POST['category'];
 
-$query= $con->prepare("INSERT INTO `post`(`accountId`, `title`, `content`, `category`) 
-VALUES (?,?,?,?)");
+$query= $con->prepare("UPDATE post SET title=? , content=? , category=? WHERE postId=?");
 
-$query->bind_param("isss", $accountId, $title,$content,$category);
+$query->bind_param("sssi",$title,$content,$category,$postId);
 $res=$query->execute();
 if ($res){ //execute query
     echo "Query executed.";

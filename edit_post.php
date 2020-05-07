@@ -48,12 +48,12 @@ else {
     <i class="fa fa-bars"></i>
   </a>
 </div>
-
+		
 <?php 
 
 $con = new mysqli("localhost","root","","digiscam");
 
-$postId=$_POST['post_array'];
+$postId=$_POST['post_edit'];
 
 $query= $con->prepare("SELECT post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId WHERE postId=?");
 $query->bind_param("i",$postId);
@@ -71,33 +71,29 @@ foreach($query as $row){
 
 ?>
 
-<section id="details-container">
-
-<form action="delete_post.php" method="post">
-<?php 
-echo "<input type='hidden' name='post_delete' 
-value=".$postId.">";
+<section id='createlist-container'>
+<form action='update_post.php' method='post'>
+<?php
+echo "<input type='hidden' name='post_update' value=".$postId .">";
 ?>
-<input type="submit" id="delete-button" value="Delete">
-</form>
 
-<form action="edit_post.php" method="post">
-<input type="submit" id="edit-button" value="Edit">
-<?php 
-echo "<input type='hidden' name='post_edit' 
-value=".$postId.">";
-?>
 <p class="details-labels">Username</p>
 <p class="details-content"><?php echo $userName; ?></p>
 <p class="details-labels">Title</p>
 <p class="details-content"><?php echo $title; ?></p>
+<input type='text' name='title'>
 <p class="details-labels">Content</p>
 <p class="details-content"><?php echo $content; ?></p>
+<input type="text" name="content" >
+<!--<p class="newlist-labels">Voting</p>
+<input type="number" name="votting" >-->
 <p class="details-labels">Category</p>
 <p class="details-content"><?php echo $category; ?></p>
+<input type="text" name="category" ><br>
+<br>
+<input type="submit" id="newlist-submit" value="Update" > 
 </form>
 
-
+</section>
 </body>
-
 </html>

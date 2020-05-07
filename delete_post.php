@@ -18,16 +18,11 @@ if (!$con){
     echo "connected";
 }
 
-$accountId=intval($_SESSION['accountId']);
-$title = $_POST['title'];
-$content = $_POST['content'];
-//$price = $_POST["price"];
-$category = $_POST['category'];
+$postId=$_POST['post_delete'];
 
-$query= $con->prepare("INSERT INTO `post`(`accountId`, `title`, `content`, `category`) 
-VALUES (?,?,?,?)");
+$query= $con->prepare("DELETE FROM `post` WHERE postId=?");
 
-$query->bind_param("isss", $accountId, $title,$content,$category);
+$query->bind_param("i", $postId );
 $res=$query->execute();
 if ($res){ //execute query
     echo "Query executed.";
