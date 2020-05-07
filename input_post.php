@@ -1,22 +1,33 @@
-<?php 
+<?php
+// Check if session is not registered, redirect back to main page.
+// Put this code in first line of web page.
+session_start();
+if (($_SESSION['logged_in'] == '1')) {
+   
+}  else if(($_SESSION['logged_in'] == '2')){
+	header("Location: adminhome.php");
+}
+else {
+        header("location:index.php");
+}
 
-$con = new mysqli("localhost","root","","itservices");
+$con = new mysqli("localhost","root","","digiscam");
 if (!$con){
     echo "connection fail";
 }else {
     echo "connected";
 }
 
-$userId = 1;
-$serviceTitle = $_POST["serviceTitle"];
-$description = $_POST["description"];
-$price = $_POST["price"];
-$date = $_POST["date"];
+$accountId=intval($_SESSION['accountId']);
+$title = $_POST['title'];
+$content = $_POST['content'];
+//$price = $_POST["price"];
+$catergory = $_POST['catergory'];
 
-$query= $con->prepare("INSERT INTO services_listings (user_id, service_title, description, price, date_created) 
-VALUES (?,?,?,?,?)");
+$query= $con->prepare("INSERT INTO `post`(`accountId`, `title`, `content`, `category`) 
+VALUES (?,?,?,?)");
 
-$query->bind_param("issss", $userId, $serviceTitle,$description,$price,$date);
+$query->bind_param("isss", $accountId, $title,$content,$catergory);
 $res=$query->execute();
 if ($res){ //execute query
     echo "Query executed.";
@@ -24,7 +35,7 @@ if ($res){ //execute query
     echo "Error executing query.";
 }
 
-header('Location: listing.php');
+header('Location: home.php');
 exit;
 
 ?>
