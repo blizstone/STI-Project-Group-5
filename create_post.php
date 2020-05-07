@@ -63,8 +63,8 @@ else {
 		<input type="text" name="content" >
 		<!--<p class="newlist-labels">Voting</p>
 		<input type="number" name="votting" >-->
-		<p class="newlist-labels">Catergory</p>
-		<input type="text" name="catergory" ><br>
+		<p class="newlist-labels">Category</p>
+		<input type="text" name="category" ><br>
 		<br>
 		<input type="submit" id="newlist-submit" value="Submit"> 
 		</form>
