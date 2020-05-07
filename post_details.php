@@ -75,16 +75,16 @@ foreach($query as $row){
 
 <form action="delete_post.php" method="post">
 <?php 
-echo "<input type='hidden' name='service_delete' 
+echo "<input type='hidden' name='post_delete' 
 value=".$postId.">";
 ?>
 <input type="submit" id="delete-button" value="Delete">
 </form>
 
-<form action="edit_listing.php" method="post">
+<form action="edit_post.php" method="post">
 <input type="submit" id="edit-button" value="Edit">
 <?php 
-echo "<input type='hidden' name='service_edit' 
+echo "<input type='hidden' name='post_edit' 
 value=".$postId.">";
 ?>
 <p class="details-labels">Username</p>
