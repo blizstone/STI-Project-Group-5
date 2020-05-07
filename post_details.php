@@ -93,7 +93,7 @@ value=".$postId.">";
 <p class="details-content"><?php echo $title; ?></p>
 <p class="details-labels">Content</p>
 <p class="details-content"><?php echo $content; ?></p>
-<p class="details-labels">Catergory</p>
+<p class="details-labels">Category</p>
 <p class="details-content"><?php echo $category; ?></p>
 </form>
 
