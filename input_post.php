@@ -22,12 +22,12 @@ $accountId=intval($_SESSION['accountId']);
 $title = $_POST['title'];
 $content = $_POST['content'];
 //$price = $_POST["price"];
-$catergory = $_POST['catergory'];
+$category = $_POST['category'];
 
 $query= $con->prepare("INSERT INTO `post`(`accountId`, `title`, `content`, `category`) 
 VALUES (?,?,?,?)");
 
-$query->bind_param("isss", $accountId, $title,$content,$catergory);
+$query->bind_param("isss", $accountId, $title,$content,$category);
 $res=$query->execute();
 if ($res){ //execute query
     echo "Query executed.";
