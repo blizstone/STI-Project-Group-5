@@ -4,12 +4,12 @@ if(isset($_POST['submit']))
 {
 $name=$_POST['name'];
 $email=$_POST['email'];
-$password=md5($_POST['password']);
+$password=sha1($_POST['password']);
 $status=0;
-$activationcode=md5($email.time());
+$activationcode=sha1($email.time());
 $query=mysqli_query($con,"insert into userregistration(name,email,password,activationcode,status) values('$name','$email','$password','$activationcode','$status')");
- if($query)
- {
+if($query)
+{
 $to=$email;
 $msg= "Thanks for new Registration.";
 $subject="Email verification (phpgurukul.com)";
