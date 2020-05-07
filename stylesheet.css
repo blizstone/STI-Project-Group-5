@@ -77,425 +77,26 @@ body {
 /* INDEX PAGE */
 /**********************************************************************************/
 
-/* header information */
-
-#header {
-	background-image: url();
-	background-size: cover;
-	height: 35rem;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	position: relative;
-}
-
-#headertext {
-	position: absolute;
-	top: 18rem;
-	left: 5rem;
-	font-size: 2.5rem;
-	letter-spacing: .2rem;
-	background-color: rgba(0,0,0,.6);
-	padding: 1.5rem;
-	color: #eee;
-	font-weight: 300;
-}
-
-/* title texts and description */
-
-#titletext {
-	padding: .5rem 10rem;
-	
-}
-
-#title {
-	font-size: 2rem;
-	text-align: center;
-	letter-spacing: .1rem;
-}
-
-/* content */
-#content {
-	height: 100px;
-	padding: 0 5rem;
-}
-
-#service-home {
-	display: flex;
-	justify-content: space-evenly;
-	padding-bottom: 10rem;
-}
-
-.service-home-box {
-	background-size: cover;
-	height: 18rem;
-	width: 15rem;
-	border-radius: .4rem;
-	transition: .2s ease-in-out;
-}
-
-.service-home-box:hover {
-	transform: scale(1.02);
-	opacity: 0.7;
-}
-
-.service-home-box-text {
-	font-size: 1.2rem;
-	padding: .5rem;
-	color: #fff;
-}
-
-/* customize background to each service box */
-.service-home-box:nth-child(1) {
-	background-image: url("");
-	background-position: left;
-}
-
-.service-home-box:nth-child(2) {
-	background-image: url("https://www.carbonblack.com/wp-content/uploads/2017/07/Data-Security.jpg");
-}
-
-.service-home-box:nth-child(3) {
-	background-image: url("https://online.norwich.edu/sites/default/files/styles/resource_standard_hero/public/content/resources/header/untitled-2.jpg?itok=hORjD5r3");
-}
-
-.service-home-box:nth-child(4) {
-	background-image: url("https://miro.medium.com/max/3960/0*HICLyAdNSIyT0ODU.jpg");
-}
-
-.service-home-box:nth-child(5) {
-	background-image: url("https://content-static.upwork.com/blog/uploads/sites/3/2016/11/21173944/Hiring-Guide_UI-common-mistakes_h.jpg");
-}
-
-/* newsletter */
-#newsletter {
-	margin: 22rem 10rem 0 10rem;
-	box-shadow: 0 0 10px #BEBEBE;
-	position: relative;
-}
-
-#newsletter-image {
-	background-image: url("http://bsmedia.business-standard.com/_media/bs/img/article/2017-10/22/full/1508615187-8175.jpg");
-	background-repeat: no-repeat;
-	height: 20rem;
-	width: auto;
-	background-size: contain;
-}
-
-#newsletter-content {
-	position: absolute;
-	left: 37rem;
-	top: 1rem;
-	padding-right: 5rem;
-}
-
-#newsletter-title {
-	font-size: 3rem;
-	margin-bottom: -.05rem;
-}
-
-#newsletter-input {
-	height: 2rem;
-	width: 15rem;
-	border: 1px solid #A8A8A8;
-	border-right: 0;
-	border-radius: .2rem 0 0 .2rem;
-	padding: 0 1rem;
-}
-
-#newsletter-submit {
-	height: 2rem;
-	padding: 0 1rem;
-	background-color: #77dd77;
-	transition: .2s ease-in;
-	border: none;
-	border-radius: 0 .2rem .2rem 0;
-	margin-left: -.2rem;
-}
-
-#newsletter-submit:hover {
-	background-color: #03c03c;
-	color: white;
-}
 
 /**********************************************************************************/
 /* JOIN PAGE */
 /**********************************************************************************/
-#joinus-content {
-	margin: 10rem 10rem 5rem 10rem;
-	box-shadow: 0 0 5px #BEBEBE;
-	position: relative;
-}
 
-#joinus-image {
-	background-image: url("https://expat-03cdkbceglbjg.stackpathdns.com/images/upload/2/2/7/0/1539681590-it-professionals-news_item_slider.jpg");
-	height: 20rem;
-	width: 35rem;
-	background-repeat: no-repeat;
-}
-
-#joinus-title {
-	position: absolute;
-	top: 1rem;
-	left: 38rem;
-	font-size: 3rem;
-	line-height: 4rem;
-}
-
-#joinus-yeah {
-	position: absolute;
-	top: 10rem;
-	left: 52rem;
-	font-size: 1.5rem;
-	border-radius: .2rem;
-	background-color: #77dd77;
-	padding: .5rem 1.5rem;
-	text-decoration: none;
-	transition: .2s ease-in-out;
-}
-
-#joinus-yeah:link, #joinus-yeah:visited {
-	color: white;
-}
-
-#joinus-yeah:hover, #joinus-yeah:active {
-	transform: scale(1.05);
-	background-color: #03c03c;
-	color: white;
-}
-
-#joinus-form-container {
-	
-}
 
 /**********************************************************************************/
 /* LOGIN PAGE */
 /**********************************************************************************/
-#login-form-container {
-	margin: 10rem 10rem 5rem 10rem;
-	box-shadow: 0 0 5px #BEBEBE;
-	position: relative;
-	padding: 1rem 5rem 2rem 5rem;
-	display: flex;
-}
 
-.login-labels {
-	font-size: 1.5rem;
-	font-weight: 500;
-	font-color: #A8A8A8;
-}
-
-.login-input {
-	margin-top: -.5rem;
-	height: 2rem;
-	width: 20rem;
-	border-radius: .2rem;
-	border: 1px solid #A8A8A8;
-	padding: 0rem 1rem;
-}
-
-#login-submit {
-	display: block;
-	margin-top: 2rem;
-	margin-left: 16rem;
-	height: 2rem;
-	color: white;
-	background-color: #77dd77;
-	border: none;
-	border-radius: .2rem;
-	padding: .5rem 1rem;
-	transition: .2s ease-in-out;
-}
-
-#login-submit:hover, #login-submit:active {
-	background-color: #03c03c;
-	transform: scale(1.05);
-}
-
-#login-image {
-	background-image: url('');
-	background-repeat: no-repeat;
-	background-size: cover;
-}
 
 /**********************************************************************************/
 /* PROFILE PAGE */
 /**********************************************************************************/
-#profile-container {
-	margin: 8rem 10rem 5rem 10rem;
-	border: 1px solid #A8A8A8;
-	border-radius: .2rem;
-	position: relative;
-	padding: 1rem 5rem 2rem 5rem;
-}
 
-.profilebuttons {
-	text-decoration: none;
-	padding: .5rem 1rem;
-	font-size: 1rem;
-	background-color: #77dd77;
-	border-radius: .2rem;
-	transition: .2s ease-in-out;
-}
-
-.profilebuttons:link, .profilebuttons:visited {
-	color: white;	
-}
-
-.profilebuttons:hover, .profilebuttons:active {
-	background-color: #03c03c;
-}
 
 /**********************************************************************************/
 /* EDIT PROFILE PAGE */
 /**********************************************************************************/
-#updateprofile-container {
-	margin: 8rem 10rem 5rem 10rem;
-	border: 1px solid #A8A8A8;
-	border-radius: .2rem;
-	position: relative;
-	padding: 2rem 5rem 2rem 5rem;
-}
 
-.updateprofile-input {
-	display: block;
-	height: 2rem;
-	width: 20rem;
-	border-radius: .2rem;
-	border: 1px solid #A8A8A8;
-	padding: .5rem 1rem;
-	font-size: 1rem;
-	margin-bottom: 2rem;
-}
-
-#updateprofile-bio {
-	display: block;
-	height: 5rem;
-	width: 20rem;
-	border-radius: .2rem;
-	border: 1px solid #A8A8A8;
-	padding: .5rem 1rem;
-	font-size: 1rem;
-	resize: none;
-	font-family: arial;
-}
-
-#updateprofile-submit {
-	height: 2rem;
-	padding: .5rem 1rem;
-	background-color: #77dd77;
-	color: white;
-	border: none;
-	border-radius: .2rem;
-	margin-top: 1rem;
-	margin-left: 16rem;
-	transition: .2s ease-in-out;
-}
-
-#updateprofile-submit:hover, #updateprofile-submit:active {
-	background-color: #03c03c;
-	transform: scale(1.05);
-}
-
-
-/**********************************************************************************/
-/* BLOG PAGE */
-/**********************************************************************************/
-#blog-header {
-	margin: 10rem 10rem 5rem 10rem;
-	box-shadow: 0 0 5px #BEBEBE;
-	position: relative;
-}
-
-#blog-image {
-	background-image: url("https://community.connection.com/wp-content/uploads/2019/04/888921-5WaysPublicCloud-BLOG.jpg");
-	height: 20rem;
-	width: auto;
-	background-repeat: no-repeat;
-	background-size: contain;
-}
-
-#blog-header-title {
-	position: absolute;
-	top: 3rem;
-	left: 37rem;
-	font-size: 2.5rem;
-}
-
-#blog-header-action {
-	position: absolute;
-	top: 10rem;
-	left: 47rem;
-	border-radius: .2rem;
-	font-size: 1.5rem;
-	background-color: #77dd77;
-	padding: .5rem 1rem;
-	transition: .2s ease-in-out;
-	text-decoration: none;
-}
-
-#blog-header-action:link, #blog-header-action:visited {
-	color: white;
-}
-
-#blog-header-action:hover, #blog-header-action:active {
-	background-color: #03c03c;
-}
-
-/**********************************************************************************/
-/* UPLOAD BLOG PAGE */
-/**********************************************************************************/
-#blogpost-editor-container {
-	margin: 10rem 10rem 5rem 10rem;
-	box-shadow: 0 0 5px #A8A8A8;
-	padding: 1rem 5rem 2rem 5rem;
-	border-radius: .2rem;
-	position: relative;
-}
-
-.blogpost-labels {
-	font-size: 1.5rem;
-	font-weight: 500;
-	font-color: #A8A8A8;
-}
-
-#blogpost-title {
-	height: 3rem;
-	width: 60rem;
-	padding: .5rem;
-	font-size: 1rem;
-}
-
-#blogpost-content {
-	width: 60rem;
-	height: 20rem;
-	resize: none;
-	padding: .5rem;
-	font-size: 1rem;
-	font-family: arial;
-}
-
-#blogpost-submit {
-	background-color: #77dd77;
-	font-size: 1.5rem;
-	padding: .5rem 1rem;
-	border-radius: .2rem;
-	color: white;
-	border: none;
-	margin-left: 53rem;
-	margin-top: 2rem;
-}
-
-
-/* reusable classes */
-.descriptions {
-	font-size: 1.2rem;
-	letter-spacing: .1rem;
-}
-	
-.titletext {
-	letter-spacing: .1rem;
-	font-size: 2rem;
-}
 
 /***************************************************************/
 /* listing page*/
@@ -540,7 +141,7 @@ body {
 	
 }
 /*******************************************/
-/* Create listing page*/
+/* Create_post / */
 /******************************************/
 
 #createlist-container {
@@ -554,7 +155,6 @@ body {
 .newlist-labels {
 	font-size: 1.5rem;
 	font-weight: 500;
-	font-color: #A8A8A8;
 }
 
 #list-content {
@@ -577,9 +177,9 @@ body {
 	margin-top: 2rem;
 }
 
-/**********************************/
-/*listing_details*/
-/**********************************/
+/*********************************************************/
+/*post_details / edit_post  */
+/*********************************************************/
 
 #details-container {
 	margin: 10rem 10rem 5rem 10rem;
@@ -592,7 +192,6 @@ body {
 .details-labels {
 	font-size: 1.5rem;
 	font-weight: 500;
-	font-color: #A8A8A8;
 }
 
 .details-content {
