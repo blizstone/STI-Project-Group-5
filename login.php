@@ -45,7 +45,7 @@ if(isset($_SESSION["logged_in"])) {
     // Hashing with Random Number
     $saltedpasswrd=hash('sha256',$password.$_SESSION['randnum']);
     // Fetch stored password  from database on the basis of username/email 
-    $sql ="SELECT UserName,UserEmail,LoginPassword,Role FROM userdata WHERE (UserName=:usname || UserEmail=:usname)";
+    $sql ="SELECT accountId,UserName,UserEmail,LoginPassword,Role FROM userdata WHERE (UserName=:usname || UserEmail=:usname)";
     $query= $dbh -> prepare($sql);
     $query-> bindParam(':usname', $uname,  PDO::PARAM_STR);
     $query-> execute();
@@ -55,6 +55,7 @@ if(isset($_SESSION["logged_in"])) {
         foreach ($results as $result) {
             $fetchpassword=$result->LoginPassword;
             $role=$result->Role;
+            $accountId=$result->accountId;
 
             // hashing for stored password
             $storedpass= hash('sha256',$fetchpassword.$_SESSION['randnum']);
@@ -72,6 +73,7 @@ if(isset($_SESSION["logged_in"])) {
                  header("Location: home.php");
              }          
             else {
+                $_SESSION['accountId']=$accountId;
                 $_SESSION["username_login"]= $uname;
             $_SESSION["logged_in"] = '1';
             header("Location: home.php");
