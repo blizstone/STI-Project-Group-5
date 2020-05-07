@@ -23,7 +23,7 @@ $msg ="Your account is already active, no need to activate again";
 }
 else
 {
-$msg ="Wrong activation code.";
+$msg ="Wrong.";
 }
 }
 ?>
