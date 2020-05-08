@@ -1,13 +1,15 @@
 <?php
-include_once("config.php");
+include('config.php');
 if(isset($_POST['submit']))
 {
-$name=$_POST['name'];
-$email=$_POST['email'];
-$password=sha1($_POST['password']);
+$fullname = $_POST['fname'];
+$username = $_POST['username'];
+$email = $_POST['email'];
+$mobile = $_POST['mobilenumber'];
+$password = $_POST['password'];
 $status=0;
 $activationcode=sha1($email.time());
-$query=mysqli_query($con,"insert into userregistration(name,email,password,activationcode,status) values('$name','$email','$password','$activationcode','$status')");
+$query=mysqli_query($con,"insert into userdata(name,email,password,activationcode,status) values('$fullname','$email','$password','$activationcode','$status')");
  if($query)
  {
 $to=$email;
