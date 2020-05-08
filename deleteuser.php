@@ -11,87 +11,55 @@ else {
 
 ?>
 <html>
+<link rel="stylesheet" href="stylesheet.css">
+
 <body>
-<h1>Your Profile</h1>
+<div class="topnav" id="myTopnav">
+  <a href="home.php" class="active">Home</a>
+  <a href="#news">News</a>
+  <a href="#news">News</a>
+  <a href="create_post.php">Create</a>
+  <a href="viewprofile.php">Account</a> 
+  <a href="logout.php">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <link rel="stylesheet" href="stylesheetcss">
+
+</div>
 
 
-</body>
-</html>
+
 
 <div class="hero-text">
 	<br>
 	<h1>Delete Your Digscam Account</h1>  
 	<img src="https://image.flaticon.com/icons/svg/1177/1177568.svg">
     </div>
-	
+    <br>
+	<h1> Press Delete to delete your Digiscam account<h1>
 
-</form>
+    <form action="deletecode.php" method ="POST">
+
+<td><input action="deletecode.php" method ="POST"  type="submit" value="Delete"/></td>
 
 <style>
 
   body {
       
-  background-image: url("https://images.unsplash.com/photo-1508615121316-fe792af62a63?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+  background-image: url("https://images.unsplash.com/photo-1543107097-ffe418c8d0f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
   height: 9%;
   background-position: top;
   background-repeat: no-repeat;
-  background-size: 100% 60%;
+  background-size: 100% 55%;
   background-color: linen;
 }
-
-
-
-</style>
-</div>
-<body>
-	<head>
-		<title>STI scam alert site</title>
-        <link rel="stylesheet" href="stylesheet.css">
-        <br>
-    </head>
-    <br>
-    <body 
-    style="overflow-x:hidden;" onload="">
-		<section id="nav">
-            <a href="index.php" id="logo" ></a>
-			<div id="nav-search-section">
-				<form action="search.php">
-					<input type="text" id="nav-search">
-					<input type="submit" id="nav-search-button" value="Search">
-				</form>
-			</div>
-			<div id="nav-top">
-				<p><a href="viewprofile.php" class="nav-top-link">Profile</a></p>
-				<p><a href="blog.php" class="nav-top-link">Blog</a></p>
-				<p><a href="listing.php" class="nav-top-link">Browse</a></p>
-				<p><a href="logout.php" class="nav-top-link">Logout</a></p>
-				<p><a href="join.php" class="nav-top-link" id="join">Join</a></p>
-			</div>
-        </section>
-        <form action="deletecode.php" method ="POST" name="listall" style="color: black">
-<table1>
-	<h1>Delete<h1>
-        <input type="radio" name="actiontype" value="Delete" required>
-    </td>
-</table1>
-<table>
-
-	<tr>
-        
-        
-        	<td><input type="submit" value="Delete" /></td>
-	
-</table>
-		
-
-
-        <style>
 
 
 img {
 height: 250%;
 opacity: 0.5;   
-margin-top: 0px;
+margin-top: 2px;
 margin-left: auto;
 margin-right: auto;
 
@@ -101,7 +69,7 @@ margin-right: auto;
 color: black;
 text-align: center;
 font-size: 28px;
-margin-top: 110px;
+margin-top: 68px;
 }  
 .wrapper {
 width: 90%;
