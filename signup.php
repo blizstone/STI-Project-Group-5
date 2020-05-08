@@ -10,7 +10,7 @@ $password = $_POST['password'];
 $status=0;
 $activationcode=sha1($email.time());
 $query=mysqli_query($con,"insert into userregistration(name,email,password,activationcode,status) values('$fullname','$email','$password','$activationcode','$status')");
-$sql = "INSERT INTO digiscam.userregistration(FullName,UserName,UserEmail,UserMobileNumber,LoginPassword) VALUES(:fname,:uname,:uemail,:umobile,:upassword)";
+$sql = "INSERT INTO digiscam.userregistration(FullName,UserName,UserEmail,UserMobileNumber,LoginPassword) VALUES()";
 if($query)
 {
 $to=$email;
