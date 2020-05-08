@@ -8,7 +8,7 @@
  * Licensed under Creative Commons Attribution 3.0 Unported
  * http://creativecommons.org/licenses/by/3.0/
  *
- * @version         2.0.0
+ * @version         2.1.0
  * @since           2013.06.19
  * @author          Janos Gyerik
  * @homepage        https://janosgyerik.github.io/upvotejs
@@ -16,7 +16,7 @@
  *
  * ------------------------------------------------------------------
  *
- *  <div id="topic" class="upvote">
+ *  <div id="topic" class="upvotejs">
  *    <a class="upvote"></a>
  *    <span class="count"></span>
  *    <a class="downvote"></a>
@@ -30,20 +30,24 @@
 
 ;(function($) {
   "use strict";
-  const namespace = 'upvote';
-  const dot_namespace = '.' + namespace;
-  const enabledClass = 'upvote-enabled';
+  const namespace = 'upvotejs';
+  const enabledClass = 'upvotejs-enabled';
 
   function init(dom, options) {
-    return dom.each(function(i) {
-      const jqdom = $(this);
-      methods.destroy(jqdom);
-
-      const id = dom.attr('id');
-      const obj = Upvote.create(id, options);
-
-      jqdom.data(namespace, obj);
-    });
+    const created = [];
+    try {
+      var ret = dom.each(function() {
+        const jqdom = $(this);
+        const id = jqdom.attr('id');
+        const obj = Upvote.create(id, options);
+        jqdom.data(namespace, obj);
+        created.push(jqdom);
+      });
+    } catch (e) {
+      created.forEach(obj => methods.destroy(obj));
+      throw e;
+    }
+    return ret;
   }
 
   function upvote(jqdom) {
@@ -91,7 +95,10 @@
 
   function destroy(jqdom) {
     return jqdom.each(function() {
-      $(window).unbind(dot_namespace);
+      const obj = jqdom.data(namespace);
+      if (obj) {
+        obj.destroy();
+      }
       $(this).removeClass(enabledClass);
       $(this).removeData(namespace);
     });
