@@ -79,7 +79,6 @@ else {
 	<tr>
         
         
-        <tr><th>UserName:<input type="text" name="UserName" required/></th></tr>	
         	<td><input type="submit" value="Delete" /></td>
 	
 </table>
