@@ -65,7 +65,7 @@ else {
 	<h1>Update Personal Details</h1>  
 	<img src="https://image.flaticon.com/icons/svg/1177/1177568.svg">
     </div>
-<form action="updatecode.php" method ="POST" name="listall">
+<form action="updatecode.php" method ="POST">
 <table>   
         <br>
               
@@ -90,7 +90,7 @@ else {
 
   body {
       
-  background-image: url("https://images.unsplash.com/photo-1508615121316-fe792af62a63?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+  background-image: url("https://images.unsplash.com/photo-1543107097-ffe418c8d0f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
   height: 9%;
   background-position: top;
   background-repeat: no-repeat;
@@ -147,7 +147,7 @@ margin-right: auto;
 color: black;
 text-align: center;
 font-size: 28px;
-margin-top: 110px;
+margin-top: 70px;
 }  
 .wrapper {
 width: 90%;
