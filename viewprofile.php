@@ -49,7 +49,7 @@ $query= $con->prepare("Select FullName, UserName, UserEmail, UserMobileNumber, R
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
-  <link rel="stylesheet" href="dist/upvote/upvote.css">
+  <link rel="stylesheet" href="stylesheetcss">
 
 </div>
  <style>
@@ -57,6 +57,7 @@ $query= $con->prepare("Select FullName, UserName, UserEmail, UserMobileNumber, R
 text-align:left;
 font-family: Arial, Helvetica, sans-serif;
 margin-left: 138px;
+margin-top:102px;
 line-height: 70px;
 }
 th{
@@ -97,7 +98,7 @@ font-size: 20px;
         <style>
   body {
       
-  background-image: url("https://images.unsplash.com/photo-1508615121316-fe792af62a63?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+  background-image: url("https://images.unsplash.com/photo-1543107097-ffe418c8d0f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
   height: 8%;
   background-position: top;
   background-repeat: no-repeat;
@@ -117,12 +118,12 @@ margin-left: 100px;
 color: black;
 text-align: center;
 font-size: 28px;
-margin-top: 110px;
+margin-top: 10px;
 }  
 .wrapper {
 width: 90%;
 align-items: center;
-margin-top: 100px;
+margin-top: 50px;
 margin-right: auto;
 margin-left: auto;
   }
