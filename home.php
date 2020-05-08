@@ -26,7 +26,7 @@ else {
     <script src="dist/upvotejs/upvotejs.vanilla.js"></script>
 
     <link rel="stylesheet" href="dist/upvotejs/upvotejs.css">
-	<script>
+	<script>//navbar script
 		/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 		function myFunction() {
   		var x = document.getElementById("myTopnav");
