@@ -11,6 +11,17 @@ else
 }
 ?>
 <html>
+<div class="topnav" id="myTopnav">
+  <a href="home.php" class="active">Home</a>
+  <a href="#news">News</a>
+  <a href="adminupdate.php">Members</a>
+  <a href="logout.php">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <link rel="stylesheet" href="stylesheetcss">
+
+</div>
 <body>
 <br> 
 <?php
@@ -30,7 +41,7 @@ if (!$con){
     echo "<tr><td>Account ID</td><br><td>Full Name</td><td>UserName</td><td>User Email</td><td>UserMobileNumber</td><td>LoginPassword</td><td>RegDate</td><td>Role</td></tr>";
     while($query->fetch()){
         //starts listing the row
-        echo "<tr><td>". $accountId ."</td><td>". $FullName ."</td><td>". $UserName . "</td><td>". $UserEmail. "</td><td>". $UserMobileNumber ."</td><td>". $LoginPassword ."</td><td>". $RegDate ."</td><td>" . $Role ."</td><td>";
+        echo "<tr><td>". $accountId ."</td><td>". $FullName ."</td><td>". $UserName . "</td><td>". $UserEmail. "</td><td>". $UserMobileNumber ."</td><td>". $LoginPassword ."</td><td>". $RegDate ."</td><td>" . $Role ."</td>";
     }
     
     echo "</table>";
@@ -56,27 +67,12 @@ if (!$con){
 	
 </table>
 <html>
+	
 	<head>
 		<title>STI scam alert site</title>
 		<link rel="stylesheet" href="stylesheet.css">
 	</head>
-	<body style="overflow-x:hidden;" onload="">
-		<section id="nav">
-			<a href="index.php" id="logo"></a>
-			<div id="nav-search-section">
-				<form action="search.php">
-					<input type="text" id="nav-search">
-					<input type="submit" id="nav-search-button" value="Search">
-				</form>
-			</div>
-			<div id="nav-top">
-				<p><a href="blog.php" class="nav-top-link">Blog</a></p>
-				<p><a href="listing.php" class="nav-top-link">Browse</a></p>
-				<p><a href="logout.php" class="nav-top-link">Logout</a></p>
-				<p><a href="adminupdate.php" class="nav-top-link" id="Members">Members</a></p>
-
-			</div>
-		</section>
+	
 
    
 
