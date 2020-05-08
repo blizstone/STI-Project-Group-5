@@ -18,28 +18,40 @@ if (!$con){
 }
 
 
-$query= $con->prepare("Select accountId, FullName, UserName, UserEmail, UserMobileNumber, LoginPassword, RegDate  from digiscam.userdata where UserName ='".$_SESSION["username_login"]."'" );    
+$query= $con->prepare("Select FullName, UserName, UserEmail, UserMobileNumber, RegDate  from digiscam.userdata where UserName ='".$_SESSION["username_login"]."'" );    
     $query->execute(); 
     $query->store_result();
-    $query->bind_result($accountId, $FullName, $UserName, $UserEmail, $UserMobileNumber, $LoginPassword, $RegDate);
+    $query->bind_result($FullName, $UserName, $UserEmail, $UserMobileNumber, $RegDate);
     if($query->num_rows == 0) exit('No rows');
     //Displays the header
-    echo "<h2>Your Info</h2>";
+    
     echo "<table>";
     
     while($query->fetch()){
         //starts listing the row
-     echo "<tr><th>Account Id:</th><td>". $accountId ."</td></tr>
+     echo "
      <tr><th>Full Name:</th><td>". $FullName ."</td></tr>
      <tr><th>User Name:</th><td>". $UserName ."</td></tr><tr>
      <tr><th>User Email:</th><td>". $UserEmail ."</td></tr>
      <tr><th>Mobile Number:</th><td>". $UserMobileNumber ."</td></tr>
-     <tr><th>User Password:</th><td>". $LoginPassword ."</td></tr>
      <tr><th>Registered Date:</th><td>". $RegDate ."</td></tr>";
     }
     $con->close();
 ?>
 <html>
+<div class="topnav" id="myTopnav">
+  <a href="home.php" class="active">Home</a>
+  <a href="#news">News</a>
+  <a href="#news">News</a>
+  <a href="create_post.php">Create</a>
+  <a href="viewprofile.php">Account</a> 
+  <a href="logout.php">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <link rel="stylesheet" href="dist/upvote/upvote.css">
+
+</div>
  <style>
     table {
 text-align:left;
@@ -62,6 +74,7 @@ font-size: 20px;
     
 </style>
 
+
 <div class="hero-text">
     <h1>My Profile</h1>  
     <div class="wrapper">
@@ -80,24 +93,7 @@ font-size: 20px;
         <br>
     </head>
     <br>
-    <body
-    style="overflow-x:hidden;" onload="">
-		<section id="nav">
-            <a href="index.php" id="logo" ></a>
-			<div id="nav-search-section">
-				<form action="search.php">
-					<input type="text" id="nav-search">
-					<input type="submit" id="nav-search-button" value="Search">
-				</form>
-			</div>
-			<div id="nav-top">
-				<p><a href="viewprofile.php" class="nav-top-link">Profile</a></p>
-				<p><a href="blog.php" class="nav-top-link">Blog</a></p>
-				<p><a href="listing.php" class="nav-top-link">Browse</a></p>
-				<p><a href="logout.php" class="nav-top-link">Logout</a></p>
-				<p><a href="join.php" class="nav-top-link" id="join">Join</a></p>
-			</div>
-        </section>
+   
         <style>
   body {
       
@@ -144,6 +140,7 @@ background-color: lightsteelblue;
 opacity: 0.5;
 }
 </style>
+
 </head>
 </html>
 
