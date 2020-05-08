@@ -20,7 +20,8 @@ else {
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-
+  <script src="dist/upvote/upvote.vanilla.js"></script>
+  <link rel="stylesheet" href="dist/upvote/upvote.css">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
