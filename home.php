@@ -41,7 +41,7 @@ else {
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
-  <a href="#news">News</a>
+  <a href="#news">Category</a>
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
   <a href="logout.php">Logout</a>
