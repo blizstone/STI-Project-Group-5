@@ -15,13 +15,14 @@ else {
 
 <html>
 	<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>STI scam alert site</title>
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
-
+  
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
   <script src="dist/upvote/upvote.vanilla.js"></script>
   <link rel="stylesheet" href="dist/upvote/upvote.css">
-
+  <link rel="stylesheet" href="css/nav.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
 	<script>//navbar script
@@ -41,6 +42,18 @@ else {
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
+  <div class="navbar">
+  
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown
+      
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Lottery Scams</a>
+      <a href="#">Cyber Scams</a>
+      <a href="#">Piracy Scams</a>
+    </div>
+  </div>
   
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
@@ -49,6 +62,7 @@ else {
     <i class="fa fa-bars"></i>
   </a>
 </div>
+
 </body>
 
 <?php
