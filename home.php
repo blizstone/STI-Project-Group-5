@@ -45,13 +45,14 @@ else {
   <div class="navbar">
   
   <div class="dropdown">
-    <button class="dropbtn">Dropdown
+    <button class="dropbtn">Categories
       
     </button>
     <div class="dropdown-content">
       <a href="#">Lottery Scams</a>
       <a href="#">Cyber Scams</a>
       <a href="#">Piracy Scams</a>
+      <a href="#">Cold Call Scams</a>
     </div>
   </div>
   
