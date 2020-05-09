@@ -17,7 +17,7 @@ else {
 	<head>
 	<title>STI scam alert site</title>
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
-
+  
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
   <script src="dist/upvote/upvote.vanilla.js"></script>
   <link rel="stylesheet" href="dist/upvote/upvote.css">
@@ -41,16 +41,8 @@ else {
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
-  <div class="dropdown">
-    <button class="dropbtn">Category
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div>
+  <a href="#">Category</a>
+  
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
   <a href="logout.php">Logout</a>
