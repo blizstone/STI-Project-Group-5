@@ -42,20 +42,6 @@ else {
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
-  <div class="navbar">
-  
-  <div class="dropdown">
-    <button class="dropbtn">Categories
-      
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Lottery Scams</a>
-      <a href="#">Cyber Scams</a>
-      <a href="#">Piracy Scams</a>
-      <a href="#">Cold Call Scams</a>
-    </div>
-  </div>
-  
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
   <a href="logout.php">Logout</a>
@@ -64,7 +50,11 @@ else {
   </a>
 </div>
 
+
+
 </body>
+
+
 
 <?php
 $con = new mysqli("localhost","root","","digiscam");
