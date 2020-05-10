@@ -54,7 +54,11 @@ else {
 
 </body>
 
-
+<div class="container">
+  <div class="row">
+    
+  </div>
+</div>
 
 <?php
 $con = new mysqli("localhost","root","","digiscam");
