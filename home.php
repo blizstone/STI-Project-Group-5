@@ -54,6 +54,10 @@ else {
       <a href="#">Lottery Scam</a>
       <a href="#">Kidnap Scam</a>
       <a href="#">Cyber Scam</a>
+      <a href="#">Impersonation Scam</a>
+      <a href="#">Facebook Scam</a>
+      <a href="#">Loan Scam</a>
+      <a href="#">Hacked Email Scam</a>
     </div>
   </div>
 
