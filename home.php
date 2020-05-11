@@ -23,7 +23,7 @@ else {
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
   <script src="dist/upvote/upvote.vanilla.js"></script>
   <link rel="stylesheet" href="dist/upvote/upvote.css">
-  
+  <link rel="stylesheet" href="css/nav.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
 	<script>//navbar script
@@ -43,6 +43,20 @@ else {
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
+  <div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Lottery Scam</a>
+      <a href="#">Kidnap Scam</a>
+      <a href="#">Cyber Scam</a>
+    </div>
+  </div>
+
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
   <a href="logout.php">Logout</a>
