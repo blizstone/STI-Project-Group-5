@@ -1,4 +1,5 @@
 <?php
+require 'config.php';
 // Check if session is not registered, redirect back to main page.
 // Put this code in first line of web page.
 session_start();
@@ -52,13 +53,10 @@ else {
 
 
 
+
 </body>
 
-<div class="container">
-  <div class="row">
-    
-  </div>
-</div>
+
 
 <?php
 $con = new mysqli("localhost","root","","digiscam");
