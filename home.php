@@ -49,6 +49,7 @@ else {
     <i class="fa fa-bars"></i>
   </a>
 </div>
+
 </body>
 
 <?php
