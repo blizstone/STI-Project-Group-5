@@ -43,23 +43,7 @@ else {
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
-  <div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Lottery Scam</a>
-      <a href="#">Kidnap Scam</a>
-      <a href="#">Cyber Scam</a>
-      <a href="#">Impersonation Scam</a>
-      <a href="#">Facebook Scam</a>
-      <a href="#">Loan Scam</a>
-      <a href="#">Hacked Email Scam</a>
-    </div>
-  </div>
+  
 
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
@@ -67,6 +51,8 @@ else {
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
+
+  
 </div>
 
 
