@@ -19,7 +19,7 @@ else {
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>STI scam alert site</title>
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
-  
+  <link rel="stylesheet" href="css/nav.css">
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
   <script src="dist/upvote/upvote.vanilla.js"></script>
   <link rel="stylesheet" href="dist/upvote/upvote.css">
@@ -44,7 +44,7 @@ else {
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
   
-
+  
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
   <a href="logout.php">Logout</a>
