@@ -51,38 +51,10 @@ else {
   </a>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-3">
-      <h5>Categories</h5>
-      <hr>
-      <h6 class="text-info">Post Categories</h6>
-      <ul class="list-group">
-        <?php
-        $sql="SELECT DISTINCT post_brand from categories ORDER BY post_brand";
-        $result=$conn->query($sql)
-        while($row=$result->fetch_assoc()){
-        ?>
-        <li class="list-group-item">
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input post_filter" value="<? $row['brand']; ?>" id="brand"><?=$row['brand']; ?>
-
-            </label>
-          </div>
-        </li>
-        <?php } ?>
-
-      </ul>
-    </div>
-    <div class="col-lg-9">
-
-    </div>
-  </div>
-</div>
 
 
-</body>
+
+
 
 
 
