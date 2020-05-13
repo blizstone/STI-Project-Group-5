@@ -8,6 +8,7 @@
   <title>Categories</title>
 </head>
 
+<body>
 
 
 </html>
