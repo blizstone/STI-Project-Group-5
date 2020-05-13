@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 
-    
+<style>
+h1 {text-align: center;}
+</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width-device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie-edge">
@@ -14,9 +16,7 @@
 <body>
 
 <div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
+  <h1>Categories</h1>
 </div>
 
 <header id="showcase">
