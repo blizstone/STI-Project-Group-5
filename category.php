@@ -9,16 +9,11 @@
 </head>
 
 <body>
-<ul class="homes-list">
-  <li class="single-storey">Single Storey</li>
-  <li class="double-storey">Double Storey</li>
-  <li class="house-and-land">House and Land</li>
-  <li class="develop-subdivide">Develop and Subdivide</li>
-  <li class="land-estate">Land Estates</li>
-  <li class="apartments">Apartments</li>
-  <li class="custom-built">Custom Built Homes</li>
-  <li class="luxury-homes">Luxury Homes</li>
-</ul>
+<a href="" class="button">Cyber Scam</a>
+<a href="" class="button">Wangiri Scam</a>
+<a href="" class="button">Apple Scam</a>
+<a href="" class="button">Inheritance Scam</a>
+<a href="" class="button">Impersonation Scam</a>
 </body>
 
 
