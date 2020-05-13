@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-h1 {text-align: center;}
-</style>
+
     
   <meta charset="UTF-8">
   <meta name="viewport" content="width-device-width, initial-scale=1.0">
@@ -15,7 +13,7 @@ h1 {text-align: center;}
 
 <body>
 
-<h1>Categories</h1>
+
 
 <header id="showcase">
 <a href="" class="button">Cyber Scam</a>
