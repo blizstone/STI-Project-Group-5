@@ -9,17 +9,16 @@
 </head>
 
 <body>
-<ul>
-  <li>Single Storey</li>
-  <li>Double Storey</li>
-  <li>House and Land</li>
-  <li>Develop and Subdivide</li>
-  <li>Land Estates</li>
-  <li>Apartments</li>
-  <li>Custom Built Homes</li>
-  <li>Luxury Homes</li>
+<ul class="homes-list">
+  <li class="single-storey"><a href="#"></a>Single Storey</li>
+  <li class="double-storey">Double Storey</li>
+  <li class="house-and-land">House and Land</li>
+  <li class="develop-subdivide">Develop and Subdivide</li>
+  <li class="land-estate">Land Estates</li>
+  <li class="apartments">Apartments</li>
+  <li class="custom-built">Custom Built Homes</li>
+  <li class="luxury-homes">Luxury Homes</li>
 </ul>
-
 </body>
 
 

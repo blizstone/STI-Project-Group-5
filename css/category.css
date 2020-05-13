@@ -27,7 +27,7 @@ body {
   
   .homes-list li:after {
     overflow: hidden;
-    content: "20 homes";
+    content: "20 categories";
     display: inline-block;
     vertical-align: middle;
     font-size: 14px;
