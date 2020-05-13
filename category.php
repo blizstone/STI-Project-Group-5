@@ -13,7 +13,11 @@
 
 <body>
 
-
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+</div>
 
 <header id="showcase">
 <a href="" class="button">Cyber Scam</a>
