@@ -8,6 +8,19 @@
   <title>Categories</title>
 </head>
 
+<body>
+<ul>
+  <li>Single Storey</li>
+  <li>Double Storey</li>
+  <li>House and Land</li>
+  <li>Develop and Subdivide</li>
+  <li>Land Estates</li>
+  <li>Apartments</li>
+  <li>Custom Built Homes</li>
+  <li>Luxury Homes</li>
+</ul>
+
+</body>
 
 
 
