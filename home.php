@@ -44,13 +44,9 @@ else {
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
   <a href="http://localhost/Project/">Categories</a>
-   
-  
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a>
-
   <a href="viewprofile.php">Account</a>  
-  
   <a href="logout.php">Logout</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
