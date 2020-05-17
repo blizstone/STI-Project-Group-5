@@ -10,15 +10,15 @@
 require('config.php');
 $db = new db;
 
-$result1=$db->getCategoryRecords($_POST['selected_price']);
+$result1=$db->getCategoryRecords($_POST['selected_category']);
 
 while($row1=mysqli_fetch_array($result1)){
 	echo "<tr>
 		<td>".$row1['id']."</td>
-		<td>".$row1['prod_name']."</td>
-		<td>".$row1['prod_desc']."</td>
-		<td>".$row1['prod_price']."</td>
-		<td>".$row1['prod_qty']."</td>
+		<td>".$row1['']."</td>
+		<td>".$row1['']."</td>
+		<td>".$row1['']."</td>
+		<td>".$row1['']."</td>
 	</tr>";
 }
 $db->closeCon();

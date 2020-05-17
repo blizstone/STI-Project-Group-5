@@ -27,7 +27,7 @@ else {
 			$("#ajaxdata").load("allcategory.php");
 			$("").change(function(){
 				var selected=$(this).val();
-				$("#ajaxdata").load("search.php",{ selected});
+				$("#ajaxdata").load("categorysearch.php",{selected_category:selected});
 			});
 			$("#refresh").click(function(){
 				$("#ajaxdata").load("allcategory.php");
