@@ -1,6 +1,6 @@
 <table   class="table table-striped table-responsive">
 			<tr>
-				<th>Product id</th>
+				<th>Post id</th>
 				<th>Name</th>
 				<th>Description</th>
 				<th>Price</th>
