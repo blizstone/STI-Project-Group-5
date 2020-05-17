@@ -1,10 +1,10 @@
 <table   class="table table-striped table-responsive">
 			<tr>
 				<th>Post id</th>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Price</th>
-				<th>Quantity</th>
+				<th>Title</th>
+				<th>Content</th>
+				<th>Category</th>
+				
 			</tr>
 			<?php
 			require('config.php');
