@@ -10,7 +10,7 @@
 			<?php
 			require('config.php');
 			$db = new db;
-			$result=$db->getRecords();
+			$result=$db->getCategory();
 			while($row=mysqli_fetch_array($result)){
 				echo "<tr>
 					<td>".$row['postId']."</td>

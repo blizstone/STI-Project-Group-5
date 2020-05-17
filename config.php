@@ -23,13 +23,13 @@ class db{
 		$this->$con=mysqli_connect("localhost","root","") or die(mysqli_error());
 		mysqli_select_db($this->$con,"digiscam") or die(mysqli_error());
 	}
-	public function getRecords(){
+	public function getCategory(){
 		$query="SELECT * from ";
 		$result=mysqli_query($this->$con,$query);
 		return $result;
 	}
-	public function getRecordsWhere($){
-		$query="SELECT * from  where _ < """;
+	public function getRecordsWhere($category){
+		$query="SELECT * from  where category < ".$category."";
 		$result=mysqli_query($this->$con,$query);
 		return $result;
 	}
