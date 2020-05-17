@@ -28,7 +28,7 @@ class db{
 		$result=mysqli_query($this->$con,$query);
 		return $result;
 	}
-	public function getRecordsWhere($category){
+	public function getCategoryRecords($category){
 		$query="SELECT * from  where category < ".$category."";
 		$result=mysqli_query($this->$con,$query);
 		return $result;

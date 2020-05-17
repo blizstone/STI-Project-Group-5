@@ -10,7 +10,7 @@
 require('config.php');
 $db = new db;
 
-$result1=$db->getRecordsWhere($_POST['selected_price']);
+$result1=$db->getCategoryRecords($_POST['selected_price']);
 
 while($row1=mysqli_fetch_array($result1)){
 	echo "<tr>
