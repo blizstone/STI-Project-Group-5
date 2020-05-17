@@ -12,13 +12,13 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#ajaxdata").load("allrecords.php");
+			$("#ajaxdata").load("allcategory.php");
 			$("").change(function(){
 				var selected=$(this).val();
 				$("#ajaxdata").load("search.php",{ selected});
 			});
 			$("#refresh").click(function(){
-				$("#ajaxdata").load("allrecords.php");
+				$("#ajaxdata").load("allcategory.php");
 			});
 		});
 	</script>
