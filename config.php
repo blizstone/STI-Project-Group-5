@@ -24,7 +24,7 @@ class db{
 		mysqli_select_db($this->$con,"digiscam") or die(mysqli_error());
 	}
 	public function getCategory(){
-		$query="SELECT * from ";
+		$query="SELECT * from category";
 		$result=mysqli_query($this->$con,$query);
 		return $result;
 	}
