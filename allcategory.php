@@ -1,6 +1,7 @@
 <table   class="table table-striped table-responsive">
 			<tr>
-				<th>Post id</th>
+                <th>Post id</th>
+                <th>Account id</th>
 				<th>Title</th>
 				<th>Content</th>
 				<th>Category</th>
@@ -12,11 +13,11 @@
 			$result=$db->getRecords();
 			while($row=mysqli_fetch_array($result)){
 				echo "<tr>
-					<td>".$row['id']."</td>
-					<td>".$row['']."</td>
-					<td>".$row['']."</td>
-					<td>".$row['']."</td>
-					<td>".$row['']."</td>
+					<td>".$row['postId']."</td>
+					<td>".$row['accountId']."</td>
+					<td>".$row['title']."</td>
+					<td>".$row['content']."</td>
+					<td>".$row['category']."</td>
 				</tr>";
 			}
 			$db->closeCon();
