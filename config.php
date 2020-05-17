@@ -28,8 +28,8 @@ class db{
 		$result=mysqli_query($this->$con,$query);
 		return $result;
 	}
-	public function getRecordsWhere($price){
-		$query="SELECT * from  where _price < """;
+	public function getRecordsWhere($){
+		$query="SELECT * from  where _ < """;
 		$result=mysqli_query($this->$con,$query);
 		return $result;
 	}

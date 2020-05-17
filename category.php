@@ -33,17 +33,17 @@
 		
 			
 		<form method="post" class="form-horizontal">
-			<label for="" class="control-label col-sm-3 col-sm-offset-2" > Select Categories </label>
+			<label for="category" class="control-label col-sm-3 col-sm-offset-2" > Select Categories: </label>
 			<div class="col-sm-2" >
 				<select name="" class="form-control" id="_dropdown">
 					<option>---Select---</option>
-					<option val=""></option>
-					<option val=""></option>
-					<option val=""></option>
-					<option val=""></option>
-					<option val=""></option>
-					<option val=""></option>
-					<option val=""></option>
+					<option val="Lottery Scam"></option>
+					<option val="Impersonation Scam"></option>
+					<option val="Loan Scam"></option>
+					<option val="PayPal Scam"></option>
+					<option val="Phishing Scam"></option>
+					<option val="Job Scam"></option>
+					<option val="Apple Scam"></option>
 				</select>
 			</div>
 			<button type="button" name="refresh" id="refresh" class="btn btn-primary">Refresh</button>
