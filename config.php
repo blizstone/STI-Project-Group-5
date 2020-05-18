@@ -15,7 +15,9 @@ exit("Error: " . $e->getMessage());
 }
 ?>
 
+
 <?php
+//establish connection with category
 error_reporting(0);
 class db{
 	var $con;
