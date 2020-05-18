@@ -15,9 +15,7 @@ exit("Error: " . $e->getMessage());
 }
 ?>
 
-
 <?php
-//establish connection with category
 error_reporting(0);
 class db{
 	var $con;
@@ -31,7 +29,7 @@ class db{
 		return $result;
 	}
 	public function getCategoryRecords($category){
-		$query="SELECT * from  where category < ".$category."";
+		$query="SELECT * from category  where category < ".$category."";
 		$result=mysqli_query($this->$con,$query);
 		return $result;
 	}
