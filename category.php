@@ -72,7 +72,7 @@ else {
 <?php
 $con = new mysqli("localhost","root","","digiscam");
 $count = 0;
-
+$sql = "SELECT * FROM category INNER JOIN category ON "; 
 
  
 ?>
