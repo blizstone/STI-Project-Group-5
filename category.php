@@ -49,13 +49,13 @@ else {
 			<div class="col-sm-2" >
 				<select name="category" class="form-control" id="_dropdown">
 					<option>---Select---</option>
-					<option val="Lottery Scam"></option>
-					<option val="Impersonation Scam"></option>
-					<option val="Loan Scam"></option>
-					<option val="PayPal Scam"></option>
-					<option val="Phishing Scam"></option>
-					<option val="Job Scam"></option>
-					<option val="Apple Scam"></option>
+					<option val="Lottery Scam">Lottery Scam</option>
+					<option val="Impersonation Scam">Impersonation Scam</option>
+					<option val="Loan Scam">Loan Scam</option>
+					<option val="PayPal Scam">PayPal Scam</option>
+					<option val="Phishing Scam">Phishing Scam</option>
+					<option val="Job Scam">Job Scam</option>
+					<option val="Apple Scam">Apple Scam</option>
 				</select>
 			</div>
 			<button type="button" name="refresh" id="refresh" class="btn btn-primary">Refresh</button>
