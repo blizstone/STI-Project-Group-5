@@ -72,7 +72,9 @@ else {
 <?php
 $con = new mysqli("localhost","root","","digiscam");
 $count = 0;
-$sql = "SELECT * FROM category INNER JOIN category ON "; 
+$sql = "SELECT * FROM category INNER JOIN category ON post.category = selected_category";
+$result = mysqli_query($con, $sql);
+ 
 
  
 ?>
