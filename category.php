@@ -70,7 +70,11 @@ else {
 </div>
 
 <?php
+$con = new mysqli("localhost","root","","digiscam");
+$count = 0;
 
+
+ 
 ?>
 
 </body>
