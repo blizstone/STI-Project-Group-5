@@ -2,7 +2,7 @@
 <?php
 session_start();
 //Database Configuration File
-include('config.php');
+include('config.php');    
 error_reporting(0);
 print($_SESSION["logged_in"]);
 if(isset($_SESSION["logged_in"])) {
@@ -44,8 +44,11 @@ if(isset($_SESSION["logged_in"])) {
     
     // Hashing with Random Number
     $saltedpasswrd=hash('sha256',$password.$_SESSION['randnum']);
+
+    
+
     // Fetch stored password  from database on the basis of username/email 
-    $sql ="SELECT accountId,UserName,UserEmail,LoginPassword,Role FROM userdata WHERE (UserName=:usname || UserEmail=:usname)";
+    $sql ="SELECT accountId,UserName,UserEmail,LoginPassword,Role,is_active FROM userdata WHERE (UserName=:usname || UserEmail=:usname)";
     $query= $dbh -> prepare($sql);
     $query-> bindParam(':usname', $uname,  PDO::PARAM_STR);
     $query-> execute();
@@ -56,7 +59,7 @@ if(isset($_SESSION["logged_in"])) {
             $fetchpassword=$result->LoginPassword;
             $role=$result->Role;
             $accountId=$result->accountId;
-
+            $active=$result->is_active;
             // hashing for stored password
             $storedpass= hash('sha256',$fetchpassword.$_SESSION['randnum']);
         }
@@ -68,7 +71,10 @@ if(isset($_SESSION["logged_in"])) {
         $hash= password_hash($saltedpasswrd,PASSWORD_DEFAULT, $options);
         // Verifying Post password againt stored password
         if(password_verify($storedpass,$hash)){
-             if($role=='admin'){
+            if($active==0){
+                echo "<div class='notification'>You are not verified user. Please check your registered email address for the verification Link.</div>";
+            }else{
+             if($role=='admin' ){
                  $_SESSION["logged_in"] = '2';
                  header("Location: home.php");
              }          
@@ -81,7 +87,7 @@ if(isset($_SESSION["logged_in"])) {
                 
             }
         }
-        else {
+    }else {
             echo "<script>alert('Invalid Details');</script>";            
         }
     }
@@ -89,9 +95,12 @@ if(isset($_SESSION["logged_in"])) {
         echo "<script>alert('Invalid Details');</script>";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+ 
+</style>
 <head>
     <meta charset="utf-8">
     <title>PDO | Login form</title>
@@ -136,6 +145,15 @@ if(isset($_SESSION["logged_in"])) {
           </div>
       </div>
   </div>
+  <style>
+.notification {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 25px;
+    
+}
+</style>
 <script type="text/javascript">
 
 </script>
