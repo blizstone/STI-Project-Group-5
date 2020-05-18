@@ -69,6 +69,9 @@ else {
 	</div>
 </div>
 
+<?php
+
+?>
 
 </body>
 </html>
