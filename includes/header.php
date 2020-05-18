@@ -18,6 +18,6 @@
     $mail->setFrom("digiscamofficial@gmail.com");
     $mail->addReplyTo("no-reply@digiscam.com");
     $mail->isHTML();
+?> 
 
-    // recipient
  
