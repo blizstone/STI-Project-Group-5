@@ -56,6 +56,20 @@ else {
 </div>
 
 </body>
+<?php
+$con = new mysqli("localhost","root","","digiscam");
+ $sql = "SELECT COUNT(*) totalCountByEachCategory, category FROM `post` WHERE category IS NOT NULL GROUP BY category ORDER BY totalCountByEachCategory DESC LIMIT 1";
+$result = mysqli_query($con, $sql); // First parameter is just return of "mysqli_connect()" function
+echo "<br>";
+echo "<table border='1'>";
+while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
+ 
+    foreach ($row as $field => $value) {
+           // I you want you can right this line like this: foreach($row as $value) {
+        echo "<div class='notification'>$value</div>" ; // I just did not use "htmlspecialchars()" function. 
+    }
+  }
+?>
 
 <?php
 $con = new mysqli("localhost","root","","digiscam");
