@@ -47,7 +47,7 @@ else {
 		<form method="post" class="form-horizontal">
 			<label for="category" class="control-label col-sm-3 col-sm-offset-2" > Select Categories: </label>
 			<div class="col-sm-2" >
-				<select name="" class="form-control" id="_dropdown">
+				<select name="category" class="form-control" id="_dropdown">
 					<option>---Select---</option>
 					<option val="Lottery Scam"></option>
 					<option val="Impersonation Scam"></option>
