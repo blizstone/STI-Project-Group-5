@@ -12,24 +12,11 @@
     $mail->Port = "465";
     $mail->SMTPSecure = "ssl";
 
-    $mail->Username = "armondkjoy@gmail.com";
-    $mail->Password = "";
+    $mail->Username = "digiscamofficial@gmail.com";
+    $mail->Password = "DIGISCAMPRO";
 
-    $mail->setFrom("armondkjoy@gmail.com");
-    $mail->addReplyTo("no-reply@armondkjoy.com");
+    $mail->setFrom("digiscamofficial@gmail.com");
+    $mail->addReplyTo("no-reply@digiscam.com");
 
     // recipient
-    $mail->addAddress("armondkjoy@gmail.com");
-    $mail->isHTML();
-    $mail->Subject = "Sending from localhost";
-    $mail->Body = "
-                    <div style='color: blue;font-size: 20px;background-color:grey;'>
-                        Thank you buddy!!!
-                    </div>
-                ";
-
-    if($mail->send()) {
-        echo "Email sent";
-    } else {
-        echo "Sorry somethings wrong";
-    }
+    
