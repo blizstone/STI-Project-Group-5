@@ -18,12 +18,18 @@ if (!$con){
     $UserMobileNumber = $_POST["UserMobileNumber"];
     $LoginPassword = $_POST["LoginPassword"];
     $hasedpassword=hash('sha256',$LoginPassword);
-
-    $query= $con->prepare("Update userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, LoginPassword=?, is_active=0 where accountId ='".$_SESSION["accountId"]."'");
-    $query->bind_param('sssis', $FullName, $UserName, $UserEmail, $UserMobileNumber, $hasedpassword);
-    $mail->addAddress($_POST['UserEmail']);
     $email = $_POST['UserEmail'];
     $token = getToken(32);
+    echo "$token";
+
+
+
+    $query= $con->prepare("Update  userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, LoginPassword=?, validation_key='$token', is_active=0 where accountId ='".$_SESSION["accountId"]."'");
+    $query->bind_param('sssis', $FullName, $UserName, $UserEmail, $UserMobileNumber, $hasedpassword);
+    $mail->addAddress($_POST['UserEmail']);
+    
+   
+   
   
     
    
