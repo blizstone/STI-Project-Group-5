@@ -56,6 +56,7 @@ else {
 					<option val="Phishing Scam">Phishing Scam</option>
 					<option val="Job Scam">Job Scam</option>
 					<option val="Apple Scam">Apple Scam</option>
+					<option val="Apple Scam">Apple Scam</option>
 				</select>
 			</div>
 			<button type="button" name="refresh" id="refresh" class="btn btn-primary">Refresh</button>
