@@ -69,7 +69,56 @@ else {
 	</div>
 </div>
 
+<?php
+$con = new mysqli("localhost","root","","digiscam");
+$count = 0;
+$query = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId");
+foreach($query as $row){
+ $count++;
 
+echo "<form name='form' method='post' action='post_details.php'>";
+echo "<table width='100%'>";
+echo "<tr>";
+echo "<td>";
+echo "<section id='grid-container'>";
+echo "<div class='card'>";
+$postId= $row['postId'];
+echo "<input type='hidden' name='post_array' value=". $postId .">";
+
+//echo "<div class='row'>";
+//echo "<div class='span6'>";
+echo "<div class='row'>";
+echo "<div class='span1'>";
+echo "<div class='upvote'>";
+echo "<a class='upvote'></a>";
+echo "<span class='count'>5</span>";
+echo "<a class='downvote'></a>";
+echo "<a class='star'></a>";
+echo "</div>";
+echo "</div>";                       
+
+echo"<p>". $row['UserName'] ."</p>";
+echo"<p>".$row['title'] ."</p>";
+echo"<p>". $row['content'] ."</p>";
+echo"<p>". $row['category']."</p>";
+
+echo"<input type='submit' id='detailsButton' value='More Details'>";
+echo"</div>
+ </section>
+</td>
+</tr>
+</table>
+</form>";
+?>
+<?php
+if($count == 3) { // three items in a row
+        echo '</tr><tr>';
+        $count = 0;
+    }
+} ?>
+ 
+</body>
+</html>
 
 </body>
 </html>
