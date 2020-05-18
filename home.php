@@ -1,4 +1,5 @@
 <?php
+require 'config.php';
 // Check if session is not registered, redirect back to main page.
 // Put this code in first line of web page.
 session_start();
@@ -15,13 +16,14 @@ else {
 
 <html>
 	<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>STI scam alert site</title>
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
-
+  
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
   <script src="dist/upvote/upvote.vanilla.js"></script>
   <link rel="stylesheet" href="dist/upvote/upvote.css">
-
+  
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
 	<script>//navbar script
@@ -41,13 +43,16 @@ else {
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="#news">News</a>
-  <a href="#news">News</a>
+  <a href="category.php">Categories</a>
   <a href="create_post.php">Create</a>
-  <a href="viewprofile.php">Account</a> 
+  <a href="viewprofile.php">Account</a>
+  <a href="viewprofile.php">Account</a>  
   <a href="logout.php">Logout</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
+
+  
 </div>
 
 </body>
