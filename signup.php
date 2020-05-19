@@ -39,7 +39,7 @@ if (isset($_POST['signup'])) {
    
     $mail->Subject = "Verify your email";
     $mail->Body = "<h2>Thank u for sign up</h2>
-                  <a href='localhost/testchatbot/activation.php?eid={$email}&token={$token}'>Click here to verify</a>
+                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$email}&token={$token}'>Click here to verify</a>
                   <p>this link valid for 20 min</p>
                   ";
     //if mail send
