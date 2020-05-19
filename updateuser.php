@@ -85,7 +85,7 @@ else {
 </form>
 <div>
 <h1> Guide.. <h1>
-<p>Successfull updation can login with new credentials.<br></p>
+<p>Successfull updation will send an email to Registered email address for proper authentication<br></p>
 <style>
 
   body {

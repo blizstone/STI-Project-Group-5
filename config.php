@@ -14,3 +14,27 @@ catch (PDOException $e)
 exit("Error: " . $e->getMessage());
 }
 ?>
+
+<?php
+error_reporting(0);
+class db{
+	var $con;
+	function __construct(){
+		$this->$con=mysqli_connect("localhost","root","") or die(mysqli_error());
+		mysqli_select_db($this->$con,"digiscam") or die(mysqli_error());
+	}
+	public function getCategory(){
+		$query="SELECT * from categorytable";
+		$result=mysqli_query($this->$con,$query);
+		return $result;
+	}
+	public function getCategoryRecords($category){
+		$query="SELECT * from categorytable  where category < ".$category."";
+		$result=mysqli_query($this->$con,$query);
+		return $result;
+	}
+	public function closeCon(){
+		mysqli_close($this->$con);
+	}
+}
+?>

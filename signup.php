@@ -1,50 +1,22 @@
-<?php
-include_once("config.php");
-if(isset($_POST['submit']))
-{
-$name=$_POST['name'];
-$email=$_POST['email'];
-$password=sha1($_POST['password']);
-$status=0;
-$activationcode=sha1($email.time());
-$query=mysqli_query($con,"insert into userregistration(name,email,password,activationcode,status) values('$name','$email','$password','$activationcode','$status')");
- if($query)
- {
-$to=$email;
-$msg= "Thanks for new Registration.";
-$subject="Email verification (phpgurukul.com)";
-$headers .= "MIME-Version: 1.0"."\r\n";
-$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-$headers .= 'From:PHPGurukul | Programing Blog <info@phpgurukul.com>'."\r\n";
-$ms.="<html></body><div><div>Dear $name,</div></br></br>";
-$ms.="<div style='padding-top:8px;'>Please click The following link For verifying and activation of your account</div>
-<div style='padding-top:10px;'><a href='http://www.phpgurukul.com/demos/emailverify/email_verification.php?code=$activationcode'>Click Here</a></div>
-<div style='padding-top:4px;'>Powered by <a href='phpgurukul.com'>phpgurukul.com</a></div></div>
-</body></html>";
-mail($to,$subject,$ms,$headers);
-echo "<script>alert('Registration successful, please verify in the registered Email-Id');</script>";
-echo "<script>window.location = 'login.php';</script>";;
-}
-else
-{
-echo "<script>alert('Data not inserted');</script>";
-}
-}
-?>
+
+
 
 <?php
 //Database Configuration File
 include('config.php');
+require_once("includes/header.php");
+require_once("includes/functions.php");
 error_reporting(0);
 
+getToken(32);
 
 if (isset($_POST['signup'])) {
   //Getting Post Values
   $fullname = $_POST['fname'];
   $username = $_POST['username'];
-  $email = $_POST['email'];
   $mobile = $_POST['mobilenumber'];
   $password = $_POST['password'];
+
 
 
   // Password encryption by using Sha256
@@ -57,8 +29,22 @@ if (isset($_POST['signup'])) {
   $queryt->execute();
   $results = $queryt->fetchAll(PDO::FETCH_OBJ);
   if ($queryt->rowCount() == 0) {
-    // Query for Insertion
-    $sql = "INSERT INTO digiscam.userdata(FullName,UserName,UserEmail,UserMobileNumber,LoginPassword) VALUES(:fname,:uname,:uemail,:umobile,:upassword)";
+
+    //email confirmation
+    $mail->addAddress($_POST['email']);
+    $email = $_POST['email'];
+    $token = getToken(32);
+  
+    
+   
+    $mail->Subject = "Verify your email";
+    $mail->Body = "<h2>Thank u for sign up</h2>
+                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$email}&token={$token}'>Click here to verify</a>
+                  <p>this link valid for 20 min</p>
+                  ";
+    //if mail send
+    if($mail->send()) {
+    $sql = "INSERT INTO digiscam.userdata(FullName,UserName,UserEmail,UserMobileNumber,LoginPassword,validation_key) VALUES(:fname,:uname,:uemail,:umobile,:upassword, :utoken)";
     $query = $dbh->prepare($sql);
     // Binding Post Values
     $query->bindParam(':fname', $fullname, PDO::PARAM_STR);
@@ -66,10 +52,12 @@ if (isset($_POST['signup'])) {
     $query->bindParam(':uemail', $email, PDO::PARAM_STR);
     $query->bindParam(':umobile', $mobile, PDO::PARAM_INT);
     $query->bindParam(':upassword', $hasedpassword, PDO::PARAM_STR);
+    
+    $query->bindParam(':utoken', $token, PDO::PARAM_STR);
     $query->execute();
 
     if ($sql) {
-      $msg = "You have signup  Scuccessfully. Please Proceed to Login";
+      $msg = "Please Verify your email to login";
     } else {
       $error = "Something went wrong.Please try again";
     }
@@ -77,7 +65,9 @@ if (isset($_POST['signup'])) {
     $error = "Username or Email-id already exist. Please try again";
   }
 }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
