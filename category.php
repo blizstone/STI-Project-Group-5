@@ -1,4 +1,29 @@
 <!DOCTYPE html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#ajaxdata").load("allrecords.php");
+			$("#price_dropdown").change(function(){
+				var selected=$(this).val();
+				$("#ajaxdata").load("search.php",{selected_price: selected});
+			});
+			$("#refresh").click(function(){
+				$("#ajaxdata").load("allrecords.php");
+			});
+		});
+	</script>
+
+</head>
+
 <?php
 // Check if session is not registered, redirect back to main page.
 // Put this code in first line of web page.
