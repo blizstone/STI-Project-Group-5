@@ -25,6 +25,36 @@
 </head>
 
 <body>
+<div class="container">
+	<br><br>
+	<center><h1><strong>Categories</strong></h1></center>
+	<br>
+	<div class="row">
+		
+			
+		<form method="post" class="form-horizontal">
+			<label for="price" class="control-label col-sm-3 col-sm-offset-2" >Select Category: </label>
+			<div class="col-sm-2" >
+				<select name="price" class="form-control" id="price_dropdown">
+					<option>---Select---</option>
+					<option val=""></option>
+					<option val=""></option>
+					<option val=""></option>
+					<option val=""></option>
+					<option val=""></option>
+					<option val=""></option>
+					<option val=""></option>
+				</select>
+			</div>
+			<button type="button" name="refresh" id="refresh" class="btn btn-primary">Refresh</button>
+		</form>
+
+	</div>
+	<br><br>
+	<div id="ajaxdata">
+		
+	</div>
+</div>
 
 <?php
 // Check if session is not registered, redirect back to main page.
