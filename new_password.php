@@ -30,11 +30,11 @@
                     
 
                     
-                    date_default_timezone_set("asia/dhaka");
+                    date_default_timezone_set("asia/singapore");
                     $current_date = date("Y-m-d H:i:s");
 
                     if($expire_date <= $current_date) {
-                        echo "<div class='notification'>Sorry This link was expired</div>";
+                        echo "<div class='notification'>Sorry This is an expired link. Please submit another request for new password reset link.</div>";
                     } else {
                         $check = true;
                         if(isset($_POST['submit'])) {
@@ -68,12 +68,16 @@
                             $user_pass=hash('sha256',$_POST['new-password']);
 
                             if(mysqli_num_rows($query_con) == 1) {
-                                $password = password_hash($user_pass, PASSWORD_BCRYPT, ['cost'=>10]);
+                                
                                 $query1 = "UPDATE userdata SET LoginPassword = '$user_pass' WHERE UserEmail = '$user_email' AND is_active = 1";
                                 $query_con1 = mysqli_query($connection, $query1);
                                 if($query_con1) {
                                     echo "Password updation succesful";
+                                    
+                                   
+// empty value and expiration one hour before
                                     header("Refresh: 2; url='index.php");
+
                                 } 
                             } else {
                                 echo "<div class='notification'>Invalid link</div";
