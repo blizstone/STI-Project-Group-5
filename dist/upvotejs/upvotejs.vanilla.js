@@ -1,22 +1,22 @@
 /*
- * Upvote - a Stack Exchange look-alike voting widget
- * --------------------------------------------------
+ * UpvoteJS - a Stack Exchange look-alike voting widget
+ * ----------------------------------------------------
  *
- * Upvote is a widget that generates a voting widget like
+ * UpvoteJS is a widget that generates a voting widget like
  * the one used on Stack Exchange sites.
  *
  * Licensed under Creative Commons Attribution 3.0 Unported
  * http://creativecommons.org/licenses/by/3.0/
  *
- * @version         1.0.0
+ * @version         2.1.0
  * @since           2018.12.05
  * @author          Janos Gyerik
- * @homepage        https://janosgyerik.github.io/upvote
+ * @homepage        https://janosgyerik.github.io/upvotejs
  * @twitter         twitter.com/janosgyerik
  *
  * ------------------------------------------------------------------
  *
- *  <div id="topic" class="upvote">
+ *  <div id="topic" class="upvotejs">
  *    <a class="upvote"></a>
  *    <span class="count"></span>
  *    <a class="downvote"></a>
@@ -28,9 +28,11 @@
  *
  */
 
-const Upvote = function() {
+const UpvoteJS = function(document) {
+  "use strict";
+
+  const enabledClass = 'upvotejs-enabled';
   const upvoteClass = 'upvote';
-  const enabledClass = 'upvote-enabled';
   const upvoteOnClass = 'upvote-on';
   const downvoteClass = 'downvote';
   const downvoteOnClass = 'downvote-on';
@@ -51,28 +53,35 @@ const Upvote = function() {
     },
     isBoolean: v => typeof v === "boolean",
     isFunction: v => typeof v === "function",
-    classes: dom => dom.className.split(/ +/).filter(x => x)
+    classes: dom => dom.className.split(/ +/).filter(x => x),
+    removeClass: (dom, className) => {
+      dom.className = dom.className.split(/ +/)
+        .filter(x => x)
+        .filter(c => c !== className)
+        .join(' ');
+    },
+    noop: () => {}
   };
 
   const Model = function() {
     const validate = params => {
       if (!Number.isInteger(params.count)) {
-        throw 'Fatal: parameter "count" must be a valid integer';
+        throw 'error: parameter "count" must be a valid integer';
       }
       if (!Utils.isBoolean(params.upvoted)) {
-        throw 'Fatal: parameter "upvoted" must be a boolean';
+        throw 'error: parameter "upvoted" must be a boolean';
       }
       if (!Utils.isBoolean(params.downvoted)) {
-        throw 'Fatal: parameter "downvoted" must be a boolean';
+        throw 'error: parameter "downvoted" must be a boolean';
       }
       if (!Utils.isBoolean(params.starred)) {
-        throw 'Fatal: parameter "starred" must be a boolean';
+        throw 'error: parameter "starred" must be a boolean';
       }
       if (params.callback && !Utils.isFunction(params.callback)) {
-        throw 'Fatal: parameter "callback" must be a function';
+        throw 'error: parameter "callback" must be a function';
       }
       if (params.upvoted && params.downvoted) {
-        throw 'Fatal: parameters "upvoted" and "downvoted" must not be true at the same time';
+        throw 'error: parameters "upvoted" and "downvoted" must not be true at the same time';
       }
     };
 
@@ -128,24 +137,27 @@ const Upvote = function() {
     const create = id => {
       const dom = document.getElementById(id);
       if (dom === null) {
-        throw 'Fatal: could not find element with ID ' + id + ' in the DOM';
+        throw 'error: element with ID "' + id + '" must exist in the DOM';
       }
 
       if (Utils.classes(dom).includes(enabledClass)) {
-        throw 'Fatal: element with ID ' + id + ' is already in use by another upvote controller';
+        throw 'error: element with ID ' + id + ' is already in use by another upvote controller';
       }
       dom.className += ' ' + enabledClass;
 
       const firstElementByClass = className => {
-        const list = dom.getElementsByClassName(className);
-        if (list === null) {
-          throw 'Fatal: could not find element with class ' + className + ' within element with ID ' + id + ' in the DOM';
-        }
-        return list[0];
+        return dom.getElementsByClassName(className)[0];
       };
 
       const createCounter = className => {
         const dom = firstElementByClass(className);
+
+        if (dom === undefined) {
+          return {
+            count: () => undefined,
+            set: Utils.noop
+          };
+        }
 
         return {
           count: () => parseInt(dom.innerHTML || 0, 10),
@@ -173,6 +185,14 @@ const Upvote = function() {
         };
 
         const item = firstElementByClass(className);
+        if (item === undefined) {
+          return {
+            get: () => false,
+            set: Utils.noop,
+            onClick: Utils.noop
+          };
+        }
+
         const classes = createClasses();
 
         return {
@@ -201,6 +221,13 @@ const Upvote = function() {
         };
       };
 
+      const destroy = () => {
+        Utils.removeClass(dom, enabledClass);
+        upvote.onClick(null);
+        downvote.onClick(null);
+        star.onClick(null);
+      };
+
       const counter = createCounter(countClass);
       const upvote = createToggle(upvoteClass, upvoteOnClass);
       const downvote = createToggle(downvoteClass, downvoteOnClass);
@@ -211,7 +238,8 @@ const Upvote = function() {
         parseParamsFromDom: parseParamsFromDom,
         onClickUpvote: fun => upvote.onClick(fun),
         onClickDownvote: fun => downvote.onClick(fun),
-        onClickStar: fun => star.onClick(fun)
+        onClickStar: fun => star.onClick(fun),
+        destroy: destroy
       };
     };
 
@@ -221,6 +249,7 @@ const Upvote = function() {
   }();
 
   const create = (id, params = {}) => {
+    var destroyed = false;
     const view = View.create(id);
     const domParams = view.parseParamsFromDom();
     const defaults = {
@@ -233,24 +262,52 @@ const Upvote = function() {
     };
     const combinedParams = Utils.combine(defaults, domParams, params);
     const model = Model.create(combinedParams);
-    const callback = combinedParams.callback;
+
+    const throwIfDestroyed = () => {
+      if (destroyed) {
+        throw "fatal: unexpected call to destroyed controller";
+      }
+    };
+
+    const callback = action => {
+      const data = model.data();
+      combinedParams.callback({
+        id: id,
+        action: action,
+        newState: {
+          count: data.count,
+          upvoted: data.upvoted,
+          downvoted: data.downvoted,
+          starred: data.starred
+        }
+      });
+    };
 
     const upvote = () => {
+      throwIfDestroyed();
       model.upvote();
       view.render(model);
-      callback(model.data());
+      callback(model.upvoted() ? 'upvote' : 'unupvote');
     };
 
     const downvote = () => {
+      throwIfDestroyed();
       model.downvote();
       view.render(model);
-      callback(model.data());
+      callback(model.downvoted() ? 'downvote' : 'undownvote');
     };
 
     const star = () => {
+      throwIfDestroyed();
       model.star();
       view.render(model);
-      callback(model.data());
+      callback(model.starred() ? 'star' : 'unstar');
+    };
+
+    const destroy = () => {
+      throwIfDestroyed();
+      destroyed = true;
+      view.destroy();
     };
 
     view.render(model);
@@ -260,17 +317,57 @@ const Upvote = function() {
 
     return {
       id: id,
-      count: model.count,
+      count: () => {
+        throwIfDestroyed();
+        return model.count();
+      },
       upvote: upvote,
-      upvoted: model.upvoted,
+      upvoted: () => {
+        throwIfDestroyed();
+        return model.upvoted();
+      },
       downvote: downvote,
-      downvoted: model.downvoted,
+      downvoted: () => {
+        throwIfDestroyed();
+        return model.downvoted();
+      },
       star: star,
-      starred: model.starred
+      starred: () => {
+        throwIfDestroyed();
+        return model.starred();
+      },
+      destroy: destroy
     };
   };
 
   return {
     create: create
   };
-}();
+};
+
+(function(global, factory) {
+  "use strict";
+
+  if (typeof module === "object" && typeof module.exports === "object") {
+    const create = () => {
+      if (global.document) {
+        return factory(global, true);
+      }
+      return w => {
+        if (!w.document) {
+          throw new Error("UpvoteJS requires a window with a document");
+        }
+        return factory(w);
+      };
+    };
+    module.exports = create();
+  } else {
+    factory(global);
+  }
+})(typeof window !== "undefined" ? window : this, function(window, noGlobal) {
+  const Upvote = UpvoteJS(window.document);
+  if (!noGlobal) {
+    window.Upvote = Upvote;
+  }
+  return Upvote;
+});
