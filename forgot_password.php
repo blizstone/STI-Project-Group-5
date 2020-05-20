@@ -31,6 +31,10 @@ if (!$con){
 
 
         while($query->fetch()){
+            if(isset($_COOKIE['_unp_'])) {
+                        
+                echo 'We already sended the link to reset your account passsword. Next request is possible only after 4 minutes. Thank You';
+                }
 
             if(!isset($_COOKIE['_unp_'])) {
                 $user_name = ($_POST['UserName']);
@@ -45,7 +49,7 @@ if (!$con){
                 $encode_token = base64_encode(urlencode($token));
                 $email = base64_encode(urlencode($_POST['UserEmail']));
 
-                $expire_date = date("Y-m-d H:i:s", time() + 60 * 20);
+                $expire_date = date("Y-m-d H:i:s", time() + 60 * 6);
                 $expire_date = base64_encode(urlencode($expire_date));   
 
                 $queryt = "UPDATE userdata SET validation_key = '$token' WHERE UserName = '$user_name' AND UserEmail = '$user_email' AND is_active = 1";
@@ -53,17 +57,19 @@ if (!$con){
                 $mail->Body = "
                                             <h2>Follow the following link to reset password</h2>
                                             <a href='localhost/STI-Project-Group-5/new_password.php?eid={$email}&token={$encode_token}&exd={$expire_date}'>Click here to create new password</a>
-                                            <p>This link will expire in 2 minutes.
+                                            <p>This link will expire in 6 minutes.
                                             The expired link will redirect to home page</p>
                                             
                                             ";
             
                 if($mail->send()) {
-                    setcookie('_unp_', getToken(32), time() + 60 * 20, '', '', '', true);
+                    setcookie('_unp_', getToken(32), time() + 60 * 4, '', '', '', true);
                     echo "<div class='notification'>Check your email for password reset link</div>";
                 }
                 else {
-                        echo "<div class='notification'>You must be wait at lest 20 minutes for another request</div>";
+                    if(isset($_COOKIE['_unp_'])) {
+                        
+                        echo '$user_name';
                         }  
     //starts listing the 
     
@@ -74,6 +80,8 @@ if (!$con){
                 }
             }
         }
+    }
+        
 
             ?>
 
