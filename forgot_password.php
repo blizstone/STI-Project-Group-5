@@ -37,8 +37,7 @@ if (!$con){
                 }
 
             if(!isset($_COOKIE['_unp_'])) {
-                $user_name = ($_POST['UserName']);
-                $user_email = ($_POST['UserEmail']);
+                
 
 
                 date_default_timezone_set("asia/singapore");
@@ -66,11 +65,7 @@ if (!$con){
                     setcookie('_unp_', getToken(32), time() + 60 * 4, '', '', '', true);
                     echo "<div class='notification'>Check your email for password reset link</div>";
                 }
-                else {
-                    if(isset($_COOKIE['_unp_'])) {
-                        
-                        echo '$user_name';
-                        }  
+          
     //starts listing the 
     
 
@@ -80,7 +75,7 @@ if (!$con){
                 }
             }
         }
-    }
+    
         
 
             ?>
