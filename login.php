@@ -136,16 +136,24 @@ if(isset($_SESSION["logged_in"])) {
                            
                               <button type="submit" class="btn btn-success btn-block" name="login">Login</button>
                           </form>
+
                       </div>
                   </div>
                   
                       <p><a href="signup.php" class="btn btn-info btn-block">Yes please, register now!</a></p>
                   </div>
+                  <form method="get" action="forgot_password.php">
+                    <button type="submit" class="forgot">Forgot Password</button>
+                </form>
               </div>
           </div>
       </div>
   </div>
   <style>
+  .forgot {
+      
+      margin-left: 70px;
+      }
 .notification {
     color: black;
     font-family: 'Times New Roman', Times, serif;
