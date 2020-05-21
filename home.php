@@ -19,7 +19,7 @@ else {
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>STI scam alert site</title>
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
-  <link rel="stylesheet" href="searchbar.css">
+  
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
   <script src="dist/upvote/upvote.vanilla.js"></script>
   <link rel="stylesheet" href="dist/upvote/upvote.css">
