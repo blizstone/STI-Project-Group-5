@@ -18,6 +18,11 @@ else {
         header("location:mjo.php");
 }
 ?>
+
+<?php
+    require 'basecat.php'
+?>
+
 <?php
 
 //Establish connection to database named mock
