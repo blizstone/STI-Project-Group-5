@@ -19,9 +19,7 @@ else {
 }
 ?>
 
-<?php
-    require 'basecat.php'
-?>
+
 
 <?php
 
@@ -52,7 +50,7 @@ if ($query->execute())
 		
 
 
-		if($category=='Apple Scam')
+		if($category=='Lottery')
 		
         //starts listing the row
         echo "
