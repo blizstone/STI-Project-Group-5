@@ -123,7 +123,7 @@ if(isset($_SESSION["logged_in"])) {
                       <div class="well">
                           <form id="loginForm" method="post">
                               <div class="form-group">
-                                  <label for="username" class="control-label">Username / Email id</label>
+                                  <label for="username" class="control-label">Username</label>
                                   <input type="text" class="form-control" id="username" name="username"  required="" title="Please enter you username or Email-id" placeholder="email or username" >
                                   <span class="help-block"></span>
                               </div>
