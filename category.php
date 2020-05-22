@@ -43,6 +43,7 @@ if ($query->execute())
 
 
 
+
     //Displays the header
 
     echo "<table>";
