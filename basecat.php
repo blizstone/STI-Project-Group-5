@@ -55,11 +55,7 @@ else {
 					<option>---Select---</option>
 					<option val="Apple Scam">Apple Scam</option>
 					<option val="Lottery">Lottery</option>
-					<option val="20000">20000</option>
-					<option val="30000">30000</option>
-					<option val="40000">40000</option>
-					<option val="50000">50000</option>
-					<option val="60000">60000</option>
+					
 				</select>
 			</div>
 			<button type="button" name="refresh" id="refresh" class="btn btn-primary">Refresh</button>
