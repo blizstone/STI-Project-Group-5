@@ -14,6 +14,8 @@ else {
 
 ?>
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,13 +30,13 @@ else {
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#ajaxdata").load("allrecords.php");
+			$("#ajaxdata").load("allcategory.php");
 			$("#category_dropdown").change(function(){
 				var selected=$(this).val();
-				$("#ajaxdata").load("search.php",{selected_category: selected});
+				$("#ajaxdata").load("categorysearch.php",{selected_category: selected});
 			});
 			$("#refresh").click(function(){
-				$("#ajaxdata").load("allrecords.php");
+				$("#ajaxdata").load("allcategory.php");
 			});
 		});
 	</script>
@@ -51,11 +53,15 @@ else {
 		<form method="post" class="form-horizontal">
 			<label for="category" class="control-label col-sm-3 col-sm-offset-2" >Select Category: </label>
 			<div class="col-sm-2" >
-				<select name="category" class="form-control" id="category_dropdown">
+				<select name="Category" class="form-control" id="category_dropdown">
 					<option>---Select---</option>
 					<option val="Apple Scam">Apple Scam</option>
 					<option val="Lottery">Lottery</option>
-					
+					<option val=""></option>
+					<option val=""></option>
+					<option val=""></option>
+					<option val=""></option>
+					<option val=""></option>
 				</select>
 			</div>
 			<button type="button" name="refresh" id="refresh" class="btn btn-primary">Refresh</button>
@@ -63,9 +69,10 @@ else {
 
 	</div>
 	<br><br>
-	
+	<div id="ajaxdata">
+		
+	</div>
 </div>
 
 </body>
 </html>
-

@@ -6,6 +6,11 @@
 
 <body>
 
+<?php
+    require 'basecat.php'
+?>
+ 
+
 
 <?php
 // Check if session is not registered, redirect back to main page.
