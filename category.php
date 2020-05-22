@@ -17,13 +17,7 @@ if (($_SESSION['logged_in'] == '1')) {
 else {
         header("location:mjo.php");
 }
-?>
 
-<?php
-    require 'basecat.php'
-?>
-
-<?php
 
 //Establish connection to database named mock
 $con = mysqli_connect("localhost","root","","digiscam");
@@ -52,7 +46,7 @@ if ($query->execute())
 		
 
 
-		if($category=='Apple Scam')
+		if($category=='Lottery')
 		
         //starts listing the row
         echo "

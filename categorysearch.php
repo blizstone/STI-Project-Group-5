@@ -27,9 +27,9 @@ else {
 require('config.php');
 $db = new db;
 
-$result1=$db->getCategoryRecords($_POST['selected_category']);
+$result=$db->getCategoryRecords($_POST['selected_category']);
 
-while($row1=mysqli_fetch_array($result1)){
+while($row=mysqli_fetch_array($result)){
 	echo "<tr>
         <td>".$row['postId']."</td>
         <td>".$row['accountId']."</td>
