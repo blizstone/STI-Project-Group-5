@@ -14,15 +14,6 @@ else {
 
 ?>
 
-<?php
-  include 'header.php'
-?>
-
-<form action="searchresults.php" method="$_POST">
-  <input type="text" name="search" placeholder="Search">
-  <button type="submit" name="submit-search"></button>
-</form>
-
 <html>
 	<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
