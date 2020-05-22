@@ -24,12 +24,12 @@ class db{
 		mysqli_select_db($this->$con,"digiscam") or die(mysqli_error());
 	}
 	public function getCategory(){
-		$query="SELECT * from categorytable";
+		$query="SELECT * from post";
 		$result=mysqli_query($this->$con,$query);
 		return $result;
 	}
 	public function getCategoryRecords($category){
-		$query="SELECT * from categorytable  where category < ".$category."";
+		$query="SELECT * from post where category < ".$category."";
 		$result=mysqli_query($this->$con,$query);
 		return $result;
 	}
