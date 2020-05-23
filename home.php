@@ -18,10 +18,26 @@ else {
   include 'header.php'
 ?>
 
+
 <form action="searchresults.php" method="POST">
   <input type="text" name="search" placeholder="Search">
   <button type="submit" name="submit-search"></button>
 </form>
+
+<div class="post-container">
+  <?php
+    $sql = "SELECT * FROM post";
+    $result = mysqli_query($con, $sql);
+    $queryResults = mysqli_num_rows($result);
+    //will get the search results just in cased
+    if($queryResults > 0){
+      while($row = mysql_fetch_assoc($result)) {
+
+      }
+    }
+  ?>
+
+</div>
 
 
 <html>
