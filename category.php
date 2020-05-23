@@ -6,6 +6,11 @@
 
 <body>
 
+<?php
+    require 'basecat.php'
+?>
+ 
+
 
 <?php
 // Check if session is not registered, redirect back to main page.
@@ -46,7 +51,7 @@ if ($query->execute())
 		
 
 
-		if($category=='Lottery')
+		if($category=='Apple Scam')
 		
         //starts listing the row
         echo "
