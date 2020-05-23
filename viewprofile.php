@@ -25,7 +25,7 @@ $query= $con->prepare("Select FullName, UserName, UserEmail, UserMobileNumber, R
     if($query->num_rows == 0) exit('No rows');
     //Displays the header
     
-    echo "<table>";
+      
     
     while($query->fetch()){
         //starts listing the row
