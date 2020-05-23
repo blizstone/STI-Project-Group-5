@@ -98,6 +98,21 @@ value=".$postId.">";
 </form>
 
 
+<?php
+echo "<input type='hidden' name='updatevote' value=".$postId .">";
+?>
+<form action="inputvote.php" id="" method="post" >
+<?php echo "<input type='hidden' name='post' value= $postId>";?>
+<p class="newlist-submit" >vote</p>
+<button input type="submit" name="vote" value= 1 >up</button>
+<p class="newlist-submit"></p>
+<button input type="submit" name="vote" value=-1 >down</button>
+<!--<p class="newlist-labels">Voting</p>
+<input type="number" name="votting" >-->
+<br>
+
+</form>
+
 </body>
 
 </html>
