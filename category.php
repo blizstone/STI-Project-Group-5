@@ -51,7 +51,7 @@ if ($query->execute())
 		
 
 
-		if($category=='Lottery')
+		if($category=='Apple Scam')
 		
         //starts listing the row
         echo "
