@@ -24,48 +24,69 @@ else
 </div>
 <body>
 <br> 
+<h1>Members</h1>
 <?php
 $con = mysqli_connect("localhost","root","","digiscam");
 if (!$con){
     die('Could not connect: ' . mysqli_connect_errno());
 }
 
-    $query= $con->prepare("Select accountId, FullName, UserName, UserEmail, UserMobileNumber, LoginPassword, RegDate, Role from userdata ");
+    $query= $con->prepare("Select accountId, FullName, UserName, UserEmail, UserMobileNumber, LoginPassword, RegDate, Role, is_active from userdata ");
     $query->execute(); 
     $query->store_result();
-    $query->bind_result($accountId, $FullName, $UserName, $UserEmail, $UserMobileNumber, $LoginPassword, $RegDate, $Role);
+    $query->bind_result($accountId, $FullName, $UserName, $UserEmail, $UserMobileNumber, $LoginPassword, $RegDate, $Role, $is_active);
     if($query->num_rows === 0) exit('No rows');
     //Displays the header
-    echo "<h2>List of exams</h2>";
-    echo "<table border=1>" ;
-    echo "<tr><td>Account ID</td><br><td>Full Name</td><td>UserName</td><td>User Email</td><td>UserMobileNumber</td><td>LoginPassword</td><td>RegDate</td><td>Role</td></tr>";
+    
+    echo "<table border=2 >" ;
+    echo "<tr><th>Account ID</th><br><th>Full Name</th><th>UserName</th><th>User Email</th><th>UserMobileNumber</th><th>LoginPassword</th><th>RegDate</th><th>Role</th><th>Verifed</th></tr>";
     while($query->fetch()){
         //starts listing the row
-        echo "<tr><td>". $accountId ."</td><td>". $FullName ."</td><td>". $UserName . "</td><td>". $UserEmail. "</td><td>". $UserMobileNumber ."</td><td>". $LoginPassword ."</td><td>". $RegDate ."</td><td>" . $Role ."</td>";
+        echo "<tr><td>". $accountId ."</td><td>". $FullName ."</td><td>". $UserName . "</td><td>". $UserEmail. "</td><td>". $UserMobileNumber ."</td><td>". $LoginPassword ."</td><td>". $RegDate ."</td><td>" . $Role ."</td><td>". $is_active ."</td>";
     }
     
     echo "</table>";
         $con->close();
 
 ?>
-<form action="adminq3.php" method ="POST" name="listall" style="color: black">
-<table1 border="1">
-	<td>
-        
-        <br>
-		
-        <br>
-        <input type="radio" name="actiontype" value="Delete">Delete ..Please use the ID 
-    </td>
-</table1>
-<table border="1">
 
-	<tr>
+<form action="adminq3.php" method ="POST" name="listall" style="color: black">
+<style>
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+  td {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding: 15px;
+}
+tr:hover {background-color:#D3D3D3;}
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white; 
+  padding: 15px
+}
+
+</style>
+
+
+<br><br>
+<div class="account">
+<table>
 		<td>Account Id : </td>
-		<td><input type="text" name="accountId" /></td> 
-		<td><input type="submit" value="Action" /></td>
+		<td><input type="text" name="accountId" required /></td> 
+		<td><input type="submit" action="adminq3.php" method="POST" name="listall" value="Delete" /></td>
 	
-</table>
+</div>
 <html>
 	
 	<head>
