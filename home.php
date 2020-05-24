@@ -20,15 +20,17 @@ else {
 	<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>STI scam alert site</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
   
-  <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
-  <script src="dist/upvote/upvote.vanilla.js"></script>
-  <link rel="stylesheet" href="dist/upvote/upvote.css">
+
   
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
-    <link rel="stylesheet" href="dist/upvotejs/upvotejs.css">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/login2.css">
 	<script>//navbar script
 		/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 		function myFunction() {
@@ -45,12 +47,10 @@ else {
 <body>
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
-  <a href="#news">News</a>
   <a href="category.php">Categories</a>
   <a href="create_post.php">Create</a>
-  <a href="viewprofile.php">Account</a>
-  <a href="viewprofile.php">Account</a>  
-  <a href="logout.php">Logout</a>
+  <a href="viewprofile.php">Account</a> 
+  <div class="pull-right"><a href="logout.php">Logout</a></div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -64,67 +64,66 @@ $con = new mysqli("localhost","root","","digiscam");
  $sql = "SELECT COUNT(*) totalCountByEachCategory, category FROM `post` WHERE category IS NOT NULL GROUP BY category ORDER BY totalCountByEachCategory DESC LIMIT 1";
 $result = mysqli_query($con, $sql); // First parameter is just return of "mysqli_connect()" function
 echo "<br>";
-echo "<table border='1'>";
-while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
- 
-    foreach ($row as $field => $value) {
-           // I you want you can right this line like this: foreach($row as $value) {
-        echo "<div class='notification'>$value</div>" ; // I just did not use "htmlspecialchars()" function. 
-    }
-  }
+$row = mysqli_fetch_assoc($result);
 ?>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget-small primary"><i class="icon fa fa-list fa-3x"></i>
+        <div class="info">
+          <h4>Todays most posts comes under.....</h4>
+          <div class="apple"><p><b><?=$row["category"];?></b></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .apple {
+    color: black;
 
+  }
+  </style>
 <?php
 $con = new mysqli("localhost","root","","digiscam");
 $count = 0;
 $query = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId");
-$sql = mysqli_query($con,"SELECT SUM(`vote`) FROM voting GROUP BY postId");
-foreach($query as $row){
-  foreach($sql as $votes){
+$query_vote = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName, SUM(`vote`) FROM post INNER JOIN userdata ON userdata.accountId=post.accountId INNER JOIN voting ON voting.postId=post.postId GROUP BY postId");
+
+while($row = mysqli_fetch_assoc($query_vote)) {
+  $vote_row[] = $row;
+}
+
+?>
+<div class="container-fluid">
+  <div class="row">
+<?php
+foreach($vote_row as $row){
  $count++;
+ ?>
+    <div class="col-md-6">
+      <div class="tile">
+        <h3 class="tile-title"><?=!empty($row['title'])?$row['title']: "No Title";?><div class="pull-right"> <i class="fa fa-paper-plane 3x"></i> <?= $row['SUM(`vote`)']." "?></div></h3>
+        <div class="tile-body"><?=$row['content'];?></div>
+        <div class="tile-body"><?=!empty($row['category'])?$row['category']:"No Category";?></div>
+        <strong class="tile-footer pull-right"><?=!empty($row['UserName'])?$row['UserName']: "No User";?></strong>
+        <div class="tile-footer"><a class="btn btn-info" href="post_details.php?id=<?= $row['postId']?>">More Details</a></div>
+      </div>
+    </div>
 
- echo "<form name='form' method='post' action='post_details.php'>";
- echo "<table width='100%'>";
- echo "<tr>";
- echo "<td>";
- echo "<section id='grid-container'>";
- echo "<div class='card'>";
- $postId= $row['postId'];
- echo "<input type='hidden' name='post_array' value=". $postId .">";
-  echo "<div class='row'>";
- echo "<div class='span1'>";
- echo"<p>voting:<br>".$votes['SUM(`vote`)']."<p>"; 
- echo" </div>";
-
- echo"<p>". $row['UserName'] ."</p>";
- echo"<p>".$row['title'] ."</p>";
- echo"<p>". $row['content'] ."</p>";
- echo"<p>". $row['category']."</p>";
- echo"</div>";
- 
- echo"<input type='submit' id='detailsButton' value='More Details'>";
- echo"</div>
- </div>
-  </section>
- </td>
- </tr>
- </table>
- </form>";
-  ?>
 <?php
 if($count == 3) { // three items in a row
-        echo '</tr><tr>';
+       
         $count = 0;
     }
-} }?>
-
+} ?>
+  </div>
+</div>
 <div id="templates" class="hidden">
 <div class="upvotejs">
 <br>
-<a class="upvote" title="This is good stuff. Vote it up! (Click again to undo)"></a>
-<span class="count" title="Total number of votes">3</span>
-<a class="downvote" title="This is not useful. Vote it down. (Click again to undo)"></a>
-<a class="star" title="Mark as favorite. (Click again to undo)"></a>
+
+
 </div>
 </div>
      <script type="text/javascript">
@@ -153,3 +152,4 @@ if($count == 3) { // three items in a row
  
 </body>
 </html>
+

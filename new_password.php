@@ -17,6 +17,9 @@
 
 
             <?php
+            if(!isset($_GET['eid']) && !isset($_GET['token']) && !isset($_GET['exd'])) {
+                header("Location: index.php");
+            }else {
 
                 if(isset($_GET['eid']) && isset($_GET['token']) && isset($_GET['exd'])) {
 
@@ -96,20 +99,36 @@
                 if(isset($errPass)) {
                     echo "<div class='notification'>{$errPass}</div";
                 }
+            }
 
             ?>
-
+             <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">    
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/login2.css">
+    <div class="limiter ">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+					<span class="login100-form-title-1">
+						Reset Your Password
+					</span>
+            
+			</div>
             
             <form action="" method="POST">
-                <div class="input-box">
-                    <input type="password" class="input-control" placeholder="New password" name="new-password" required <?php echo !isset($check)?"disabled":""; ?>>
+                <div class="wrap-input100 validate-input m-b-26">
+                    <input type="password" class="input100" placeholder="New password" name="new-password" required <?php echo !isset($check)?"disabled":""; ?>>
                 </div>
-                <div class="input-box">
-                    <input type="password" class="input-control" placeholder="Confirm new password" name="confirm-new-password" required <?php echo !isset($check)?"disabled":""; ?>>
+                <div class="wrap-input100 validate-input m-b-26">
+                    <input type="password" class="input100" placeholder="Confirm new password" name="confirm-new-password" required <?php echo !isset($check)?"disabled":""; ?>>
                 </div>
-                <div class="input-box">
-                    <input type="submit" class="input-submit" value="SUBMIT" name="submit" <?php echo !isset($check)?"disabled":""; ?>>
-                </div>
+                
+                    <input type="submit" class="login100-form-btn" name="submit" <?php echo !isset($check)?"disabled":""; ?>>
+                <br>
                 <div class = "password" style="font-family: 'Times New Roman', Times, serif">Must be at lest 4 character long, 1 upper case, 1 lower case  and 1 number <br>
                 If you faced any type error please renter by reloading the page. <br>
 

@@ -1,18 +1,61 @@
 <?php
-// Check if session is not registered, redirect back to main page.
-// Put this code in first line of web page.
 session_start();
 if (($_SESSION['logged_in'] == '1')) {
 }
 else {
         header("location:mjo.php");
-}
-
+}?>
+<?php
+    $con = mysqli_connect("localhost","root","","digiscam");
+    if (!$con){
+        die('Could not connect: ' . mysqli_connect_errno());
+    }
+    $query= $con->prepare("Select FullName, UserName, UserEmail, UserMobileNumber,LoginPassword  from digiscam.userdata where UserName ='".$_SESSION["username_login"]."'" );    
+    $query->execute(); 
+    $query->store_result();
+    $query->bind_result($FullName, $UserName, $UserEmail, $UserMobileNumber,$LoginPassword);
+    if($query->num_rows == 0) exit('No rows');
+    
+      while($query->fetch()){
+      }
 ?>
 <html>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<head>
+<link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/login2.css">
+</head>
+<body>
+<div class="topnav" id="myTopnav">
+  <a href="home.php" class="active">Home</a>
+  <a href="create_post.php">Create</a>
+  <a href="category.php">Categories</a>
+  <a href="viewprofile.php">Account</a> 
+  <div class="pull-right"><a href="logout.php">Logout</a></div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a></div>
+<div class="hero-text">	<h1>Update Personal Details</h1></div>
 
-<script>
+<form action="updatecode.php" method ="POST">
+<table>
+     <tr><th>Full Name:</th><td>Fully can contain Letters Only</td><td><div class="input-container" ><input type="text" class ="write" value="<?=$FullName?>" name="FullName"  pattern="[a-zA-Z\s]+" autocomplete="0ff" required/></td></tr>
+     <tr><th>User Name:</th><td>Username can contain any letters or numbers, without spaces 6 to 12 chars  </td><td><div class="input-container" ><input type="text" id="UserName" value="<?=$UserName?>" name="UserName" autocomplete="0ff"  onBlur="checkUsernameAvailability()" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{5,12}$" title="User must be alphanumeric without spaces 6 to 12 chars" class="input-xlarge" required>
+     <tr><th>User Email:</th><td>Provide valide Email</td><td><div class="input-container" ><input type="email" value="<?=$UserEmail?>" name="UserEmail"required autocomplete="0ff" /></td></tr>
+     <tr><th>Mobile Number:</th><td>Please provide valid number</td><td><div class="input-container" ><input type="text" value="<?=$UserMobileNumber?>" name="UserMobileNumber" autocomplete="0ff"  pattern="[0-8]{8}" maxlength="8" required/></td></tr>
+	   <tr><th>User Password:</th><td>Password must contain atleast 4 numbers</td><td><div class="input-container" ><input type="password" name="LoginPassword" autocomplete="0ff"  pattern="^\S{4,}$" required/></td></tr></div>
+     <td><input class="login100-form-btn" action="updatecode.php" method ="POST"  type="submit" value="Update"/></td>	
+</table>
+<br>
+<br>
+<div class="success"><h1> Guide.. <h1>
+<p>Successfull updation will send an email to Registered email address for proper authentication<br></p></div><br><br>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js">
+
+
     function checkUsernameAvailability() {
       $("#loaderIcon").show();
       jQuery.ajax({
@@ -45,109 +88,65 @@ else {
       });
     }
   </script>
-<body>
-<div class="topnav" id="myTopnav">
-  <a href="home.php" class="active">Home</a>
-  <a href="#news">News</a>
-  <a href="#news">News</a>
-  <a href="create_post.php">Create</a>
-  <a href="viewprofile.php">Account</a> 
-  <a href="logout.php">Logout</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-  <link rel="stylesheet" href="dist/upvote/upvote.css">
-
-</div>
-  
-<div class="hero-text">
-	<br>
-	<h1>Update Personal Details</h1>  
-	<img src="https://image.flaticon.com/icons/svg/1177/1177568.svg">
-    </div>
-<form action="updatecode.php" method ="POST">
-<table>   
-        <br>
-              
-</table>
-<h1> Update</h1>
-<table>
-     <tr><th>Full Name:</th><td>Fully can contain Letters Only</td><td><input type="text" name="FullName"  pattern="[a-zA-Z\s]+" required/></td></tr>
-     <tr><th>User Name:</th><td>Username can contain any letters or numbers, without spaces 6 to 12 chars</td><td><input type="text" id="UserName" name="UserName" onBlur="checkUsernameAvailability()" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{5,12}$" title="User must be alphanumeric without spaces 6 to 12 chars" class="input-xlarge" required>
-</td><tr>
-     <tr><th>User Email:</th><td>Provide valide Email</td><td><input type="email" name="UserEmail"required/></td></tr>
-     <tr><th>Mobile Number:</th><td>Please provide valid number</td><td><input type="text" name="UserMobileNumber" pattern="[0-8]{8}" maxlength="8" required/></td></tr>
-	 <tr><th>User Password:</th><td>Password must contain atleast 4 numbers</td><td><input type="password" name="LoginPassword" pattern="^\S{4,}$" required/></td></tr>
-	 <td><input action="updatecode.php" method ="POST"  type="submit" value="Update"/></td>
-	
-</table>
-
-</form>
-<div>
-<h1> Guide.. <h1>
-<p>Successfull updation will send an email to Registered email address for proper authentication<br></p>
 <style>
+.input-container input{ 
+border:0;
+border-bottom:1px solid #555;  
+background:transparent;
+width:100%;
+padding:8px 0 5px 0;
+font-size:16px;
+color:black;
 
-  body {
-      
-  background-image: url("https://images.unsplash.com/photo-1543107097-ffe418c8d0f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
-  height: 9%;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: 100% 60%;
-  background-color: linen;
 }
+.success{
+font-size: 9px;
+font-family: Arial, Helvetica, sans-serif;
+margin-left: 56px;
 
-
-
+}
+body {    
+  background-image: url("https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80"); 
+height: 9%;
+background-position: top;
+background-repeat: no-repeat;
+background-size: 100% 60%;
+background-color: white;
+}
 table {
 text-align:left;
-font-family: Arial, Helvetica, sans-serif;
+
 margin-left: 138px;
 line-height: 70px;
+margin-top: 220px;
 }
 th{
 width: 20%;
 height: 12%;
-font-family: 'Times New Roman', Times, serif;
+
 }
 tr {
 font-size: 20px;
 }
 td {
 font-size: 20px;
- font-family: 'Times New Roman', Times, serif;
- font-size: 14px;
- 
- text-align: left;
-}
-</style>
-</div>
-<body>
-	<head>
-		<title>STI scam alert site</title>
-        <link rel="stylesheet" href="stylesheet.css">
-        <br>
-    </head>
-    <br>
-    <body 
-    style="overflow-x:hidden;" onload="">       
-    <style>
 
+font-size: 14px;
+text-align: left;
+}   
 img {
 height: 250%;
 opacity: 0.5;   
 margin-top: 0px;
 margin-left: auto;
 margin-right: auto;
-
-
 }
 .hero-text  {
 color: black;
-text-align: center;
-font-size: 28px;
-margin-top: 70px;
+text-align: left;
+font-size: 18px;
+margin-top: 120px;
+margin-left: 120px;
 }  
 .wrapper {
 width: 90%;
@@ -160,7 +159,7 @@ margin-left: auto;
 padding: 15px 70px;
 margin:10px 4px;
 color: black;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 font-size: 28px;
 text-align: center;
 text-decoration: none;

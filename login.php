@@ -100,72 +100,41 @@ if(isset($_SESSION["logged_in"])) {
 <!DOCTYPE html>
 <html lang="en">
  
-</style>
+
 <head>
     <meta charset="utf-8">
-    <title>PDO | Login form</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login form</title>
+        
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/login2.css">
+
 </head>
+
 <body>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="limiter ">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+					<span class="login100-form-title-1">
+						Sign In
+					</span>
+				</div>
+    <div class="login100-form validate-form">
+        <form method="post">
+            <h2 class="sr-only">Login Form</h2>
+           
+            <div class="wrap-input100 validate-input m-b-26"><input type="text" class="input100" id="username" name="username"  title="Please enter you username or Email-id" required placeholder="username" ></div>
+            <div class="wrap-input100 validate-input m-b-26"><input type="password" class="input100" id="password" name="password" placeholder="Password" value="" required title="Please enter your password"></div>
+            <div class="login100-form-btn"><button type="submit" name="login">Login</button></div><br>
+            <a href="signup.php" class="login100-form-btn">Register</a>
+           <br>
+            <a href="forgot_password.php" class="txt1">Forgot Password ?</a>
 
-    <div id="login-overlay" class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Login Form</h4>
-          </div>
-          <div class="modal-body">
-              <div class="row">
-                  <div class="col-xs-6">
-                      <div class="well">
-                          <form id="loginForm" method="post">
-                              <div class="form-group">
-                                  <label for="username" class="control-label">Username</label>
-                                  <input type="text" class="form-control" id="username" name="username"  required="" title="Please enter you username or Email-id" placeholder="email or username" >
-                                  <span class="help-block"></span>
-                              </div>
-                              <div class="form-group">
-                                  <label for="password" class="control-label">Password</label>
-                                  <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="" required="" title="Please enter your password">
-                                  <span class="help-block"></span>
-                              </div>
-                             
-                           
-                              <button type="submit" class="btn btn-success btn-block" name="login">Login</button>
-                          </form>
+		</div>
+        </div>						
+							
+						
+    </div>
 
-                      </div>
-                  </div>
-                  
-                      <p><a href="signup.php" class="btn btn-info btn-block">Yes please, register now!</a></p>
-                  </div>
-                  <form method="get" action="forgot_password.php">
-                    <button type="submit" class="forgot">Forgot Password</button>
-                </form>
-              </div>
-          </div>
-      </div>
-  </div>
-  <style>
-  .forgot {
-      
-      margin-left: 70px;
-      }
-.notification {
-    color: black;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    font-size: 25px;
-    
-}
-</style>
-<script type="text/javascript">
 
-</script>
-</body>
-
-</html>
-</html>

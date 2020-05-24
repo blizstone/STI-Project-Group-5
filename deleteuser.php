@@ -6,55 +6,76 @@ if (($_SESSION['logged_in'] == '1')) {
 
 }
 else {
-        header("location:mjo.php");
+        header("location:index.php");
 }
 
 ?>
 <html>
-<link rel="stylesheet" href="stylesheet.css">
+	<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>STI scam alert site</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
+  
+
+  
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
+
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/login2.css">
+	<script>//navbar script
+		/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+		function myFunction() {
+  		var x = document.getElementById("myTopnav");
+  		if (x.className === "topnav") {
+    	x.className += " responsive";
+  		} else {
+    	x.className = "topnav";
+  		}
+	}
+	</script>
+</head>
 
 <body>
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
-  <a href="#news">News</a>
-  <a href="#news">News</a>
+  <a href="category.php">Categories</a>
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
-  <a href="logout.php">Logout</a>
+  <div class="pull-right"><a href="logout.php">Logout</a></div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
-  <link rel="stylesheet" href="stylesheetcss">
 
+  
 </div>
-
 
 
 
 <div class="hero-text">
 	<br>
-	<h1>Delete Your Digscam Account</h1>  
-	<img src="https://image.flaticon.com/icons/svg/1177/1177568.svg">
+	<h1></h1>  
+
     </div>
     <br>
-	<h1> Press Delete to delete your Digiscam account<h1>
+    <div class="hero-text">	<h1>Delete Your Digscam Account</h1> <p> By pressing delete your current account will be removed from Digiscam</div>
 
-    <form action="deletecode.php" method ="POST">
+    <div class = "delete"><form action="deletecode.php" method ="POST">
 
-<td><input action="deletecode.php" method ="POST"  type="submit" value="Delete"/></td>
+<td><input action="deletecode.php" method ="POST"  type="submit" value="Delete"/></td></div>
 
 <style>
 
-  body {
-      
-  background-image: url("https://images.unsplash.com/photo-1543107097-ffe418c8d0f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
-  height: 9%;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: 100% 55%;
-  background-color: linen;
+body {    
+  background-image: url("https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80"); 
+height: 9%;
+background-position: top;
+background-repeat: no-repeat;
+background-size: 100% 60%;
+background-color: white;
 }
-
 
 img {
 height: 250%;
@@ -65,11 +86,20 @@ margin-right: auto;
 
 
 }
+.delete {
+  margin-top: 160px;
+  color: black;
+  font-size: 28px;
+  margin-left: 42px;
+  
+}
 .hero-text  {
 color: black;
-text-align: center;
-font-size: 28px;
-margin-top: 68px;
+text-align: left;
+font-size: 18px;
+margin-top: 60px;
+margin-left: 120px;
+
 }  
 .wrapper {
 width: 90%;
@@ -78,18 +108,13 @@ margin-top: 100px;
 margin-right: auto;
 margin-left: auto;
   }
-.button {
-padding: 15px 70px;
-margin:10px 4px;
-color: black;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-font-size: 28px;
-text-align: center;
-text-decoration: none;
- }
-.button:hover{
-background-color: lightsteelblue;
+
+
+ 
+.delete:hover{
+
 opacity: 0.5;
+
 }
 
 table {

@@ -13,17 +13,23 @@ else {
 
 ?>
 
+
 <html>
 	<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>STI scam alert site</title>
-	<link rel="stylesheet" href="stylesheet.css"> <!-- general stylesheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
+  
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-
+  
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
-	<script>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/login2.css">
+	<script>//navbar script
 		/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 		function myFunction() {
   		var x = document.getElementById("myTopnav");
@@ -39,21 +45,22 @@ else {
 <body>
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
-  <a href="#news">News</a>
-  <a href="#news">News</a>
+  <a href="category.php">Categories</a>
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
-  <a href="logout.php">logout</a>
+  <div class="pull-right"><a href="logout.php">Logout</a></div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
+
+  
 </div>
 		
 <?php 
 
 $con = new mysqli("localhost","root","","digiscam");
 
-$postId=$_POST['post_edit'];
+$postId=$_GET['id'];
 
 $query= $con->prepare("SELECT post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId WHERE postId=?");
 $query->bind_param("i",$postId);
@@ -61,7 +68,7 @@ $query->bind_result($title,$content,$category,$userName);
 $query->store_result();
 $res=$query->execute();
 if ($res){ //execute query
-    echo "Query executed.";
+  
 }else{
     echo "Error executing query.";
 }
@@ -70,30 +77,43 @@ foreach($query as $row){
 }
 
 ?>
-
-<section id='createlist-container'>
-<form action='update_post.php' method='post'>
-<?php
-echo "<input type='hidden' name='post_update' value=".$postId .">";
-?>
-
-<p class="details-labels">Username</p>
-<p class="details-content"><?php echo $userName; ?></p>
-<p class="details-labels">Title</p>
-<p class="details-content"><?php echo $title; ?></p>
-<input type='text' name='title'>
-<p class="details-labels">Content</p>
-<p class="details-content"><?php echo $content; ?></p>
-<input type="text" name="content" >
-<!--<p class="newlist-labels">Voting</p>
-<input type="number" name="votting" >-->
-<p class="details-labels">Category</p>
-<p class="details-content"><?php echo $category; ?></p>
-<input type="text" name="category" ><br>
-<br>
-<input type="submit" id="newlist-submit" value="Update" > 
-</form>
-
-</section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="tile">
+				<h3 class="tile-title">Edit Post</h3>
+				<div class="tile-body">
+					<strong class="tile-title">username: </strong><span class="control-label"><?php echo $userName; ?></span>
+					<form action='update_post.php' method='post'>
+						<input type='hidden' name='post_update' value="<?=$postId ?>">
+						<div class="form-group">
+							<label class="control-label">Title</label>
+							<input class="form-control" name="title" type="text" value="<?= $title; ?>" placeholder="Enter Title">
+						</div>
+						<div class="form-group">
+							<label for="exampleSelect1">Select Category</label>
+							<select class="form-control" name="category" id="exampleSelect1">
+								<option><?= $category; ?></option>
+								<option>Apple Scam</option>
+								<option>Credit Card Scam</option>
+								<option>Love Scam</option>
+								<option>Other Online Scams</option>
+								
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Content</label>
+							<textarea class="form-control" name="content" rows="4" placeholder="Enter your content"><?= $content; ?></textarea>
+						</div>
+						<div class="tile-footer">
+							<button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
