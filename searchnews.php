@@ -16,7 +16,7 @@ else {
 
 <html>
     <head>
-        
+    <link rel="stylesheet" href="css/search.css">
     </head>
 <body>
 <form action="search.php" method="$_POST">
