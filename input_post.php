@@ -21,12 +21,9 @@ if (!$con){
 $accountId=intval($_SESSION['accountId']);
 $title = $_POST['title'];
 $content = $_POST['content'];
-//$price = $_POST["price"];
 $category = $_POST['category'];
 
-$query= $con->prepare("INSERT INTO `post`(`accountId`, `title`, `content`, `category`) 
-VALUES (?,?,?,?)");
-
+$query= $con->prepare("INSERT INTO `post`(`accountId`, `title`, `content`, `category`) VALUES (?,?,?,?)");
 $query->bind_param("isss", $accountId, $title,$content,$category);
 $res=$query->execute();
 if ($res){ //execute query
@@ -35,7 +32,7 @@ if ($res){ //execute query
     echo "Error executing query.";
 }
 
-header('Location: home.php');
+header('Location: create_post_vote.php');
 exit;
 
 ?>
