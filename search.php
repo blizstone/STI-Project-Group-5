@@ -19,3 +19,9 @@ else {
 ?>
 
 <h1>Search Page</h1>
+
+<?php
+    if (isset($_POST['submit-search'])){
+        $search = mysqli_escape_string($con, $_POST['search']);
+        $sql = "SELECT * post";
+    }
