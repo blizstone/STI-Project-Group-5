@@ -35,7 +35,7 @@ if ($res){ //execute query
     echo "Error executing query.";
 }
 
-header('Location: home.php');
+header('Location: create_input_post.php');
 exit;
 
 ?>
