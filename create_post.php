@@ -62,7 +62,7 @@ else {
 		<p class="newlist-labels">Content</p>
 		<input type="text" name="content" >
 		<!--<p class="newlist-labels">Voting</p>
-		<input type="number" name="votting" >-->
+		<input type="number" name="voting" >-->
 		<p class="newlist-labels">Category</p>
 		<input type="text" name="category" ><br>
 		<br>
