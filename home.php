@@ -122,7 +122,7 @@ foreach($query as $row){
  </table>
  </form>";
   ?>
-  
+
 <?php
 if($count == 3) { // three items in a row
         echo '</tr><tr>';
