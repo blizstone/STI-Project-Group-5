@@ -24,7 +24,18 @@ else {
     <button type="submit" name="submit-search">Search</button>
 </form>
 
+<div class="article-container">
+    <?php
+        $sql = "SELECT * FROM post";
+        $result = mysqli_query($con, $sql);
+        $queryResults = mysqli_num_rows($result);
 
+        if($queryResults > 0) {
+            while
+        }
+    ?>
+
+</div>
 
 
 
