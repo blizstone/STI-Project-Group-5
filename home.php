@@ -47,8 +47,6 @@ else {
 <body>
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
-  <a href="#news">News</a>
-  <a href="searchnews.php">Search</a>
   <a href="category.php">Categories</a>
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
@@ -89,8 +87,18 @@ $row = mysqli_fetch_assoc($result);
 <?php
 $con = new mysqli("localhost","root","","digiscam");
 $count = 0;
-$query = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName, SUM(`vote`) FROM post INNER JOIN userdata ON userdata.accountId=post.accountId INNER JOIN voting ON voting.postId=post.postId GROUP BY postId");
-foreach($query as $row){
+$query = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId");
+$query_vote = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName, SUM(`vote`) FROM post INNER JOIN userdata ON userdata.accountId=post.accountId INNER JOIN voting ON voting.postId=post.postId GROUP BY postId");
+
+while($row = mysqli_fetch_assoc($query_vote)) {
+  $vote_row[] = $row;
+}
+
+?>
+<div class="container-fluid">
+  <div class="row">
+<?php
+foreach($vote_row as $row){
  $count++;
  ?>
     <div class="col-md-6">
@@ -103,41 +111,14 @@ foreach($query as $row){
       </div>
     </div>
 
- echo "<form name='form' method='post' action='post_details.php'>";
- echo "<table width='100%'>";
- echo "<tr>";
- echo "<td>";
- echo "<section id='grid-container'>";
- echo "<div class='card'>";
- $postId= $row['postId'];
- echo "<input type='hidden' name='post_array' value=". $postId .">";
- 
-  echo "<div class='row'>";
- echo "<div class='span'>";
- echo"<p>voting:<br>".$row['SUM(`vote`)']."<p>";
- echo" </div>";        
-
- echo"<p>". $row['UserName'] ."</p>";
- echo"<p>".$row['title'] ."</p>";
- echo"<p>". $row['content'] ."</p>";
- echo"<p>". $row['category']."</p>";
- echo"</div>";
- 
- echo"<input type='submit' id='detailsButton' value='More Details'>";
- echo"</div>
- </div>
-  </section>
- </td>
- </tr>
- </table>
- </form>";
-?>
 <?php
 if($count == 3) { // three items in a row
        
         $count = 0;
     }
 } ?>
+  </div>
+</div>
 <div id="templates" class="hidden">
 <div class="upvotejs">
 <br>
