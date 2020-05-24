@@ -18,9 +18,8 @@ else
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/main.css">
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
-  <script src="dist/upvote/upvote.vanilla.js"></script>
-  <link rel="stylesheet" href="dist/upvote/upvote.css">
-  
+  <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/login2.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
     <link rel="stylesheet" href="dist/upvotejs/upvotejs.css">
@@ -43,7 +42,8 @@ else
   <a href="#news">News</a>
   
   <a href="adminupdate.php">Members</a>  
-  <a href="logout.php">Logout</a>
+  <div class="pull-right"><a href="logout.php">Logout</a></div>
+
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
