@@ -25,3 +25,4 @@ else {
         $search = mysqli_escape_string($con, $_POST['search']);
         $sql = "SELECT * post";
     }
+?>
