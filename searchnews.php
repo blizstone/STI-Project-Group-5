@@ -14,9 +14,7 @@ else {
 
 ?>
 
-<?php
-    include 'header.php'
-?>
+
 
 <form action="search.php" method="$_POST">
     <input type="text" name="search" placeholder="Search">
