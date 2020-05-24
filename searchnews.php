@@ -15,6 +15,9 @@ else {
 ?>
 
 <html>
+    <head>
+        
+    </head>
 <body>
 <form action="search.php" method="$_POST">
     <input type="text" name="search" placeholder="Search">
