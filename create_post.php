@@ -19,12 +19,17 @@ else {
 <html>
 	<head>
 	<title>STI scam alert site</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general stylesheet -->
+	 
+	
+    <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/login2.css">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-  <script src="dist/upvote/upvote.vanilla.js"></script>
-  <link rel="stylesheet" href="dist/upvote/upvote.css">
+ 
+  
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
@@ -45,30 +50,50 @@ else {
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="category.php">Categories</a>
-  <a href="#news">News</a>
-  <a href="create_post.php">Create</a>
+	<a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
-  <a href="logout.php">logout</a>
+  <div class="pull-right"><a href="logout.php">Logout</a></div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
 </div>
 </body>
-
-	<section id="createlist-container">
-		<form action="input_post.php" id="" method="post">
-		<p class="newlist-labels" >Title</p>
-		<input type="text" name="title" >
-		<p class="newlist-labels">Content</p>
-		<input type="text" name="content" >
-		<!--<p class="newlist-labels">Voting</p>
-		<input type="number" name="votting" >-->
-		<p class="newlist-labels">Category</p>
-		<input type="text" name="category" ><br>
-		<br>
-		<input type="submit" id="newlist-submit" value="Submit"> 
-		</form>
-	</section>
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="tile">
+				<h3 class="tile-title">Create Post</h3>
+				<div class="tile-body">
+					<form action='input_post.php' method='post'>
+						<input type='hidden' name='post_update'>
+						<div class="form-group">
+							<label class="control-label">Title</label>
+							<input class="form-control" name="title" type="text" placeholder="Enter Title" required>
+						</div>
+						<div class="form-group">
+							<label for="exampleSelect1">Select Category</label>
+							<select class="form-control" name="category" id="exampleSelect1" required>
+								
+								<option>Apple Scam</option>
+								<option>Credit Card Scam</option>
+								<option>Love Scam</option>
+								<option>Other Online Scams</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Content</label>
+							<textarea class="form-control" name="content" rows="4" placeholder="Enter your content" required></textarea>
+						</div>
+						<div class="tile-footer">
+							<button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle" ></i>Create</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 
 </html>
