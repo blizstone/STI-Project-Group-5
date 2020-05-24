@@ -11,15 +11,47 @@ else
 }
 ?>
 <html>
+	<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>STI scam alert site</title>
+	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
+  <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/login2.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
+
+    <link rel="stylesheet" href="dist/upvotejs/upvotejs.css">
+	<script>//navbar script
+		/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+		function myFunction() {
+  		var x = document.getElementById("myTopnav");
+  		if (x.className === "topnav") {
+    	x.className += " responsive";
+  		} else {
+    	x.className = "topnav";
+  		}
+	}
+	</script>
+</head>
+
+<body>
 <div class="topnav" id="myTopnav">
-  <a href="home.php" class="active">Home</a>
+  <a href="adminhome.php" class="active">Home</a>
   <a href="#news">News</a>
-  <a href="adminupdate.php">Members</a>
-  <a href="logout.php">Logout</a>
+  
+  <a href="adminupdate.php">Members</a>  
+  <div class="pull-right"><a href="logout.php">Logout</a></div>
+
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
-  <link rel="stylesheet" href="stylesheetcss">
+
+  
+</div>
+  
+  
 
 </div>
 <body>
@@ -52,6 +84,7 @@ if (!$con){
 
 <form action="adminq3.php" method ="POST" name="listall" style="color: black">
 <style>
+
 table, td, th {  
   border: 1px solid #ddd;
   text-align: left;
