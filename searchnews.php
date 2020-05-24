@@ -14,30 +14,66 @@ else {
 
 ?>
 
-
-
+<html>
+<body>
 <form action="search.php" method="$_POST">
     <input type="text" name="search" placeholder="Search">
     <button type="submit" name="submit-search"></button>
 </form>
 
-<div class="article-container">
-    <?php
-        $sql = "SELECT * FROM post";
-        $result = mysqli_query($con, $sql);
-        $queryResults = mysqli_num_rows($result);
+<?php
+$con = new mysqli("localhost","root","","digiscam");
+$count = 0;
+$query = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId");
+$sql = mysqli_query($con,"SELECT SUM(`vote`) FROM voting GROUP BY postId");
+foreach($query as $row){
+  foreach($sql as $votes){
+ $count++;
 
-        if ($queryResults > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<div>
-                    <h3>".$row['postId']."</h3>
-                    <p>".$row['accountId']."</p>
-                    <p>".$row['title']."</[p]>
-                    <p>".$row['content']."</[p]>
-                    <p>".$row['category']."</[p]>
-                </div>";
+ echo "<form name='form' method='post' action='post_details.php'>";
+ echo "<table width='100%'>";
+ echo "<tr>";
+ echo "<td>";
+ echo "<section id='grid-container'>";
+ echo "<div class='card'>";
+ $postId= $row['postId'];
+ echo "<input type='hidden' name='post_array' value=". $postId .">";
+  echo "<div class='row'>";
+ echo "<div class='span1'>";
+ echo"<p>voting:<br>".$votes['SUM(`vote`)']."<p>"; 
+ echo" </div>";
 
-            }
-        }
-    ?>
-</div>
+ echo"<p>". $row['UserName'] ."</p>";
+ echo"<p>".$row['title'] ."</p>";
+ echo"<p>". $row['content'] ."</p>";
+ echo"<p>". $row['category']."</p>";
+ echo"</div>";
+ 
+ echo"<input type='submit' id='detailsButton' value='More Details'>";
+ echo"</div>
+ </div>
+  </section>
+ </td>
+ </tr>
+ </table>
+ </form>";
+  ?>
+  
+<?php
+if($count == 3) { // three items in a row
+        echo '</tr><tr>';
+        $count = 0;
+    }
+} }?>
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+
