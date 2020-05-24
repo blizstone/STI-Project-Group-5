@@ -11,18 +11,21 @@ else {
 
 $con = new mysqli("localhost","root","","digiscam");
 
-$sql=$con->prepare("SELECT MAX(postId) FROM post");
-$sql->bind_result($postId);
-$sql->execute();
+$count = 0;
+$query = mysqli_query($con,"SELECT * FROM `post`");
+foreach($query as $row){
+ $count++;
+}
 
 $accountId=intval($_SESSION['accountId']);
+$postId=$count;
 $vote=0;
 
 $query= $con->prepare("INSERT INTO `voting`( `accountId`, `postId`, `vote`) VALUES (?,?,?)");
-$queryl->bind_param("iii",$accountId,$postId,$vote);
+$query->bind_param("iii",$accountId,$postId,$vote);
 $query->execute();
 
-header("home.php");
+header('Location: home.php');
 exit;
 
 ?>
