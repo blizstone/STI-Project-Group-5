@@ -58,42 +58,21 @@ else {
   </a>
 </div>
 </body>
-<div class="container mt-5">
-	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
-			<div class="tile">
-				<h3 class="tile-title">Create Post</h3>
-				<div class="tile-body">
-					<form action='input_post.php' method='post'>
-						<input type='hidden' name='post_update'>
-						<div class="form-group">
-							<label class="control-label">Title</label>
-							<input class="form-control" name="title" type="text" placeholder="Enter Title" required>
-						</div>
-						<div class="form-group">
-							<label for="exampleSelect1">Select Category</label>
-							<select class="form-control" name="category" id="exampleSelect1" required>
-								
-								<option>Apple Scam</option>
-								<option>Credit Card Scam</option>
-								<option>Love Scam</option>
-								<option>Other Online Scams</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label class="control-label">Content</label>
-							<textarea class="form-control" name="content" rows="4" placeholder="Enter your content" required></textarea>
-						</div>
-						<div class="tile-footer">
-							<button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle" ></i>Create</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+
+	<section id="createlist-container">
+		<form action="input_post.php" id="" method="post">
+		<p class="newlist-labels" >Title</p>
+		<input type="text" name="title" >
+		<p class="newlist-labels">Content</p>
+		<input type="text" name="content" >
+		<!--<p class="newlist-labels">Voting</p>
+		<input type="number" name="voting" >-->
+		<p class="newlist-labels">Category</p>
+		<input type="text" name="category" ><br>
+		<br>
+		<input type="submit" id="newlist-submit" value="Submit"> 
+		</form>
+	</section>
 </body>
 
 </html>
