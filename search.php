@@ -14,4 +14,8 @@ else {
 
 ?>
 
+<?php
+    include 'header.php'
+?>
+
 <h1>Search Page</h1>
