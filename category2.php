@@ -1,5 +1,5 @@
 <?php
-include 'DBController.php';
+include 'config.php';
 $db_handle = new DBController();
 $countryResult = $db_handle->runQuery("SELECT DISTINCT Country FROM tbl_user ORDER BY Country ASC");
 ?>
