@@ -28,6 +28,10 @@ else {
         $queryResult = mysqli_num_rows($result);
 
         if ($queryResult > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                
+
+            }
 
         } else {
             echo "There are no results matching your search";
