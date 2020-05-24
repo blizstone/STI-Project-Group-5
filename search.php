@@ -35,6 +35,7 @@ else {
 
         } else {
             echo "There are no results matching your search";
+            
         }
     }
 ?>
