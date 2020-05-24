@@ -23,6 +23,7 @@ else {
 <?php
     if (isset($_POST['submit-search'])){
         $search = mysqli_escape_string($con, $_POST['search']);
-        $sql = "SELECT * FROM post WHERE title LIKE '%$search%' OR content LIKE '%$search%' OR category LIKE '%$search%' ";
+        $sql = "SELECT * FROM post WHERE postId LIKE '%$search%' OR accountId LIKE '%$search%' OR title LIKE '%$search%' 
+        ";
     }
 ?>
