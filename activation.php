@@ -3,8 +3,13 @@ $con = mysqli_connect("localhost","root","","digiscam");
 if (!$con){
     die('Could not connect: ' . mysqli_connect_errno());
 }
+if(!isset($_GET['eid']) && !isset($_GET['token'])) 
+    header("Location: index.php");
+    else {
 
+    
     if(isset($_GET['eid']) && isset($_GET['token'])) {
+        
         $validation_key = $_GET['token'];
         $email =($_GET['eid']);
 
@@ -16,8 +21,9 @@ if (!$con){
         echo "Email verified";
         else{
         echo $query->error;
-         echo "error";
+         
+        echo "error";
     }
- 
+}
 }
 ?>
