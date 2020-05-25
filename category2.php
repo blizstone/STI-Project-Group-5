@@ -26,6 +26,20 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 <title>Categories</title>
 </head>
 <body>
+<body>
+<div class="topnav" id="myTopnav">
+  <a href="home.php" class="active">Home</a>
+  <a href="category2.php">Categories</a>
+  <a href="searchnews.php">Search</a>
+  <a href="create_post.php">Create</a>
+  <a href="viewprofile.php">Account</a> 
+  <div class="pull-right"><a href="logout.php">Logout</a></div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+
+  
+</div>
     <h2>Select Category</h2>
     <form method="POST" name="search" action="category2.php">
         <div id="demo-grid">
