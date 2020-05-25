@@ -21,7 +21,6 @@ if (!$con){
 $accountId=intval($_SESSION['accountId']);
 $title = $_POST['title'];
 $content = $_POST['content'];
-//$price = $_POST["price"];
 $category = $_POST['category'];
 
 $query= $con->prepare("INSERT INTO `post`(`accountId`, `title`, `content`, `category`) 
