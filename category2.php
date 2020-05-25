@@ -13,12 +13,12 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
     <form method="POST" name="search" action="category2.php">
         <div id="demo-grid">
             <div class="search-box">
-                <select id="Place" name="country[]" multiple="multiple">
+                <select id="Place" name="category[]" multiple="multiple">
                     <option value="0" selected="selected">Select Category</option>
                         <?php
                         if (! empty($categoryResult)) {
                             foreach ($categoryResult as $key => $value) {
-                                echo '<option value="' . $categoryResult[$key]['Country'] . '">' . $categoryResult[$key]['Country'] . '</option>';
+                                echo '<option value="' . $categoryResult[$key]['Category'] . '">' . $categoryResult[$key]['Category'] . '</option>';
                             }
                         }
                         ?>
@@ -27,15 +27,17 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
             </div>
             
                 <?php
-                if (! empty($_POST['country'])) {
+                if (! empty($_POST['category'])) {
                     ?>
                     <table cellpadding="10" cellspacing="1">
 
                 <thead>
                     <tr>
-                        <th><strong>Name</strong></th>
-                        <th><strong>Gender</strong></th>
-                        <th><strong>Country</strong></th>
+                        <th><strong>Post Id</strong></th>
+                        <th><strong>Account Id</strong></th>
+                        <th><strong>Title</strong></th>
+                        <th><strong>Content</strong></th>
+                        <th><strong>Category</strong></th>
                     </tr>
                 </thead>
                 <tbody>
