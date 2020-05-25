@@ -1,7 +1,7 @@
 <?php
 include 'DBController.php';
 $db_handle = new DBController();
-$countryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER BY category ASC");
+$categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER BY category ASC");
 ?>
 <html>
 <head>
@@ -18,7 +18,7 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER 
                         <?php
                         if (! empty($categoryResult)) {
                             foreach ($categoryResult as $key => $value) {
-                                echo '<option value="' . $countryResult[$key]['Country'] . '">' . $countryResult[$key]['Country'] . '</option>';
+                                echo '<option value="' . $categoryResult[$key]['Category'] . '">' . $categoryResult[$key]['Category'] . '</option>';
                             }
                         }
                         ?>
@@ -27,7 +27,7 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER 
             </div>
             
                 <?php
-                if (! empty($_POST['country'])) {
+                if (! empty($_POST['category'])) {
                     ?>
                     <table cellpadding="10" cellspacing="1">
 
@@ -35,24 +35,24 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER 
                     <tr>
                         <th><strong>Name</strong></th>
                         <th><strong>Gender</strong></th>
-                        <th><strong>Country</strong></th>
+                        <th><strong>Category</strong></th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
                     $query = "SELECT * FROM post";
                     $i = 0;
-                    $selectedOptionCount = count($_POST['country']);
+                    $selectedOptionCount = count($_POST['category']);
                     $selectedOption = "";
                     while ($i < $selectedOptionCount) {
-                        $selectedOption = $selectedOption . "'" . $_POST['country'][$i] . "'";
+                        $selectedOption = $selectedOption . "'" . $_POST['category'][$i] . "'";
                         if ($i < $selectedOptionCount - 1) {
                             $selectedOption = $selectedOption . ", ";
                         }
                         
                         $i ++;
                     }
-                    $query = $query . " WHERE country in (" . $selectedOption . ")";
+                    $query = $query . " WHERE category in (" . $selectedOption . ")";
                     
                     $result = $db_handle->runQuery($query);
                 }
