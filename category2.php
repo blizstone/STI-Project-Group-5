@@ -5,7 +5,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 ?>
 <html>
 <head>
-<link href="css/" type="text/css" rel="stylesheet" />
+<link href="css/category.css" type="text/css" rel="stylesheet" />
 <title>Category</title>
 </head>
 <body>
