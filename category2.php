@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 require 'config.php';
 // Check if session is not registered, redirect back to main page.
