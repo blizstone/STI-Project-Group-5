@@ -14,6 +14,13 @@
             $result = mysqli_query($con, $sql);
             $queryResult = mysqli_num_rows($result);
 
+            if ($queryResult) {
+
+
+            } else {
+                echo "There are no results matching your search!";
+            }
+
         }
     ?>
 </div>
