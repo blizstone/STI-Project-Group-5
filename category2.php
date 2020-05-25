@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
-$db_handle = new ConfigController();
-$countryResult = $db_handle->runQuery("SELECT DISTINCT Country FROM tbl_user ORDER BY Country ASC");
+$db_handle = new DBController();
+$countryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER BY category ASC");
 ?>
 <html>
 <head>
@@ -10,7 +10,7 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT Country FROM tbl_user ORD
 </head>
 <body>
     <h2>Multiselect Dropdown Filter</h2>
-    <form method="POST" name="search" action="index.php">
+    <form method="POST" name="search" action="category2.php">
         <div id="demo-grid">
             <div class="search-box">
                 <select id="Place" name="country[]" multiple="multiple">
