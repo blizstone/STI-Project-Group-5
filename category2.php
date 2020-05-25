@@ -5,7 +5,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 ?>
 <html>
 <head>
-<link href="style.css" type="text/css" rel="stylesheet" />
+<link href="css/" type="text/css" rel="stylesheet" />
 <title>Category</title>
 </head>
 <body>
@@ -42,19 +42,19 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                 </thead>
                 <tbody>
                 <?php
-                    $query = "SELECT * from tbl_user";
+                    $query = "SELECT * from post";
                     $i = 0;
-                    $selectedOptionCount = count($_POST['country']);
+                    $selectedOptionCount = count($_POST['category']);
                     $selectedOption = "";
                     while ($i < $selectedOptionCount) {
-                        $selectedOption = $selectedOption . "'" . $_POST['country'][$i] . "'";
+                        $selectedOption = $selectedOption . "'" . $_POST['category'][$i] . "'";
                         if ($i < $selectedOptionCount - 1) {
                             $selectedOption = $selectedOption . ", ";
                         }
                         
                         $i ++;
                     }
-                    $query = $query . " WHERE country in (" . $selectedOption . ")";
+                    $query = $query . " WHERE category in (" . $selectedOption . ")";
                     
                     $result = $db_handle->runQuery($query);
                 }
@@ -62,9 +62,11 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                     foreach ($result as $key => $value) {
                         ?>
                 <tr>
-                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['Name']; ?></div></td>
-                        <td><div class="col" id="user_data_2"><?php echo $result[$key]['Gender']; ?> </div></td>
-                        <td><div class="col" id="user_data_3"><?php echo $result[$key]['Country']; ?> </div></td>
+                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['Post Id']; ?></div></td>
+                        <td><div class="col" id="user_data_2"><?php echo $result[$key]['Account Id']; ?> </div></td>
+                        <td><div class="col" id="user_data_3"><?php echo $result[$key]['Title']; ?> </div></td>
+                        <td><div class="col" id="user_data_3"><?php echo $result[$key]['Content']; ?> </div></td>
+                        <td><div class="col" id="user_data_3"><?php echo $result[$key]['Category']; ?> </div></td>
                     </tr>
                 <?php
                     }
