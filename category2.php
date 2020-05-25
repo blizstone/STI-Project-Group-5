@@ -29,12 +29,12 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                 <?php
                 if (! empty($_POST['category'])) {
                     ?>
-                    <table cellpadding="10" cellspacing="1">
+                    <table cellpadding="20" cellspacing="2">
 
                 <thead>
                     <tr>
-                        <th><strong>Name</strong></th>
-                        <th><strong>Gender</strong></th>
+                        <th><strong>Title</strong></th>
+                        <th><strong>Content</strong></th>
                         <th><strong>Category</strong></th>
                     </tr>
                 </thead>
@@ -60,9 +60,9 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                     foreach ($result as $key => $value) {
                         ?>
                 <tr>
-                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['Name']; ?></div></td>
-                        <td><div class="col" id="user_data_2"><?php echo $result[$key]['Gender']; ?> </div></td>
-                        <td><div class="col" id="user_data_3"><?php echo $result[$key]['Country']; ?> </div></td>
+                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['Title']; ?></div></td>
+                        <td><div class="col" id="user_data_2"><?php echo $result[$key]['Content']; ?> </div></td>
+                        <td><div class="col" id="user_data_3"><?php echo $result[$key]['Category']; ?> </div></td>
                     </tr>
                 <?php
                     }
