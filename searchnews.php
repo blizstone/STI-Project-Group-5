@@ -20,7 +20,10 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<div>
                     <h3>".$row['postId']."</h3>
-                    <h3>".$row['postId']."</h3>
+                    <p>".$row['accountId`']."</p>
+                    <p>".$row['title']."</p>
+                    <p>".$row['content']."</p>
+                    <p>".$row['category']."</p>
                 </div>";
 
             } 
