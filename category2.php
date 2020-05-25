@@ -1,12 +1,12 @@
 <?php
 include 'config.php';
 $db_handle = new DBController();
-$countryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER BY category ASC");
+$categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER BY category ASC");
 ?>
 <html>
 <head>
 <link href="style.css" type="text/css" rel="stylesheet" />
-<title>Multiselect Dropdown Filter</title>
+<title>Category</title>
 </head>
 <body>
     <h2>Multiselect Dropdown Filter</h2>
@@ -14,11 +14,11 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER 
         <div id="demo-grid">
             <div class="search-box">
                 <select id="Place" name="country[]" multiple="multiple">
-                    <option value="0" selected="selected">Select Country</option>
+                    <option value="0" selected="selected">Select Category</option>
                         <?php
-                        if (! empty($countryResult)) {
-                            foreach ($countryResult as $key => $value) {
-                                echo '<option value="' . $countryResult[$key]['Country'] . '">' . $countryResult[$key]['Country'] . '</option>';
+                        if (! empty($categoryResult)) {
+                            foreach ($categoryResult as $key => $value) {
+                                echo '<option value="' . $categoryResult[$key]['Country'] . '">' . $categoryResult[$key]['Country'] . '</option>';
                             }
                         }
                         ?>

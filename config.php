@@ -44,7 +44,7 @@ class DBController {
 	private $host = "localhost";
 	private $user = "root";
 	private $password = "";
-	private $database = "phpsamples";
+	private $database = "digiscam";
 	private $conn;
 	
         function __construct() {
