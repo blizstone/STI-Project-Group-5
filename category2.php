@@ -15,7 +15,7 @@ else {
 ?>
 
 <?php
-include 'config.php';
+
 $db_handle = new DBController();
 $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER BY category ASC");
 ?>
