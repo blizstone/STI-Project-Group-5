@@ -14,10 +14,16 @@
             $result = mysqli_query($con, $sql);
             $queryResult = mysqli_num_rows($result);
 
-            if ($queryResult) {
+            if ($queryResult > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    
+                }
 
 
-            } else {
+
+            } 
+            
+            else {
                 echo "There are no results matching your search!";
             }
 
