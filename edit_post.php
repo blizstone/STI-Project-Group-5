@@ -86,7 +86,7 @@ foreach($query as $row){
 				<div class="tile-body">
 					<strong class="tile-title">username: </strong><span class="control-label"><?php echo $userName; ?></span>
 					<form action='update_post.php' method='post'>
-						<input type='hidden' name='post_update' value="<?=$postId ?>">
+						<input type='hidden' name='post_update' value="$postId ?>">
 						<div class="form-group">
 							<label class="control-label">Title</label>
 							<input class="form-control" name="title" type="text" value="<?= $title; ?>" placeholder="Enter Title">

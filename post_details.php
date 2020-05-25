@@ -85,7 +85,7 @@ foreach($query as $row){
 			<div class="tile">
 				<div class="tile-title-w-btn">
 					<h3 class="title">Details</h3>
-					<div class="btn-group"><a class="btn btn-info" href="edit_post.php?id=<?=$postId?>"><i class="fa fa-lg fa-edit"></i>Edit</a><a class="btn btn-danger" href="delete_post.php?id=<?=$postId?>"><i class="fa fa-lg fa-trash"></i>Delete</a></div>
+					<div class="btn-group"><a class="btn btn-info" href="edit_post.php?id=<?php echo $postId?>"><i class="fa fa-lg fa-edit"></i>Edit</a><a class="btn btn-danger" href="delete_post.php?id=<?=$postId?>"><i class="fa fa-lg fa-trash"></i>Delete</a></div>
 				</div>
 				<div class="tile-body">
 					<span class="details-labels">Username: </span><span class="details-content"><?= !empty($userName)?$userName:"No User"; ?></span><br><br>
@@ -93,9 +93,9 @@ foreach($query as $row){
 					<span class="details-labels">Content: </span><span class="details-content"><?= !empty($content)?$content:"No User"; ?></span><br><br>
 					<span class="details-labels">Category: </span><span class="details-content"><?= !empty($category)?$category:"No User"; ?></span><br><br>
 				</div>
-				<input type='hidden' name='updatevote' value=<?=$postId?>>
+				<input type='hidden' name='updatevote' value=<?php echo $postId?>>
 				<form action="inputvote.php" id="" method="post" >
-					<input type='hidden' name='post' value=<?=$postId?>>
+					<input type='hidden' name='post' value=<?php echo $postId?>>
 					<p class="newlist-submit">vote</p>
 					<button class="btn btn-primary" type="submit" name="vote" value= 1 >up</button>
 					<p class="newlist-submit"></p>
