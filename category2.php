@@ -1,4 +1,22 @@
 <?php
+require 'config.php';
+// Check if session is not registered, redirect back to main page.
+// Put this code in first line of web page.
+session_start();
+if (($_SESSION['logged_in'] == '1')) {
+   
+}  else if(($_SESSION['logged_in'] == '2')){
+	header("Location: adminhome.php");
+}
+else {
+        header("location:index.php");
+}
+
+?>
+
+
+
+<?php
 include 'DBController.php';
 $db_handle = new DBController();
 $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER BY category ASC");
@@ -6,7 +24,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 <html>
 <head>
 <link href="css/category.css" type="text/css" rel="stylesheet" />
-<title>Multiselect Dropdown Filter</title>
+<title>Categories</title>
 </head>
 <body>
     <h2>Multiselect Dropdown Filter</h2>
