@@ -29,12 +29,12 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
     <form method="POST" name="search" action="category2.php">
         <div id="demo-grid">
             <div class="search-box">
-                <select id="Place" name="category[]" multiple="multiple">
+                <select id="Place" name="Category[]" multiple="multiple">
                     <option value="0" selected="selected">Select Category</option>
                         <?php
                         if (! empty($categoryResult)) {
                             foreach ($categoryResult as $key => $value) {
-                                echo '<option value="' . $categoryResult[$key]['Category'] . '">' . $categoryResult[$key]['Category'] . '</option>';
+                                echo '<option value="' . $categoryResult[$key]['category'] . '">' . $categoryResult[$key]['category'] . '</option>';
                             }
                         }
                         ?>
@@ -43,7 +43,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
             </div>
             
                 <?php
-                if (! empty($_POST['category'])) {
+                if (! empty($_POST['Category'])) {
                     ?>
                     <table cellpadding="20" cellspacing="2">
 
@@ -58,17 +58,17 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                 <?php
                     $query = "SELECT * FROM post";
                     $i = 0;
-                    $selectedOptionCount = count($_POST['category']);
+                    $selectedOptionCount = count($_POST['Category']);
                     $selectedOption = "";
                     while ($i < $selectedOptionCount) {
-                        $selectedOption = $selectedOption . "'" . $_POST['category'][$i] . "'";
+                        $selectedOption = $selectedOption . "'" . $_POST['Category'][$i] . "'";
                         if ($i < $selectedOptionCount - 1) {
                             $selectedOption = $selectedOption . ", ";
                         }
                         
                         $i ++;
                     }
-                    $query = $query . " WHERE category in (" . $selectedOption . ")";
+                    $query = $query . " WHERE Category in (" . $selectedOption . ")";
                     
                     $result = $db_handle->runQuery($query);
                 }
