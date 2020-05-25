@@ -66,7 +66,7 @@ else {
 				<h3 class="tile-title">Create Post</h3>
 				<div class="tile-body">
 					<form action='input_post.php' method='post'>
-						<input type='hidden' name='post_update'>
+						
 						<div class="form-group">
 							<label class="control-label">Title</label>
 							<input class="form-control" name="title" type="text" placeholder="Enter Title" required>
