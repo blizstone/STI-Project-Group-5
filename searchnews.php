@@ -6,3 +6,26 @@
     <input type="text" name="search" placeholder="Search">
     <button type="submit" name="submit-search"></button>
 </form>
+
+<h1>Search Page</h1>
+<h2>User Posts:</h2>
+
+<div class="article-container">
+    <?php
+        $sql = "SELECT * FROM post";
+        $result = mysqli_query($con, $sql);
+        $queryResults = mysqli_num_rows($result);
+
+        if ($queryResults > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<div>
+                    <h3>".$row['postId']."</h3>
+                    
+                </div>";
+
+            } 
+
+        }
+    ?>
+
+</div>
