@@ -45,17 +45,17 @@ class DBController {
 	private $user = "root";
 	private $password = "";
 	private $database = "digiscam";
-	private $conn;
+	private $con;
 	
         function __construct() {
-        $this->conn = $this->connectDB();
+        $this->con = $this->connectDB();
 	}	
 	function connectDB() {
-		$conn = mysqli_connect($this->host,$this->user,$this->password,$this->database);
-		return $conn;
+		$con = mysqli_connect($this->host,$this->user,$this->password,$this->database);
+		return $con;
 	}
         function runQuery($query) {
-                $result = mysqli_query($this->conn,$query);
+                $result = mysqli_query($this->con,$query);
                 while($row=mysqli_fetch_assoc($result)) {
                 $resultset[] = $row;
                 }		
