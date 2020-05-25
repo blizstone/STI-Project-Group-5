@@ -53,6 +53,7 @@ if (!$con){
   <a href="category.php">Categories</a>
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
+  <div class="pull-right"><a href="logout.php">Logout</a></div>
   
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
