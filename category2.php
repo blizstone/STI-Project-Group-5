@@ -60,7 +60,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                 <?php
                 if (! empty($_POST['Category'])) {
                     ?>
-                    <table cellpadding="20" cellspacing="2">
+                    <table cellpadding="30" cellspacing="2">
 
                 <thead>
                     <tr>
