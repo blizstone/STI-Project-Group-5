@@ -108,7 +108,12 @@ foreach($vote_row as $row){
         <div class="tile-body"><?=$row['content'];?></div>
         <div class="tile-body"><?=!empty($row['category'])?$row['category']:"No Category";?></div>
         <strong class="tile-footer pull-right"><?=!empty($row['UserName'])?$row['UserName']: "No User";?></strong>
-        <div class="tile-footer"><a class="btn btn-info" href="post_details.php?id=<?php echo $row['postId']?>">More Details</a></div>
+        <div class="tile-footer">
+          <form action="post_details.php" method="post">
+            <input type="hidden" name="id" value="<?= $row['postId']?>">
+            <button class="btn btn-info">More Details</button>
+          </form>
+        </div>
       </div>
     </div>
 

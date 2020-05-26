@@ -60,7 +60,7 @@ else {
 
 $con = new mysqli("localhost","root","","digiscam");
 
-$postId=$_GET['post'];
+$postId=$_POST['id'];
 
 $query= $con->prepare("SELECT post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId WHERE postId=?");
 $query->bind_param("i",$postId);

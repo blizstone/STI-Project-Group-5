@@ -59,7 +59,7 @@ else {
 
 $con = new mysqli("localhost","root","","digiscam");
 
-$postId=$_GET['id'];
+$postId=$_POST['id'];
 
 $query= $con->prepare("SELECT post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId WHERE postId=?");
 $query->bind_param("i",$postId);
@@ -85,7 +85,16 @@ foreach($query as $row){
 			<div class="tile">
 				<div class="tile-title-w-btn">
 					<h3 class="title">Details</h3>
-					<div class="btn-group"><a class="btn btn-info" href="edit_post.php?id=<?php echo $postId?>"><i class="fa fa-lg fa-edit"></i>Edit</a><a class="btn btn-danger" href="delete_post.php?id=<?=$postId?>"><i class="fa fa-lg fa-trash"></i>Delete</a></div>
+					<div class="btn-group">
+						<form action="edit_post.php" method="post">
+							<input type="hidden" name="id" value="<?= $postId?>">
+							<button class="btn btn-info"><i class="fa fa-lg fa-edit"></i>Edit</button>
+						</form>
+						<form action="delete_post.php" method="post">
+							<input type="hidden" name="post_delete" value="<?= $postId?>">
+							<button class="btn btn-danger"><i class="fa fa-lg fa-trash"></i>Delete</button>
+						</form>
+					</div>
 				</div>
 				<div class="tile-body">
 					<span class="details-labels">Username: </span><span class="details-content"><?= !empty($userName)?$userName:"No User"; ?></span><br><br>
