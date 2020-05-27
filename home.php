@@ -14,8 +14,6 @@ else {
 
 ?>
 
-
-
 <html>
 	<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,7 +42,7 @@ else {
 	</script>
 </head>
 
-<body>
+
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="category2.php">Categories</a>
