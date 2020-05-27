@@ -25,6 +25,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 <link href="css/category.css" type="text/css" rel="stylesheet" />
 <title>Categories</title>
 </head>
+
 <body>
 <body>
 <div class="topnav" id="myTopnav">
