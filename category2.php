@@ -91,9 +91,9 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                     foreach ($result as $key => $value) {
                         ?>
                 <tr>
-                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['Title']; ?></div></td>
-                        <td><div class="col" id="user_data_2"><?php echo $result[$key]['Content']; ?> </div></td>
-                        <td><div class="col" id="user_data_3"><?php echo $result[$key]['Category']; ?> </div></td>
+                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['title']; ?></div></td>
+                        <td><div class="col" id="user_data_2"><?php echo $result[$key]['content']; ?> </div></td>
+                        <td><div class="col" id="user_data_3"><?php echo $result[$key]['category']; ?> </div></td>
                     </tr>
                 <?php
                     }
