@@ -102,8 +102,8 @@ foreach($query as $row){
 					<span class="details-labels">Content: </span><span class="details-content"><?= !empty($content)?$content:"No User"; ?></span><br><br>
 					<span class="details-labels">Category: </span><span class="details-content"><?= !empty($category)?$category:"No User"; ?></span><br><br>
 				</div>
-				<input type='hidden' name='updatevote' value=<?php echo $postId?>>
-				<form action="inputvote.php" id="" method="post" >
+		
+				<form action="vote.php" id="" method="post" >
 					<input type='hidden' name='post' value=<?php echo $postId?>>
 					<p class="newlist-submit">vote</p>
 					<button class="btn btn-primary" type="submit" name="vote" value= 1 >up</button>
