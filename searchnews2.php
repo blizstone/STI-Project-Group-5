@@ -20,7 +20,7 @@ else {
 <html>
     <head>
         <title>Search For Content</title>
-        <link rel="stylesheet" href="css/search2.css" />
+        <link rel="stylesheet" href="css/search.css" />
         <script type="text/javascript">
 
         </script>
