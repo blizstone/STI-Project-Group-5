@@ -16,6 +16,7 @@ else {
 
 
 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -53,10 +54,17 @@ else {
         </form>
         <?php
             $query = mysql_query("SELECT * FROM post");
-            $num_rows = mysqli_num_rows($query);
+            $num_rows = mysql_num_rows($query);
 
-            echo $num_rows
+            while($row = mysql_fetch_array($query)){
+                $postId = $row['postId'];
+                $accountId = $row['accountId'];
+                $title = $row['title'];
+                $content = $row['content'];
+                $category = $row['category'];
 
+                echo $postId . '' . $accountId . '' . $title . '' . $content . '' . $category .'<br />';
+            }
         ?>
 
 
