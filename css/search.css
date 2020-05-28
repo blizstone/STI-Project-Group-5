@@ -30,3 +30,7 @@
     border-bottom-right-radius: 10px;
 
 }
+
+#searchBtn:hover {
+    background: #f6e049;
+}
