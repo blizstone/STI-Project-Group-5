@@ -49,7 +49,13 @@ else {
             <input type="text" id="searchBar" placeholder="" value="Search..." maxlength="25" autocomplete="on" onmousedown="active();" onblur="inactive();" /><input type="submit" id="searchBtn" value="Go!" />
 
 
+
         </form>
+        <?php
+            $query = mysqli_query("SELECT * FROM post");
+        ?>
+
+
     </body>
 
 </html>
