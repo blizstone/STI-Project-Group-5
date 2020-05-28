@@ -1,29 +1,19 @@
-body {
-    background-color: #f3f3f3;
-    font-family: arial;
+#searchBar {
+    border: 1px solid #FFFFFF; 
+    font-size: 16px;
+    padding: 10px;
+    outline: none;
+    width: 250px; 
+
 }
 
-.article-container{
-    width: 900px;
-    background-color: #fff;
-    padding: 30px;
-}
+#searchBtn {
+    border: 1px solid #FFFFFF;
+    font-size: 16px;
+    padding: 10px;
+    background: #f1d829;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
 
-.article-box {
-    padding-bottom: 30px;
-    width: 100%;
-}
-
-input {
-    padding: 0px 20px;
-    width: 300px;
-    height: 40px;
-    font-size: 22px;
-}
-
-button {
-    
-    width: 100px;
-    height: 44px;
-    font-size: 22px;
 }
