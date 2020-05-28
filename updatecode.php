@@ -6,7 +6,7 @@ require_once("includes/functions.php");
 session_start();
 if (($_SESSION['logged_in'] == '1')) {
 }else {
-        header("location:mjo.php");
+        header("location:index.php");
 }
 $con = mysqli_connect("localhost","root","","digiscam");
 if (!$con){
