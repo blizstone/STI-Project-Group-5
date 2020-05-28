@@ -40,6 +40,7 @@ class db{
 ?>
 
 <?php
+//for category filter
 class DBController {
 	private $host = "localhost";
 	private $user = "root";
@@ -64,3 +65,5 @@ class DBController {
 	}
 }
 ?>
+
+

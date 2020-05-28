@@ -14,48 +14,40 @@ else {
 
 ?>
 
+<?php
+    include 'header.php';
+    $conn = mysqli_connect("localhost","root","","digiscam");
+?>
+
+<form action="search2.php" method="POST">
+    <input type="text" name="search" placeholder="Search">
+    <button type="submit" name="submit-search">Search</button>
+</form>
+
+<h1>Search Page</h1>
+<h2>Different Posts</h2>
+
+<div class="article-container">
+    <?php
+        $sql = "SELECT * FROM post";
+        $result = mysqli_query($conn, $sql);
+        $queryResults = mysqli_num_rows($result);
+
+        if ($queryResults > 0){
+            while ($row = mysqli_fetch_assoc($result)){
+                echo "<div class='article-box'>
+                    <p>".$row['postId']."</p>
+                    <p>".$row['accountId']."</p>
+                    <p>".$row['title']."</p>
+                    <p>".$row['content']."</p>
+                    <h3>".$row['category']."</h3>
+                </div>";
 
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Search For Content</title>
-        <link rel="stylesheet" href="css/search.css" />
-        <script type="text/javascript">
-            function active(){
-                var searchBar = document.getElementById('searchBar');
-
-                if(searchBar.value == 'Search...'){
-                    searchBar.value = ''
-                    searchBar.placeholder = 'Search...'
-
-                }
             }
 
-            function inactive(){
-                var searchBar = document.getElementById('searchBar');
-
-                if(searchBar.value == ''){
-                    searchBar.value == 'Search...'
-                    searchBar.placeholder = ''
-                }
-            }
-
-        </script>
-    </head>
-
-    <body>
-        <form action="search.php" method="$_POST">
-            <input type="text" id="searchBar" placeholder="" value="Search..." maxlength="25" autocomplete="on" onmousedown="active();" onblur="inactive();" /><input type="submit" id="searchBtn" value="Go!" />
+        }
+    ?>
 
 
-
-        </form>
-        <?php
-            $query = mysqli_query("SELECT * FROM post");
-        ?>
-
-
-    </body>
-
-</html>
+</div>
