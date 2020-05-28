@@ -72,7 +72,8 @@ if(isset($_SESSION["logged_in"])) {
         // Verifying Post password againt stored password
         if(password_verify($storedpass,$hash)){
             if($active==0){
-                echo "<div class='notification'>You are not verified user. Please check your registered email address for the verification Link.</div>";
+                echo $error;
+                $error="You are not verified user. Please check your registered email address for the verification Link";
             }else{
              if($role=='admin' ){
                  $_SESSION["logged_in"] = '2';
@@ -119,10 +120,15 @@ if(isset($_SESSION["logged_in"])) {
 					<span class="login100-form-title-1">
 						Sign In
 					</span>
-				</div>
+                </div>
+                <h2 class="sr-only">Login Form</h2>
+                <br>
+            <?php if ($error) { ?><div>
+            <strong>Verify </strong> : <?php echo htmlentities($error); ?></div>
+            <?php } ?>
     <div class="login100-form validate-form">
         <form method="post">
-            <h2 class="sr-only">Login Form</h2>
+            
            
             <div class="wrap-input100 validate-input m-b-26"><input type="text" class="input100" id="username" name="username"  title="Please enter you username or Email-id" required placeholder="username" ></div>
             <div class="wrap-input100 validate-input m-b-26"><input type="password" class="input100" id="password" name="password" placeholder="Password" value="" required title="Please enter your password"></div>
