@@ -19,17 +19,17 @@ else {
     $conn = mysqli_connect("localhost","root","","digiscam");
 ?>
 
-<form action="search2.php" method="POST">
-    <input type="text" name="search" placeholder="Search">
-    <button type="submit" name="submit-search">Search</button>
-</form>
 
-<h1>Search Page</h1>
-<h2>All Posts</h2>
+
+<h1>Article Page</h1>
+
 
 <div class="article-container">
     <?php
-        $sql = "SELECT * FROM post";
+        $accountId = mysqli_real_escape_string($conn, $_GET['accountId']);
+        $title = mysqli_real_escape_string($conn, $_GET['title']);
+
+        $sql = "SELECT * FROM post WHERE accountId='$accountId' AND title='$title'";
         $result = mysqli_query($conn, $sql);
         $queryResults = mysqli_num_rows($result);
 
