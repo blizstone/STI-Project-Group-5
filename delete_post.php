@@ -39,16 +39,20 @@ if ($accountId != $accountIdPost){
 else{
 
     $con = new mysqli("localhost","root","","digiscam");
-    $query= $con->prepare("DELETE FROM `post` WHERE postId=?");
-    $query->bind_param("i", $postId);
-    $res=$query->execute();
-    if ($res){ //execute query
-        echo "Query executed.";
-    }else{
-        echo "Error executing query.";
-    }
+    $postId=intval($_POST['post_delete']);
 
-    header('Location: home.php');
-    exit;
+    $query1= $con->prepare("Delete from voting where postId = '".$postId."'");
+    $query2= $con->prepare("Delete from post where postId = '".$postId."'");
+    
+    if($query1->execute()) {
+    }else {
+            echo "error 1";
+        }
+        if($query2->execute()) {
+            header('Location: home.php');
+            exit;
+        }else{
+            echo "error 2";
+        }
 }
 ?>
