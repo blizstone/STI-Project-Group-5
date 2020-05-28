@@ -12,16 +12,33 @@ else {
 }
 
 $con = new mysqli("localhost","root","","digiscam");
-if (!$con){
-    echo "connection fail";
-}else {
-    echo "connected";
+
+$postId=intval($_POST['post_delete']);
+
+$sql= $con->prepare("SELECT `accountId` FROM `post` WHERE postId=?");
+$sql->bind_param("i",$postId);
+$sql->bind_result($post_accountId);
+$sql->store_result();
+
+
+$res=$sql->execute();
+if ($res){ //execute query
+    echo "Query executed.";
+}else{
+    echo "Error executing query.";
 }
 
-$postId=$_POST['post_delete'];
+$accountId=intval($_SESSION['accountId']);
+
+if ($accountId != $post_accountId){
+    echo "<script>
+    alert('You are not the creator of the post');
+    window.location.href='home.php';
+    </script>";
+}
+else{
 
 $query= $con->prepare("DELETE FROM `post` WHERE postId=?");
-
 $query->bind_param("i", $postId );
 $res=$query->execute();
 if ($res){ //execute query
@@ -32,5 +49,5 @@ if ($res){ //execute query
 
 header('Location: home.php');
 exit;
-
+}
 ?>

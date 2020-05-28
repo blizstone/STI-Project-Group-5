@@ -51,8 +51,8 @@ else {
 </table>
 <br>
 <br>
-<div class="success"><h1> Guide.. <h1>
-<p>Successfull updation will send an email to Registered email address for proper authentication<br></p></div><br><br>
+<div class="success"><h1> Note.. <h1>
+<p>Up on update you will be logout and have to reverify<br></p></div><br><br>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js">
 
 
