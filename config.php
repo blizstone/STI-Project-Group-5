@@ -40,6 +40,7 @@ class db{
 ?>
 
 <?php
+//for category filter
 class DBController {
 	private $host = "localhost";
 	private $user = "root";
@@ -63,4 +64,13 @@ class DBController {
                 return $resultset;
 	}
 }
+?>
+
+<?php
+	$server = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "digiscam";
+
+	$conn = mysqli_connect()
 ?>
