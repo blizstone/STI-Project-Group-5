@@ -35,7 +35,7 @@ else {
 
         if ($queryResults > 0){
             while ($row = mysqli_fetch_assoc($result)){
-                echo "<a href='postpage.php?postId=".$row['postId']."&title='><div class='article-box'>
+                echo "<a href='postpage.php?accountId=".$row['accountId']."&title=".$row['title']."'><div class='article-box'>
                     <p>".$row['postId']."</p>
                     <p>".$row['accountId']."</p>
                     <p>".$row['title']."</p>
