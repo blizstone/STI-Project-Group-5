@@ -48,7 +48,7 @@ if (!$con){
                 $encode_token = base64_encode(urlencode($token));
                 $email = base64_encode(urlencode($_POST['UserEmail']));
 
-                $expire_date = date("Y-m-d H:i:s", time() + 60 * 20);
+                $expire_date = date("Y-m-d H:i:s", time() + 60 * 2);
                 $expire_date = base64_encode(urlencode($expire_date));   
 
                 $queryt = "UPDATE userdata SET validation_key = '$token' WHERE UserName = '$user_name' AND UserEmail = '$user_email' AND is_active = 1";
@@ -56,7 +56,7 @@ if (!$con){
                 $mail->Body = "
                                             <h2>Follow the following link to reset password</h2>
                                             <a href='localhost/STI-Project-Group-5/new_password.php?eid={$email}&token={$encode_token}&exd={$expire_date}'>Click here to create new password</a>
-                                            <p>This link will expire in 6 minutes.
+                                            <p>This link will expire in 2 minutes.
                                             The expired link will redirect to home page</p>                    ";
             
                 if($mail->send()) {
