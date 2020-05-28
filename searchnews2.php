@@ -35,12 +35,12 @@ else {
 
         if ($queryResults > 0){
             while ($row = mysqli_fetch_assoc($result)){
-                echo "<div>
-                    <h3>".$row['postId']."</h3>
+                echo "<div class='article-box'>
+                    <p>".$row['postId']."</p>
                     <p>".$row['accountId']."</p>
                     <p>".$row['title']."</p>
                     <p>".$row['content']."</p>
-                    <p>".$row['category']."</p>
+                    <h3>".$row['category']."</h3>
                 </div>";
 
 
