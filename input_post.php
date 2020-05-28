@@ -26,7 +26,7 @@ $category = $_POST['category'];
 $query= $con->prepare("INSERT INTO `post`(`accountId`, `title`, `content`, `category`) 
 VALUES (?,?,?,?)");
 
-$query->bind_param("isss", $accountId, $title,$content,$category);
+$query->bind_param("isss", $accountId,$title,$content,$category);
 $res=$query->execute();
 if ($res){ //execute query
     echo "Query executed.";
