@@ -9,9 +9,9 @@
     </head>
 
     <body>
-        <form>
+        <form action="search.php" method="$_POST">
             <input type="text" id="searchBar" placeholder="" value="Search..." maxlength="25" autocomplete="on" onmousedown="" onblur="" />
-            
+
         </form>
     </body>
 
