@@ -52,7 +52,11 @@ else {
 
         </form>
         <?php
-            $query = mysqli_query("SELECT * FROM post");
+            $query = mysql_query("SELECT * FROM post");
+            $num_rows = mysqli_num_rows($query);
+
+            echo $num_rows
+
         ?>
 
 
