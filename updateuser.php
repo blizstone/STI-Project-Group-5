@@ -3,7 +3,7 @@ session_start();
 if (($_SESSION['logged_in'] == '1')) {
 }
 else {
-        header("location:mjo.php");
+        header("location:index.php");
 }?>
 <?php
     $con = mysqli_connect("localhost","root","","digiscam");
@@ -43,10 +43,10 @@ else {
 <form action="updatecode.php" method ="POST">
 <table>
      <tr><th>Full Name:</th><td>Fully can contain Letters Only</td><td><div class="input-container" ><input type="text" class ="write" value="<?=$FullName?>" name="FullName"  pattern="[a-zA-Z\s]+" autocomplete="0ff" required/></td></tr>
-     <tr><th>User Name:</th><td>Username can contain any letters or numbers, without spaces 6 to 12 chars  </td><td><div class="input-container" ><input type="text" id="UserName" value="<?=$UserName?>" name="UserName" autocomplete="0ff"  onBlur="checkUsernameAvailability()" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{5,12}$" title="User must be alphanumeric without spaces 6 to 12 chars" class="input-xlarge" required>
+     <tr><th>User Name:</th><td>Username must contain atleast one number, one letter, and between 6-15 in length</td><td><div class="input-container" ><input type="text" id="UserName" value="<?=$UserName?>" name="UserName" autocomplete="0ff"  onBlur="checkUsernameAvailability()" pattern="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$" title="User must be alphanumeric without spaces 6 to 12 chars" class="input-xlarge" required>
      <tr><th>User Email:</th><td>Provide valide Email</td><td><div class="input-container" ><input type="email" value="<?=$UserEmail?>" name="UserEmail"required autocomplete="0ff" /></td></tr>
-     <tr><th>Mobile Number:</th><td>Please provide valid number</td><td><div class="input-container" ><input type="text" value="<?=$UserMobileNumber?>" name="UserMobileNumber" autocomplete="0ff"  pattern="[0-8]{8}" maxlength="8" required/></td></tr>
-	   <tr><th>User Password:</th><td>Password must contain atleast 4 numbers</td><td><div class="input-container" ><input type="password" name="LoginPassword" autocomplete="0ff"  pattern="^\S{4,}$" required/></td></tr></div>
+     <tr><th>Mobile Number:</th><td>Must be singapore mobile number with country code</td><td><div class="input-container" ><input type="text" value="<?=$UserMobileNumber?>" name="UserMobileNumber" autocomplete="0ff" pattern="65[6|8|9]\d{7}|\+65[6|8|9]\d{7}|\+65\s[6|8|9]\d{7}" maxlength="8" required/></td></tr>
+	   <tr><th>User Password:</th><td>Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters</td><td><div class="input-container" ><input type="password" name="LoginPassword" autocomplete="0ff"  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$" required/></td></tr></div>
      <td><input class="login100-form-btn" action="updatecode.php" method ="POST"  type="submit" value="Update"/></td>	
 </table>
 <br>
@@ -118,7 +118,7 @@ text-align:left;
 
 margin-left: 138px;
 line-height: 70px;
-margin-top: 220px;
+margin-top: 250px;
 }
 th{
 width: 20%;
