@@ -20,7 +20,7 @@ if (($_SESSION['logged_in'] == '1')) {
 
 }
 else {
-        header("location:mjo.php");
+        header("location:index.php");
 }
 
 
