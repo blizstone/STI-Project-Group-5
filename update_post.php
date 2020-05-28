@@ -21,7 +21,6 @@ if (!$con){
 $postId=$_POST['post_update'];
 $title = $_POST['title'];
 $content = $_POST['content'];
-//$price = $_POST["price"];
 $category = $_POST['category'];
 
 $query= $con->prepare("UPDATE post SET title=? , content=? , category=? WHERE postId=?");
