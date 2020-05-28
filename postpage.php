@@ -26,19 +26,22 @@ else {
 
 <div class="article-container">
     <?php
-        $sql = "SELECT * FROM post";
+        $accountId = mysqli_real_escape_string($conn, $_GET['accountId']);
+        $title = mysqli_real_escape_string($conn, $_GET['title']);
+
+        $sql = "SELECT * FROM post WHERE accountId='$accountId' AND title='$title'";
         $result = mysqli_query($conn, $sql);
         $queryResults = mysqli_num_rows($result);
 
         if ($queryResults > 0){
             while ($row = mysqli_fetch_assoc($result)){
-                echo "<a href='postpage.php?accountId=".$row['accountId']."&title=".$row['title']."'><div class='article-box'>
+                echo "<div class='article-box'>
                     <p>".$row['postId']."</p>
                     <p>".$row['accountId']."</p>
                     <p>".$row['title']."</p>
                     <p>".$row['content']."</p>
                     <h3>".$row['category']."</h3>
-                </div><a/>";
+                </div>";
 
 
             }
