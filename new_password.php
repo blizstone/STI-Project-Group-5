@@ -50,12 +50,13 @@
             
                             if($user_pass == $user_con_pass) {
                                 //password validation
-                                $pattern_up = "/^.*(?=.{4,56})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/";
+                               
+                                $pattern_up = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$^";
                                 if(!preg_match($pattern_up, $user_pass)) {
-                                    $errPass = "Must be at lest 4 character long, 1 upper case, 1 lower case letter and 1 number exist";
+                                    $errPass = "Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters";
                                 }
                             } else {
-                                $errPass = "Password dosen't matched";
+                                    $errPass = "Password dosen't matched";
                                 
                                 
 
@@ -118,7 +119,7 @@
 					</span>
             
 			</div>
-            
+         
             <form action="" method="POST">
                 <div class="wrap-input100 validate-input m-b-26">
                     <input type="password" class="input100" placeholder="New password" name="new-password" required <?php echo !isset($check)?"disabled":""; ?>>
@@ -129,8 +130,8 @@
                 
                     <input type="submit" class="login100-form-btn" name="submit" <?php echo !isset($check)?"disabled":""; ?>>
                 <br>
-                <div class = "password" style="font-family: 'Times New Roman', Times, serif">Must be at lest 4 character long, 1 upper case, 1 lower case  and 1 number <br>
-                If you faced any type error please renter by reloading the page. <br>
+                <div class = "password">Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters <br>
+                 <br>
 
                 <br>
                 Thank You!
