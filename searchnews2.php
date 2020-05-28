@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search For Content</title>
+        <link rel="stylesheet" href="css/search2.css" />
+        <script type="text/javascript">
+
+        </script>
+    </head>
+
+    <body>
+        <form>
+            <input type="text" id="searchBar" placeholder="" value="Search..." maxlength="25" autocomplete="on" onmousedown="" onblur="" />
+            
+        </form>
+    </body>
+
+</html>
