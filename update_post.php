@@ -18,7 +18,7 @@ if (!$con){
     echo "connected";
 }
 
-$postId=$_POST['post_update'];
+$postId=intval($_POST['post_update']);
 $title = $_POST['title'];
 $content = $_POST['content'];
 $category = $_POST['category'];
