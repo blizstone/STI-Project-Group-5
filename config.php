@@ -66,11 +66,4 @@ class DBController {
 }
 ?>
 
-<?php
-	$server = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "digiscam";
 
-	$conn = mysqli_connect()
-?>

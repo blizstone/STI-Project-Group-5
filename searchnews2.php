@@ -15,7 +15,8 @@ else {
 ?>
 
 <?php
-    include 'header.php'
+    include 'header.php';
+    $conn = mysqli_connect("localhost","root","","digiscam");
 ?>
 
 <form action="search2.php" method="POST">
@@ -29,7 +30,23 @@ else {
 <div class="article-container">
     <?php
         $sql = "SELECT * FROM post";
-        $result = mysqli_query($con)
+        $result = mysqli_query($conn, $sql);
+        $queryResults = mysqli_num_rows($result);
+
+        if ($queryResults > 0){
+            while ($row = mysqli_fetch_assoc($result)){
+                echo "<div>
+                    <h3>".$row['postId']."</h3>
+                    <p>".$row['accountId']."</p>
+                    <p>".$row['title']."</p>
+                    <p>".$row['content']."</p>
+                    <p>".$row['category']."</p>
+                </div>";
+
+
+            }
+
+        }
     ?>
 
 
