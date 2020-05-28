@@ -7,7 +7,7 @@ if (($_SESSION['logged_in'] == '1')) {
 
 }
 else {
-        header("location:mjo.php");
+        header("location:index.php");
 }
 ?>
 <?php
@@ -85,7 +85,7 @@ table {
 text-align:left;
 
 margin-left: 138px;
-margin-top:200px;
+margin-top:230px;
 line-height: 70px;
 }
 th{
