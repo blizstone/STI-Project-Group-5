@@ -28,8 +28,8 @@ else {
 
     <body>
         <form action="search.php" method="$_POST">
-            <input type="text" id="searchBar" placeholder="" value="Search..." maxlength="25" autocomplete="on" onmousedown="" onblur="" />
-            <input type="submit" id="searchBtn" value="Go!" />
+            <input type="text" id="searchBar" placeholder="" value="Search..." maxlength="25" autocomplete="on" onmousedown="" onblur="" /><input type="submit" id="searchBtn" value="Go!" />
+            
 
         </form>
     </body>
