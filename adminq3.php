@@ -5,7 +5,7 @@ session_start();
 if (($_SESSION['logged_in'] == '2')) {
 }
 else {
-        header("location:mjo.php");
+        header("location:index.php");
 }
 
 //Establish connection to database named mock
@@ -18,16 +18,21 @@ $delete = "Delete";
 
     
     $accountId = $_POST["accountId"];
-
-    $query= $con->prepare("Delete from userdata where accountId = ?");
-    $query->bind_param('s', $accountId ); //bind the parameters
-
-    if ($query->execute()){  //execute query
-		header("Location: adminupdate.php");
-    }else{
-    echo $query->error;
-    echo "Error executing query.";
+    
+    $query1= $con->prepare("Delete from voting where accountId = $accountId");
+    $query2= $con->prepare("Delete from post where accountId = $accountId");
+    $query3= $con->prepare("Delete from userdata where accountId = $accountId");
+    if($query1->execute()) {
+      echo "Done";
+      if($query2->execute()) {
+        if($query3->execute()) {//execute query
+        header("Location: adminupdate.php");
+        }else{
+        echo $query->error;
+        echo "error";
+        }
     }
+  }
     $con->close();
     ?>
   
