@@ -70,14 +70,24 @@ if (voteexist($con, $postId, $accountId) > 0) {
     //Update
     if ($vote == 1) {
         upvote($con, $postId, $accountId);
-        
+        echo "<script>
+        alert('Voted');
+        window.location.href='home.php';
+        </script>";
     } else {
         downvote($con, $postId, $accountId);
+        echo "<script>
+        alert('Voted');
+        window.location.href='home.php';
+        </script>";
     }
 } else {
     //Add
     add($con, $postId, $accountId, $vote);
-    
+    echo "<script>
+    alert('Voted');
+    window.location.href='home.php';
+    </script>";
 }
-header('Location: home.php');
+//header('Location: home.php');
 ?>
