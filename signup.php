@@ -16,9 +16,11 @@ if (isset($_POST['signup'])) {
   $username = $_POST['username'];
   $mobile = $_POST['mobilenumber'];
   $password = $_POST['password'];
-   $email = $_POST['email'];
+  $confirm = $_POST['password_confirm'];
+  $email = $_POST['email'];
   
 
+  
 
 
   // Password encryption by using Sha256
@@ -31,7 +33,14 @@ if (isset($_POST['signup'])) {
   $queryt->execute();
   $results = $queryt->fetchAll(PDO::FETCH_OBJ);
   if ($queryt->rowCount() == 0) {
-
+    
+    if($password != $confirm){
+      echo $nomatch;
+      $nomatch = "Sorry the password and confirm password dosen't match";
+    }
+    
+      else {
+  
     //email confirmation
     $mail->addAddress($_POST['email']);
     $email = $_POST['email'];
@@ -41,8 +50,8 @@ if (isset($_POST['signup'])) {
    
     $mail->Subject = "Verify your email";
     $mail->Body = "<h2>Thank u for sign up</h2>
-                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$email}&token={$token}'>Click here to verify</a>
-                  <p>this link valid for 20 min</p>
+                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$email}&token={$token}'>Click here to verify your account</a>
+                  
                   ";
     //if mail send
     if($mail->send()) {
@@ -68,6 +77,8 @@ if (isset($_POST['signup'])) {
   }
 }
 }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +109,7 @@ if (isset($_POST['signup'])) {
      
   <div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100 mt-3">
+			<div class="wrap-login100 mt-3" style="width:63%;">
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
 					<span class="login100-form-title-1">
 						Sign In
@@ -109,6 +120,9 @@ if (isset($_POST['signup'])) {
       </div>
       <?php if ($error) { ?><div class="errorWrap">
           <strong>Error </strong> : <?php echo htmlentities($error); ?></div>
+      <?php } ?>
+      <?php if ($nomatch) { ?><div class="errorWrap">
+          <strong>Error </strong> : <?php echo htmlentities($nomatch); ?></div>
       <?php } ?>
         <!--Success Message-->
       <?php if ($msg) { ?><div class="succWrap" href="index.php">
@@ -123,27 +137,27 @@ if (isset($_POST['signup'])) {
 
         <div class="wrap-input100 validate-input m-b-26">
           <input type="text" id="username" name="username" onBlur="checkUsernameAvailability()" 
-          pattern="^[a-zA-Z][a-zA-Z0-9-_.]{5,12}$" placeholder="User must be alphanumeric with 6 to 12 chars" class="input100" required>
+          pattern="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$" placeholder="Username must contain atleast one number, one letter, and between 6-15 in len" class="input100" required>
           <span id="username-availability-status" style="font-size:12px;"></span>
         </div>
 
         <div class="wrap-input100 validate-input m-b-26">
-          <input type="email" id="email" name="email"  placeholder="Please provide your E-mail" onBlur="checkEmailAvailability()"  class="input100" required>
+          <input type="email" id="email" name="email"  placeholder="Please provide your E-mail" onBlur="checkEmailAvailability()" class="input100" required>
           <span id="email-availability-status" style="font-size:12px;"></span>
         </div>
        
         <div class="wrap-input100 validate-input m-b-26">
-          <input type="text" id="mobilenumber" name="mobilenumber" pattern="[0-8]{8}" placeholder="Mobile Number Contain only 8 digit numeric values" maxlength="8"
-           class="input100" required>
+          <input type="text" id="mobilenumber" name="mobilenumber" pattern="65[6|8|9]\d{7}|\+65[6|8|9]\d{7}|\+65\s[6|8|9]\d{7}" placeholder="Must be singapore mobile number with country code" 
+           class="input100" required >
         </div>
         
         <div class="wrap-input100 validate-input m-b-26">
-          <input type="password" id="password" name="password" placeholder="Password should be at least 4 characters" pattern="^\S{4,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 4 characters' : ''); if(this.checkValidity()) 
-          form.password_two.pattern = this.value;" required  class="input100">        
+          <input type="password" id="password" name="password" placeholder="Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters" 
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$"  required  class="input100">        
         </div>
      
         <div class="wrap-input100 validate-input m-b-26">
-          <input type="password" id="password_confirm" name="password_confirm" placeholder="Please confirm password" pattern="^\S{4,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '')""   class="input100">
+          <input type="password" id="password_confirm" name="password_confirm" placeholder="Please confirm password" class="input100" required>
           
         </div>
 
