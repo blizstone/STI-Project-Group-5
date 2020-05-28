@@ -1,14 +1,11 @@
 
 <?php
-
-// Check if session is not registered, redirect back to main page.
-// Put this code in first line of web page.
 session_start();
 if (($_SESSION['logged_in'] == '2')) {
 } 
 else 
 {
-        header("location:mjo.php");
+        header("location:index.php");
 }
 ?>
 <html>
@@ -40,20 +37,14 @@ else
 <body>
 <div class="topnav" id="myTopnav">
   <a href="adminhome.php" class="active">Home</a>
-  <a href="#news">News</a>
-  
-  <a href="adminupdate.php">Members</a>  
+ <a href="adminupdate.php">Members</a>  
+  <a href="adminpost.php">Posts</a>  
   <div class="pull-right"><a href="logout.php">Logout</a></div>
 
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
-
-  
 </div>
-  
-  
-
 </div>
 <body>
 <br> 
@@ -85,6 +76,11 @@ if (!$con){
 
 <form action="adminq3.php" method ="POST" name="listall" style="color: black">
 <style>
+  body {
+background-image: url("https://images.unsplash.com/photo-1508615070457-7baeba4003ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+background-repeat: no-repeat;
+background-size: 100%;
+}
 
 table, td, th {  
   border: 1px solid #ddd;
@@ -97,7 +93,6 @@ table {
 }
 
   td {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   padding: 15px;
 }
 tr:hover {background-color:#D3D3D3;}
@@ -105,7 +100,7 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
+  background-color: lightslategray;
   color: white; 
   padding: 15px
 }
