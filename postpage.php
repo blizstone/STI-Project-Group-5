@@ -19,13 +19,10 @@ else {
     $conn = mysqli_connect("localhost","root","","digiscam");
 ?>
 
-<form action="search2.php" method="POST">
-    <input type="text" name="search" placeholder="Search">
-    <button type="submit" name="submit-search">Search</button>
-</form>
 
-<h1>Search Page</h1>
-<h2>All Posts</h2>
+
+<h1>Article Page</h1>
+
 
 <div class="article-container">
     <?php
@@ -35,13 +32,13 @@ else {
 
         if ($queryResults > 0){
             while ($row = mysqli_fetch_assoc($result)){
-                echo "<div class='article-box'>
+                echo "<a href='postpage.php?accountId=".$row['accountId']."&title=".$row['title']."'><div class='article-box'>
                     <p>".$row['postId']."</p>
                     <p>".$row['accountId']."</p>
                     <p>".$row['title']."</p>
                     <p>".$row['content']."</p>
                     <h3>".$row['category']."</h3>
-                </div>";
+                </div><a/>";
 
 
             }
