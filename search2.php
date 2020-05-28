@@ -15,6 +15,8 @@
 
             $queryResult = mysqli_num_rows($result);
 
+            echo "There are ".$queryResult." results!";
+
             if ($queryResult > 0){
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='article-box'>
