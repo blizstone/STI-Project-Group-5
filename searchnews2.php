@@ -25,7 +25,7 @@ else {
 </form>
 
 <h1>Search Page</h1>
-<h2>Different Posts</h2>
+<h2>All Posts</h2>
 
 <div class="article-container">
     <?php
