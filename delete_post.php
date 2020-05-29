@@ -22,10 +22,10 @@ $sql->store_result();
 
 $res=$sql->execute();
 if ($res){ //execute query
-    echo "Query executed.";
+    //echo "Query executed.";
     $sql->fetch();
 }else{
-    echo "Error executing query.";
+    //echo "Error executing query.";
 }
 
 $accountId=intval($_SESSION['accountId']);
@@ -46,13 +46,13 @@ else{
     
     if($query1->execute()) {
     }else {
-            echo "error 1";
+            //echo "error 1";
         }
         if($query2->execute()) {
             header('Location: home.php');
             exit;
         }else{
-            echo "error 2";
+            //echo "error 2";
         }
 }
 ?>
