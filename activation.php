@@ -19,7 +19,7 @@ if(!isset($_GET['eid']) && !isset($_GET['token']))
     
         if ($query->execute()) //execute query
         echo "Email verified";
-        header("Refresh: 2; url='login.php");
+        header("Refresh: 4; url='login.php");
     }
         else{
         echo $query->error;
