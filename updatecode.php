@@ -36,7 +36,7 @@ if (!$con){
     $mail->Subject = "Update verification";
     $mail->Body = "<h2></h2>
                   <a href='localhost/STI-Project-Group-5/activation.php?eid={$email}&token={$token}'>Click here to verify</a>
-                  <p>this link valid for 20 min</p>
+                  <p></p>
                   ";
     //if mail send
     if($mail->send()) {
