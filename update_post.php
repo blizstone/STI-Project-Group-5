@@ -28,9 +28,9 @@ $query= $con->prepare("UPDATE post SET title=? , content=? , category=? WHERE po
 $query->bind_param("sssi",$title,$content,$category,$postId);
 $res=$query->execute();
 if ($res){ //execute query
-    echo "Query executed.";
+    //echo "Query executed.";
 }else{
-    echo "Error executing query.";
+    //echo "Error executing query.";
 }
 
 header('Location: home.php');
