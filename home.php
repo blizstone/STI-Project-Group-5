@@ -86,10 +86,10 @@ $row = mysqli_fetch_assoc($result);
 <?php
 $con = new mysqli("localhost","root","","digiscam");
 $count = 0;
-$query = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId");
-$query_vote = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName, SUM(`vote`) FROM post INNER JOIN userdata ON userdata.accountId=post.accountId INNER JOIN voting ON voting.postId=post.postId GROUP BY postId");
 
-while($row = mysqli_fetch_assoc($query_vote)) {
+$query = mysqli_query($con,"SELECT post.postId, post.title, post.content, post.category, userdata.UserName, SUM(`vote`) FROM post INNER JOIN userdata ON userdata.accountId=post.accountId INNER JOIN voting ON voting.postId=post.postId GROUP BY postId");
+
+while($row = mysqli_fetch_assoc($query)) {
   $vote_row[] = $row;
 }
 
@@ -130,30 +130,7 @@ if($count == 3) { // three items in a row
 
 </div>
 </div>
-     <script type="text/javascript">
-      (function() {
-        const proto = document.getElementById('templates').getElementsByClassName('upvotejs')[0];
-        const gen = function() {
-          var idcount = 0;
-          return (target, cssClass, params) => {
-            const obj = proto.cloneNode(true);
-            obj.className += ' ' + cssClass;
-            obj.id = 'u' + (idcount++);
-            document.getElementById(target.substr(1)).appendChild(obj);
-            return Upvote.create(obj.id, params);
-          };
-        }();
-
-        [
-          params => gen('#vote', '', params),
-          params => gen('#upvotejs', 'templates', params)
-        ].forEach(fun => {
-          fun({count: 1, downvoted: true});
-        
-        });
-      })();
-    </script> 
- 
+     
 </body>
 </html>
 
