@@ -60,23 +60,51 @@ else {
 
 $con = new mysqli("localhost","root","","digiscam");
 
-$postId=$_POST['id'];
+$postId=intval($_POST['id']);
 
-$query= $con->prepare("SELECT post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId WHERE postId=?");
-$query->bind_param("i",$postId);
-$query->bind_result($title,$content,$category,$userName);
-$query->store_result();
-$res=$query->execute();
+$sql= $con->prepare("SELECT `accountId` FROM `post` WHERE postId=?");
+$sql->bind_param("i",$postId);
+$sql->bind_result($accountIdPost);
+$sql->store_result();
+
+$res=$sql->execute();
 if ($res){ //execute query
-  
+    //echo "Query executed.";
+    $sql->fetch();
 }else{
-    echo "Error executing query.";
-}
-foreach($query as $row){
-    $query->fetch();
+    //echo "Error executing query.";
 }
 
+$accountId=intval($_SESSION['accountId']);
+
+if ($accountId != $accountIdPost){
+    echo "<script>
+    alert('You are not the creator of the post');
+    window.location.href='home.php';
+    </script>";
+}
+else{
+
+	$con = new mysqli("localhost","root","","digiscam");
+
+	$postId=intval($_POST['id']);
+
+	$query= $con->prepare("SELECT post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId WHERE postId=?");
+	$query->bind_param("i",$postId);
+	$query->bind_result($title,$content,$category,$userName);
+	$query->store_result();
+	$res=$query->execute();
+	if ($res){ //execute query
+		echo "Query executed.";
+	}else{
+    	echo "Error executing query.";
+	}
+	foreach($query as $row){
+    	$query->fetch();
+	}
+}
 ?>
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-3"></div>
@@ -86,7 +114,7 @@ foreach($query as $row){
 				<div class="tile-body">
 					<strong class="tile-title">username: </strong><span class="control-label"><?php echo $userName; ?></span>
 					<form action='update_post.php' method='post'>
-						<input type='hidden' name='post_update' value="$postId ?>">
+						<input type='hidden' name='post_update' value="<?=$postId; ?>">
 						<div class="form-group">
 							<label class="control-label">Title</label>
 							<input class="form-control" name="title" type="text" value="<?= $title; ?>" placeholder="Enter Title">
