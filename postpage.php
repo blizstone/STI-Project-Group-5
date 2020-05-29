@@ -41,6 +41,7 @@ else {
                     <p>".$row['title']."</p>
                     <p>".$row['content']."</p>
                     <h3>".$row['category']."</h3>
+                    
                 </div>";
 
 
