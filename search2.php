@@ -19,14 +19,21 @@
 
             if ($queryResult > 0){
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<a href='postpage.php?accountId=".$row['accountId']."&title=".$row['title']."'><div class='article-box'>
+            ?>
+                <form action="post_details.php" method="post">
+                <input type="hidden" name="id" value="<?= $row['postId']?>">
+                
+            <?php   echo "<div class='article-box'> 
                     <p>".$row['postId']."</p>
                     <p>".$row['accountId']."</p>
                     <p>".$row['title']."</p>
                     <p>".$row['content']."</p>
                     <h3>".$row['category']."</h3>
-                </div></a>";
-
+                </div>";
+            ?>
+                <button class="btn btn-info">more</button>
+                </form>
+    <?php
                 }
  
             } else {
@@ -37,6 +44,5 @@
 
 
     ?>
-
-
 </div>
+
