@@ -154,15 +154,11 @@ if (isset($_POST['signup'])) {
         <div class="wrap-input100 validate-input m-b-26">
           <input type="password" id="password" name="password" placeholder="Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters" 
           pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$"  required  class="input100">        
-        </div>
-     
+        </div>    
         <div class="wrap-input100 validate-input m-b-26">
-          <input type="password" id="password_confirm" name="password_confirm" placeholder="Please confirm password" class="input100" required>
-          
+          <input type="password" id="password_confirm" name="password_confirm" placeholder="Please confirm password" class="input100" required>          
         </div>
-
         <div class="control-group">
-        
           <div class="controls">
             <button class="login100-form-btn" type="submit" name="signup">Signup </button>
           </div>
@@ -203,7 +199,7 @@ if (isset($_POST['signup'])) {
     }
   </script>
   <script type="text/javascript">
-  </script>
+</script>
 </body>
 
 </html>
