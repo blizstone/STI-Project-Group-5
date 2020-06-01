@@ -29,12 +29,13 @@ VALUES (?,?,?,?)");
 $query->bind_param("isss", $accountId,$title,$content,$category);
 $res=$query->execute();
 if ($res){ //execute query
+    header('Location: create_input_post.php');
     //echo "Query executed.";
 }else{
     //echo "Error executing query.";
 }
 
-header('Location: create_input_post.php');
+
 exit;
 
 ?>
