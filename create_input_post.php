@@ -10,21 +10,15 @@ else {
 }
 
 $con = new mysqli("localhost","root","","digiscam");
-$query= $con->prepare("SELECT MAX(`postId`) FROM `post`");
-$query->bind_result($postId);
-$query->store_result();
-$res=$query->execute();
-if ($res){ //execute query
-    echo "Query executed.";
-}else{
-    echo "Error executing query.";
-}
+
+$count = 0;
+$query = mysqli_query($con,"SELECT * FROM `post`");
 foreach($query as $row){
-    $query->fetch();
+ $count++;
 }
 
 $accountId=intval($_SESSION['accountId']);
-$postId=$postId;
+$postId=$count;
 $vote=0;
 
 $query= $con->prepare("INSERT INTO `voting`( `accountId`, `postId`, `vote`) VALUES (?,?,?)");
