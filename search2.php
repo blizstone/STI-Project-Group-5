@@ -3,19 +3,19 @@
     $conn = mysqli_connect("localhost","root","","digiscam");
 ?>
 
-<h1>Search page</h1>
 
 <div class="article-container">
     <?php
         if (isset($_POST['submit-search'])) {
             $search = mysqli_real_escape_string($conn, $_POST['search']);
-            $sql = "SELECT * FROM post WHERE postId LIKE '%$search%' OR accountId LIKE '%$search%' OR 
-            title LIKE '%$search%' OR content LIKE '%$search%' OR category LIKE '%$search%'";
-            $result = mysqli_query($conn, $sql);
+            $sql = "SELECT post.postId, post.accountId, post.title, post.content, post.category, userdata.UserName FROM post INNER JOIN userdata ON post.accountId=userdata.accountId WHERE post.postId LIKE '%$search%' OR userdata.UserName LIKE '%$search%' OR 
+            post.title LIKE '%$search%' OR post.content LIKE '%$search%' OR post.category LIKE '%$search%'";
 
+            $result = mysqli_query($conn, $sql);
+           
             $queryResult = mysqli_num_rows($result);
 
-            echo "There are ".$queryResult." results!";
+            echo "<h3>There are ".$queryResult." results!</h3><br><br>";
 
             if ($queryResult > 0){
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -24,15 +24,15 @@
                 <input type="hidden" name="id" value="<?= $row['postId']?>">
                 
             <?php   echo "<div class='article-box'> 
-                    <p>".$row['postId']."</p>
-                    <p>".$row['accountId']."</p>
+                    <p>".$row['UserName']."</p>
                     <p>".$row['title']."</p>
                     <p>".$row['content']."</p>
-                    <h3>".$row['category']."</h3>
-                </div>";
-            ?>
+                    <p>".$row['category']."</p>
+                ";
+        ?>
                 <button class="btn btn-info">more</button>
                 </form>
+            </div>
     <?php
                 }
  
