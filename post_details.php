@@ -69,9 +69,9 @@ $query->bind_result($title,$content,$category,$userName);
 $query->store_result();
 $res=$query->execute();
 if ($res){ //execute query
-    
+    //echo "Query executed.";
 }else{
-    echo "Error executing query.";
+    //echo "Error executing query.";
 }
 foreach($query as $row){
     $query->fetch();
