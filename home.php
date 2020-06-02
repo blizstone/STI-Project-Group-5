@@ -74,8 +74,9 @@ $row = mysqli_fetch_assoc($result);
           <div class="apple"><p><b><?=$row["category"];?></b></p></div>
         </div>
       <form action="search2.php" method="POST">
-      <input type="text" name="search" placeholder="Search">
+      <input type="text" name="search" placeholder="Search" div class ="search">
       <button type="submit" name="submit-search">Search</button>
+      </div>
       </form>
       </div>
       
@@ -86,6 +87,9 @@ $row = mysqli_fetch_assoc($result);
   .apple {
     color: black;
 
+  }
+  .search {
+    background: black;
   }
   </style>
 <?php
