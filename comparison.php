@@ -13,10 +13,12 @@ $con = new mysqli("localhost","root","","digiscam");
 
 
 
+$query = $con->prepare(SELECT `postId`, `content` FROM `post`);
 
 
-function compare(){
 
-}
+
+
+
 
 ?>

@@ -27,7 +27,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 <title>Categories</title>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/main.css">
+  
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
 
 
