@@ -10,7 +10,7 @@ else {
     if (!$con){
         die('Could not connect: ' . mysqli_connect_errno());
     }
-    $query= $con->prepare("Select FullName, UserName, UserEmail, UserMobileNumber,LoginPassword  from digiscam.userdata where UserName ='".$_SESSION["username_login"]."'" );    
+    $query= $con->prepare("Select FullName, UserName, UserEmail, UserMobileNumber,LoginPassword  from digiscam.userdata where accountId ='".$_SESSION["accountId"]."'");    
     $query->execute(); 
     $query->store_result();
     $query->bind_result($FullName, $UserName, $UserEmail, $UserMobileNumber,$LoginPassword);
@@ -52,7 +52,7 @@ else {
 <br>
 <br>
 <div class="success"><h1> Note.. <h1>
-<p>Up on update you will be logout and have to reverify<br></p></div><br><br>
+<p>Up on updating email address you will be logout and have to reverify<br></p></div><br><br>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js">
 
 
