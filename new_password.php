@@ -27,12 +27,6 @@
                     $validation_key = urldecode(base64_decode($_GET['token']));
                     $expire_date = urldecode(base64_decode($_GET['exd']));
 
-                    
-
-
-                    
-
-                    
                     date_default_timezone_set("asia/singapore");
                     $current_date = date("Y-m-d H:i:s");
 
@@ -44,10 +38,7 @@
                             
                             $user_pass = $_POST['new-password'];
                             $user_con_pass = $_POST['confirm-new-password'];
-                            
-
-                            
-            
+           
                             if($user_pass == $user_con_pass) {
                                 //password validation
                                
@@ -57,53 +48,40 @@
                                 }
                             } else {
                                     $errPass = "Password dosen't matched";
-                                
-                                
-
                             }
+                      
+
+                             $con = mysqli_connect("localhost","root","","digiscam");
+                             if (!$con){
+                             die('Could not connect: ' . mysqli_connect_errno());
+                            }
+
 
                            if(!isset($errPass)) {
-                            $query = "SELECT * FROM userdata WHERE UserEmail = '$user_email' AND is_active = 1";
-                            $query_con = mysqli_query($connection, $query);
-                            if(!$query_con) {
-                                die("Query Failed" . mysqli_error($connection));
-                            }
-                           
+                            $query = $con->prepare("Select * FROM userdata WHERE UserEmail = '$user_email' AND is_active = 1");
+                            $query->execute(); 
+                            while($query->fetch()){
+
                             $user_pass=hash('sha256',$_POST['new-password']);
 
-                            if(mysqli_num_rows($query_con) == 1) {
-                                
                                 $query1 = "UPDATE userdata SET LoginPassword = '$user_pass' WHERE UserEmail = '$user_email' AND is_active = 1";
                                 $query_con1 = mysqli_query($connection, $query1);
                                 if($query_con1) {
                                     echo "Password updation succesful";
-                                    
-                                   
-// empty value and expiration one hour before
-                                    header("Refresh: 2; url='index.php");
+                                    header("Refresh: 2; url='login.php");
 
-                                } 
+                                
                             } else {
                                 echo "<div class='notification'>Invalid link</div";
                             }
                            }
-
-                        }                        
-
+                        }
                     }
-                    
-
-                } else {
-                    echo "<div class='notification'>Somethings went wrong</div>";
-                }
-
-                if(isset($errPass)) {
-                    echo "<div class='notification'>{$errPass}</div";
                 }
             }
-
-            ?>
-             <!DOCTYPE html>
+        }
+     ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">    
@@ -116,10 +94,8 @@
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
 					<span class="login100-form-title-1">
 						Reset Your Password
-					</span>
-            
-			</div>
-         
+					</span>          
+			</div>         
             <form action="" method="POST">
                 <div class="wrap-input100 validate-input m-b-26">
                     <input type="password" class="input100" placeholder="New password" name="new-password" required <?php echo !isset($check)?"disabled":""; ?>>
@@ -127,20 +103,16 @@
                 <div class="wrap-input100 validate-input m-b-26">
                     <input type="password" class="input100" placeholder="Confirm new password" name="confirm-new-password" required <?php echo !isset($check)?"disabled":""; ?>>
                 </div>
-                
                     <input type="submit" class="login100-form-btn" name="submit" <?php echo !isset($check)?"disabled":""; ?>>
                 <br>
                 <div class = "password">Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters <br>
                  <br>
-
                 <br>
                 Thank You!
                </div>
             </form>
-
         </div> 
-    </div>
-    
+    </div>  
 </body>
 </html>
 
