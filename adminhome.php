@@ -44,7 +44,7 @@ else
 </div>
 <?php
 $con = new mysqli("localhost","root","","digiscam");
- $sql = "SELECT COUNT(*) totalCountByEachCategory, category FROM `post` WHERE category IS NOT NULL GROUP BY category ORDER BY totalCountByEachCategory DESC LIMIT 1";
+$sql = "SELECT COUNT(*) totalCountByEachCategory, category FROM `post` WHERE category IS NOT NULL GROUP BY category ORDER BY totalCountByEachCategory DESC LIMIT 1";
 $result = mysqli_query($con, $sql); // First parameter is just return of "mysqli_connect()" function
 $user = "SELECT * FROM userdata";
 $user_count = mysqli_query($con, $user);
