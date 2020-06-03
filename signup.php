@@ -11,21 +11,16 @@ error_reporting(0);
 getToken(32);
 
 if (isset($_POST['signup'])) {
-  //Getting Post Values
+  
   $fullname = $_POST['fname'];
   $username = $_POST['username'];
   $mobile = $_POST['mobilenumber'];
   $password = $_POST['password'];
   $confirm = $_POST['password_confirm'];
   $email = $_POST['email'];
-  
 
-  
-
-
-  // Password encryption by using Sha256
   $hasedpassword = hash('sha256', $password);
-  // Query for validation of username and email-id
+ 
   $ret = "SELECT * FROM digiscam.userdata where (UserName=:uname ||  UserEmail=:uemail)";
   $queryt = $dbh->prepare($ret);
   $queryt->bindParam(':uemail', $email, PDO::PARAM_STR);
@@ -38,19 +33,19 @@ if (isset($_POST['signup'])) {
       echo $nomatch;
       $nomatch = "Sorry the password and confirm password dosen't match";
     }
-    
-      else {
-  
-    //email confirmation
+    else {
+
     $mail->addAddress($_POST['email']);
     $email = $_POST['email'];
-    $token = getToken(32);
-  
     
-   
+    
+    $token = getToken(32);
+    $encode_token = base64_encode(urlencode($token));
+    $emailencoded = base64_encode(urlencode($_POST['email']));
+ 
     $mail->Subject = "Verify your email";
     $mail->Body = "<h2>Thank u for sign up</h2>
-                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$email}&token={$token}'>Click here to verify your account</a>
+                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$emailencoded}&token={$encode_token}'>Click here to verify your account</a>
                   
                   ";
     //if mail send
@@ -63,7 +58,6 @@ if (isset($_POST['signup'])) {
     $query->bindParam(':uemail', $email, PDO::PARAM_STR);
     $query->bindParam(':umobile', $mobile, PDO::PARAM_INT);
     $query->bindParam(':upassword', $hasedpassword, PDO::PARAM_STR);
-    
     $query->bindParam(':utoken', $token, PDO::PARAM_STR);
     $query->execute();
 
@@ -80,7 +74,6 @@ if (isset($_POST['signup'])) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -201,5 +194,4 @@ if (isset($_POST['signup'])) {
   <script type="text/javascript">
 </script>
 </body>
-
 </html>
