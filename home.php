@@ -46,9 +46,9 @@ else {
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="category2.php">Categories</a>
-  <a href="searchnews2.php">Search</a>
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a> 
+  
   <div class="pull-right"><a href="logout.php">Logout</a></div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -73,7 +73,13 @@ $row = mysqli_fetch_assoc($result);
           <h4>Todays most posts comes under.....</h4>
           <div class="apple"><p><b><?=$row["category"];?></b></p></div>
         </div>
+      <form action="search2.php" method="POST">
+      <input type="text" name="search" placeholder="Search" div class ="search">
+      <button type="submit" name="submit-search">Search</button>
       </div>
+      </form>
+      </div>
+      
     </div>
   </div>
 </div>
@@ -81,6 +87,9 @@ $row = mysqli_fetch_assoc($result);
   .apple {
     color: black;
 
+  }
+  .search {
+    background: black;
   }
   </style>
 <?php

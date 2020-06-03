@@ -61,6 +61,8 @@ $con = new mysqli("localhost","root","","digiscam");
 
 $postId=intval($_POST['id']);
 
+
+
 $query= $con->prepare("SELECT post.title, post.content, post.category, userdata.UserName FROM userdata INNER JOIN post ON post.accountId=userdata.accountId WHERE postId=?");
 $query->bind_param("i",$postId);
 $query->bind_result($title,$content,$category,$userName);

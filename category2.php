@@ -5,7 +5,7 @@ require 'config.php';
 // Put this code in first line of web page.
 session_start();
 if (($_SESSION['logged_in'] == '1')) {
-   
+
 }  else if(($_SESSION['logged_in'] == '2')){
 	header("Location: adminhome.php");
 }
@@ -29,9 +29,9 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
-  
 
-  
+
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
 <body>
@@ -41,13 +41,13 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
   <a href="category2.php">Categories</a>
   <a href="searchnews2.php">Search</a>
   <a href="create_post.php">Create</a>
-  <a href="viewprofile.php">Account</a> 
+  <a href="viewprofile.php">Account</a>
   <div class="pull-right"><a href="logout.php">Logout</a></div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
 
-  
+
 </div>
     <h2>Select Category</h2>
     <form method="POST" name="search" action="category2.php">
@@ -65,7 +65,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                 </select><br> <br>
                 <button id="Filter">Search</button>
             </div>
-            
+
                 <?php
                 if (! empty($_POST['Category'])) {
                     ?>
@@ -91,11 +91,11 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                         if ($i < $selectedOptionCount - 1) {
                             $selectedOption = $selectedOption . ", ";
                         }
-                        
+
                         $i ++;
                     }
                     $query = $query . " WHERE Category in (" . $selectedOption . ")";
-                    
+
                     $result = $db_handle->runQuery($query);
                 }
                 if (! empty($result)) {
@@ -111,12 +111,12 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                 <?php
                     }
                     ?>
-                    
+
                 </tbody>
             </table>
             <?php
                 }
-                ?>  
+                ?>
         </div>
     </form>
 </body>
