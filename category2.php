@@ -39,7 +39,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="category2.php">Categories</a>
-  <a href="searchnews2.php">Search</a>
+  
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a>
   <div class="pull-right"><a href="logout.php">Logout</a></div>
