@@ -15,7 +15,7 @@ $query2= $con->prepare("Delete from post where accountId = '".$_SESSION["account
 $query3= $con->prepare("Delete from userdata where accountId = '".$_SESSION["accountId"]."'");
 if($query1->execute()) {
 }else {
-        echo "error 1";
+        echo "error";
     }
     if($query2->execute()) {
         if($query3->execute()) {//execute query
@@ -24,7 +24,7 @@ header("Location: logout.php");
 echo $query->error;
 header("Location: deleteuser.php");
 }
-    }
+}
 
 
     ?>
