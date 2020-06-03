@@ -18,7 +18,7 @@ if (!$con){
 }
 
 
-    $query= $con->prepare("Select FullName, UserName, UserEmail, UserMobileNumber, RegDate  from digiscam.userdata where UserName ='".$_SESSION["username_login"]."'" );    
+    $query= $con->prepare("Select FullName, UserName, UserEmail, UserMobileNumber, RegDate  from digiscam.userdata where accountId ='".$_SESSION["accountId"]."'");    
     $result=$query->execute(); 
     $query->store_result();
     $query->bind_result($FullName, $UserName, $UserEmail, $UserMobileNumber, $RegDate);
