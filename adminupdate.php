@@ -116,12 +116,7 @@ th {
 		<td><input type="submit" action="adminq3.php" method="POST" name="listall" value="Delete" /></td>
 	
 </div>
-<html>
-	
-	<head>
-		<title>STI scam alert site</title>
-		<link rel="stylesheet" href="stylesheet.css">
-	</head>
+
 	
 
    
