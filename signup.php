@@ -12,12 +12,12 @@ getToken(32);
 
 if (isset($_POST['signup'])) {
   
-  $fullname = $_POST['fname'];
-  $username = $_POST['username'];
-  $mobile = $_POST['mobilenumber'];
-  $password = $_POST['password'];
-  $confirm = $_POST['password_confirm'];
-  $email = $_POST['email'];
+  $fullname = escape($_POST['fname']);
+  $username = escape($_POST['username']);
+  $mobile = escape($_POST['mobilenumber']);
+  $password = escape($_POST['password']);
+  $confirm = escape($_POST['password_confirm']);
+  $email = escape($_POST['email']);
 
   $hasedpassword = hash('sha256', $password);
  
