@@ -18,6 +18,7 @@ if (!$con){
     $UserEmail = $_POST["UserEmail"];
     $UserMobileNumber = $_POST["UserMobileNumber"];
     $LoginPassword = $_POST["LoginPassword"];
+    $confirm =$_POST['confirmpassword'];
     $hasedpassword=hash('sha256',$LoginPassword);
 
     $email = $_POST['UserEmail'];
@@ -27,10 +28,12 @@ if (!$con){
     $result=$query->execute(); 
     $query->store_result();
     $query->bind_result($Emailfromdb);
-    while($query->fetch()){
-
-
-    }
+    while($query->fetch())
+    if($confirm != $LoginPassword){
+        
+        echo "Password and confirm password dosen't match";
+        header("Refresh: 1; url='updateuser.php");
+    } else {
     if ($Emailfromdb == $UserEmail) {
         $query= $con->prepare("Update  userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, LoginPassword=? where accountId ='".$_SESSION["accountId"]."'");
         $query->bind_param('sssis', $FullName, $UserName, $UserEmail, $UserMobileNumber, $hasedpassword);
@@ -65,6 +68,7 @@ if (!$con){
  
         
     }
+}
 
     
   ?>
