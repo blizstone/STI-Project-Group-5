@@ -9,10 +9,12 @@ if(!isset($_GET['eid']) && !isset($_GET['token']))
 
     
     if(isset($_GET['eid']) && isset($_GET['token'])) {
-        
-        $validation_key = $_GET['token'];
-        $email =($_GET['eid']);
 
+        $email = urldecode(base64_decode($_GET['eid']));
+        $validation_key = urldecode(base64_decode($_GET['token']));
+        
+        
+        
 
             //Query
         $query= $con->prepare("UPDATE userdata SET is_active = 1 WHERE UserEmail = '$email' AND validation_key = '$validation_key'");
