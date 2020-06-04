@@ -58,6 +58,18 @@ else {
 </div>
 
 </body>
+<script>
+    $( document ).ready(function() {
+        input_value = $.trim($('#searchkey').val());
+        if(input_value == ''){
+           alert('Enter some value');
+           return false;  //Does not submit the form 
+        }else{
+          //perform your code if it should not be empty. 
+       }
+    });
+</script>
+
 <?php
 $con = new mysqli("localhost","root","","digiscam");
  $sql = "SELECT COUNT(*) totalCountByEachCategory, category FROM `post` WHERE category IS NOT NULL GROUP BY category ORDER BY totalCountByEachCategory DESC LIMIT 1";
@@ -74,7 +86,8 @@ $row = mysqli_fetch_assoc($result);
           <div class="apple"><p><b><?=$row["category"];?></b></p></div>
         </div>
       <form action="search2.php" method="POST">
-      <input type="text" name="search" placeholder="Search" div class ="search">
+      <input type="text" name="search" placeholder="Search" div class ="search" id="searchkey" required>
+      
       <button type="submit" name="submit-search">Search</button>
       </div>
       </form>
