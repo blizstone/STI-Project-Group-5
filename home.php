@@ -58,18 +58,6 @@ else {
 </div>
 
 </body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>
-    $( document ).ready(function() {
-        input_value = $.trim($('#searchkey').val());
-        if(input_value == ''){
-           alert('Enter some value');
-           return false;  //Does not submit the form 
-        }else{
-          //perform your code if it should not be empty. 
-       }
-    });
-</script>
 
 <?php
 $con = new mysqli("localhost","root","","digiscam");
