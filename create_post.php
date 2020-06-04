@@ -28,6 +28,12 @@ else {
     <link rel="stylesheet" href="css/login2.css">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+
  
   
 
@@ -84,11 +90,22 @@ else {
 						</div>
 						<div class="form-group">
 							<label class="control-label">Content</label>
-							<textarea class="form-control" name="content" rows="4" placeholder="Enter your content" required></textarea>
+							<textarea class="form-control" name="content" id="content" rows="4" placeholder="Enter your content" required></textarea>
+						<br />
+						<div id="result"></div>
 						</div>
+						<div style="clear:both"></div>
+						<br />
+						<!-- <form action="post_details.php" method="post">
+						<input type="hidden" name="id" value="<?= $row['postId']?>">
+						<button class="btn btn-info">More Details</button>
+						</form> -->
+
 						<div class="tile-footer">
 							<button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle" ></i>Create</button>
 						</div>
+
+
 					</form>
 				</div>
 			</div>
@@ -98,3 +115,34 @@ else {
 </body>
 
 </html>
+
+<script>
+$(document).ready(function(){
+	load_data();
+	function load_data(query)
+	{
+		$.ajax({
+			url:"fetch.php",
+			method:"post",
+			data:{query:query},
+			success:function(data)
+			{
+				$('#result').html(data);
+			}
+		});
+	}
+	
+	$('#content').keyup(function(){
+		var search = $(this).val();
+		if(search != '')
+		{
+			load_data(search);
+		}
+		else
+		{
+			load_data();			
+		}
+	});
+});
+</script>
+
