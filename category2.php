@@ -83,6 +83,7 @@ $categoryResult = $db_handle->runQuery("SELECT post.postId, post.title, post.con
                 </thead>
                 <tbody>
                 <?php
+                    //$query = "SELECT * FROM post";
                     $query = "SELECT * FROM post";
                     $i = 0;
                     $selectedOptionCount = count($_POST['Category']);
