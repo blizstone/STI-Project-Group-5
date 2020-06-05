@@ -48,8 +48,7 @@ else {
                 ";
         ?>
                 <button class="btn btn-info">more</button>
-                </form>
-            </div>
+                </form></div>
     <?php
                 }
  
