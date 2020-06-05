@@ -18,7 +18,8 @@ else {
 <?php
 
 $db_handle = new DBController();
-$categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER BY category ASC");
+$categoryResult = $db_handle->runQuery("SELECT post.postId, post.title, post.content, post.category, userdata.UserName, SUM(`vote`) FROM post INNER JOIN userdata ON userdata.accountId=post.accountId INNER JOIN voting ON voting.postId=post.postId GROUP BY category");
+//$categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER BY category ASC");
 ?>
 <html>
 <head>
