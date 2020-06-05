@@ -73,8 +73,8 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 
                 <thead>
                     <tr>
-                        <th><strong>Post ID</strong></th>
-                        <th><strong>Account ID</strong></th>
+                        
+                        <th><strong>Username</strong></th>
                         <th><strong>Title</strong></th>
                         <th><strong>Content</strong></th>
                         <th><strong>Category</strong></th>
@@ -102,7 +102,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                     foreach ($result as $key => $value) {
                         ?>
                 <tr>
-                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['postId']; ?></div></td>
+                        
                         <td><div class="col" id="user_data_1"><?php echo $result[$key]['accountId']; ?></div></td>
                         <td><div class="col" id="user_data_1"><?php echo $result[$key]['title']; ?></div></td>
                         <td><div class="col" id="user_data_2"><?php echo $result[$key]['content']; ?> </div></td>
