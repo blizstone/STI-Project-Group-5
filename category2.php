@@ -105,7 +105,7 @@ $categoryResult = $db_handle->runQuery("SELECT post.postId, post.title, post.con
                         ?>
                 <tr>
                         
-                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['Username']; ?></div></td>
+                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['accountId']; ?></div></td>
                         <td><div class="col" id="user_data_1"><?php echo $result[$key]['title']; ?></div></td>
                         <td><div class="col" id="user_data_2"><?php echo $result[$key]['content']; ?> </div></td>
                         <td><div class="col" id="user_data_3"><?php echo $result[$key]['category']; ?> </div></td>
