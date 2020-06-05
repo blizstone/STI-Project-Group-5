@@ -27,7 +27,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 <title>Categories</title>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/main.css">
+  
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
 
 
@@ -39,7 +39,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
   <a href="category2.php">Categories</a>
-  <a href="searchnews2.php">Search</a>
+  
   <a href="create_post.php">Create</a>
   <a href="viewprofile.php">Account</a>
   <div class="pull-right"><a href="logout.php">Logout</a></div>
@@ -73,8 +73,8 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
 
                 <thead>
                     <tr>
-                        <th><strong>Post ID</strong></th>
-                        <th><strong>Account ID</strong></th>
+                        
+                        <th><strong>Username</strong></th>
                         <th><strong>Title</strong></th>
                         <th><strong>Content</strong></th>
                         <th><strong>Category</strong></th>
@@ -102,7 +102,7 @@ $categoryResult = $db_handle->runQuery("SELECT DISTINCT category FROM post ORDER
                     foreach ($result as $key => $value) {
                         ?>
                 <tr>
-                        <td><div class="col" id="user_data_1"><?php echo $result[$key]['postId']; ?></div></td>
+                        
                         <td><div class="col" id="user_data_1"><?php echo $result[$key]['accountId']; ?></div></td>
                         <td><div class="col" id="user_data_1"><?php echo $result[$key]['title']; ?></div></td>
                         <td><div class="col" id="user_data_2"><?php echo $result[$key]['content']; ?> </div></td>

@@ -1,8 +1,8 @@
 <?php 
 
     function escape($string) {
-        global $connection;
-        return mysqli_real_escape_string($connection, $string);
+        global $dbh;
+        return mysqli_real_escape_string($dbh, $string);
 
     }
     function getToken($len) {
