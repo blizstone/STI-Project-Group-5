@@ -92,10 +92,8 @@ else {
 							<label class="control-label">Content</label>
 							<textarea class="form-control" name="content" id="content" rows="4" placeholder="Enter your content" required></textarea>
 						<br />
-						<div id="result"></div>
 						</div>
-						<div style="clear:both"></div>
-						<br />
+						
 						<!-- <form action="post_details.php" method="post">
 						<input type="hidden" name="id" value="<?= $row['postId']?>">
 						<button class="btn btn-info">More Details</button>
@@ -104,9 +102,16 @@ else {
 						<div class="tile-footer">
 							<button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle" ></i>Create</button>
 						</div>
-
-
+						
 					</form>
+					
+                    <input type="hidden" name="id" value="<?= $row['postId']?>">
+					<div id="result"></div>
+								
+						<div style="clear:both"></div>
+						<br />
+				
+
 				</div>
 			</div>
 		</div>

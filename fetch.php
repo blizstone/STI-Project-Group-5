@@ -33,32 +33,35 @@ if(isset($_POST["query"]))
 	$result = mysqli_query($connect, $query);
 	if(mysqli_num_rows($result) > 0)
 	{
-		$output .= '<div class="table-responsive">
+        $output .= ' <form action="post_details.php" method="post">
+                        <div class="table-responsive">
 						<table class="table table bordered">
 							<tr>
 								<th>user</th>
 								<th>title</th>
 								<th>Content</th>
                                 <th>category</th>
-                                <br>
+                              
                                 <th></th>
 								
 							</tr>';
 		while($row = mysqli_fetch_array($result))
 		{
-            ?><tr>
-                <form action="post_details.php" method="post">
-                <input type="hidden" name="id" value="<?= $row['postId']?>">
-            <?php
-			$output .= '
-                
+             ?>
+                   
+                    <?php
+            $output .= 
+                   '
+                    <tr>
+                    <form action="post_details.php" method="post">
 					<td>'.$row["UserName"].'</td>
 					<td>'.$row["title"].'</td>
 					<td>'.$row["content"].'</td>
                     <td>'.$row["category"].'</td>
-                    <td></td>
-				<td><button class="btn btn-info">more</button></td>
-                </form></div>
+                    <td><input type="hidden" name="id" value= '.$row['postId'].'></td>
+                    <td><button class="btn btn-info" button action="post_details.php" method="post">more</button></td>
+                    </form></div>
+			
 				</tr>
             ';
             ?>
