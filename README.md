@@ -3,6 +3,10 @@ scam alert website
 
 Connection of Website database – Create a database named ‘digiscam’ in phpMyAdmin. Then continue by importing the sql file given below. 
 
+To view the file in https: please go to the link, https://localhost/STI-Project-Group-5/
+
+To configure https in your XAMPP, please go to the C:\xampp\apache\conf\extra directory, and replace the httpd-vhosts.conf file
+
  
 
  
