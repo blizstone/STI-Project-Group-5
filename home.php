@@ -91,11 +91,9 @@ $row = mysqli_fetch_assoc($result);
     color: black;
 
   }
-  .search {
-    background: black;
-    
-  }
+  
   </style>
+
 <?php
 $con = new mysqli("localhost","root","","digiscam");
 $count = 0;
