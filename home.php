@@ -92,7 +92,7 @@ $row = mysqli_fetch_assoc($result);
 
   }
   .search {
-    background: white;
+    background: black;
     
   }
   </style>
