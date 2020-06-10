@@ -45,7 +45,7 @@ if (isset($_POST['signup'])) {
  
     $mail->Subject = "Verify your email";
     $mail->Body = "<h2>Thank u for sign up</h2>
-                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$emailencoded}&token={$encode_token}'>Click here to verify your account</a>
+                  <a href='https://localhost/STI-Project-Group-5/activation.php?eid={$emailencoded}&token={$encode_token}'>Click here to verify your account</a>
                   
                   ";
     //if mail send
