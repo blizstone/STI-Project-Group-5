@@ -95,8 +95,8 @@ if (isset($_POST['signup'])) {
   <form class="form-horizontal" action='' method="post">
     <fieldset>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
      
       <!--Error Message-->
      
