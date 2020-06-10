@@ -88,9 +88,7 @@ if(isset($_SESSION["logged_in"])) {
                 
             }
         }
-    }else {
-            echo "<script>alert('Invalid Details');</script>";            
-        }
+    }
     }
     else{
         echo "<script>alert('Invalid Details');</script>";
@@ -130,8 +128,8 @@ if(isset($_SESSION["logged_in"])) {
         <form method="post">
             
            
-            <div class="wrap-input100 validate-input m-b-26"><input type="text" class="input100" id="username" name="username"  title="Please enter you username or Email-id" required placeholder="username" ></div>
-            <div class="wrap-input100 validate-input m-b-26"><input type="password" class="input100" id="password" name="password" placeholder="Password" value="" required title="Please enter your password"></div>
+            <div class="wrap-input100 validate-input m-b-26"><input type="text" class="input100" id="username" name="username"  title="Please enter you username or Email-id" required placeholder="username" pattern="[A-Za-z0-9]"></div>
+            <div class="wrap-input100 validate-input m-b-26"><input type="password" class="input100" id="password" name="password" placeholder="Password" value="" required title="Please enter your password" pattern="[A-Za-z0-9]"></div>
             <div class="login100-form-btn"><button type="submit" name="login">Login</button></div><br>
             <a href="signup.php" class="login100-form-btn">Register</a>
            <br>
