@@ -20,25 +20,51 @@ else {
       }
 ?>
 <html>
-<head>
-<link rel="stylesheet" href="stylesheet.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>STI scam alert site</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  
+	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
+  
+
+  
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
+
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/login1.css">
     <link rel="stylesheet" href="css/login2.css">
+	<script>//navbar script
+		/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+		function myFunction() {
+  		var x = document.getElementById("myTopnav");
+  		if (x.className === "topnav") {
+    	x.className += " responsive";
+  		} else {
+    	x.className = "topnav";
+  		}
+	}
+	</script>
 </head>
-<body>
+
+
 <div class="topnav" id="myTopnav">
   <a href="home.php" class="active">Home</a>
+  <a href="category2.php">Categories</a>
   <a href="create_post.php">Create</a>
-  <a href="category.php">Categories</a>
   <a href="viewprofile.php">Account</a> 
+  
   <div class="pull-right"><a href="logout.php">Logout</a></div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
-  </a></div>
-<div class="hero-text">	<h1>Update Personal Details</h1></div>
+  </a>
+
+  
+</div>
+
+</body>
+
 
 <form action="updatecode.php" method ="POST">
 
@@ -47,49 +73,21 @@ else {
      <tr><th>User Name:</th><td>Username must contain atleast one number, one letter, and between 6-15 in length</td><td><div class="input-container" ><input type="text" id="UserName" value="<?=$UserName?>" name="UserName" autocomplete="0ff"  onBlur="checkUsernameAvailability()" pattern="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$" title="User must be alphanumeric without spaces 6 to 12 chars" class="input-xlarge" required>
      <tr><th>User Email:</th><td>Provide valide Email</td><td><div class="input-container" ><input type="email" value="<?=$UserEmail?>" name="UserEmail"required autocomplete="0ff" /></td></tr>
      <tr><th>Mobile Number:</th><td>Must be singapore mobile number with country code</td><td><div class="input-container" ><input type="text" value="<?=$UserMobileNumber?>" name="UserMobileNumber" autocomplete="0ff" pattern="65[6|8|9]\d{7}|\+65[6|8|9]\d{7}|\+65\s[6|8|9]\d{7}" required/></td></tr>
-	   <tr><th>User Password:</th><td>Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters</td><td><div class="input-container" ><input type="password" name="LoginPassword" autocomplete="0ff"  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$" required/></td></tr></div>
-     <tr><th>Confirm Password:</th><td>Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters</td><td><div class="input-container" ><input type="password" name="confirmpassword" autocomplete="0ff"  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$" required/></td></tr></div>
+     </form>
      <td><input class="login100-form-btn" action="updatecode.php" method ="POST"  type="submit" value="Update"/></td>	
+	   <tr><th>User Password:</th><td>Click here to change your current password</td><td> <form action='changepassword.php' method='post'><input type='submit' value='Change Password' class='login100-form-btn' /></div></tr>
+     
+     
+    
 </table>
+
+</form>
+
 <br>
 <br>
 <div class="success"><h1> Note.. <h1>
 <p>Up on updating email address you will be logout and have to reverify<br></p></div><br><br>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js">
 
-
-    function checkUsernameAvailability() {
-      $("#loaderIcon").show();
-      jQuery.ajax({
-        url: "check_availability.php",
-        data: 'UserName=' + $("#UserName").val(),
-        type: "POST",
-        success: function(data) {
-          $("#UserName-availability-status").html(data);
-          $("#loaderIcon").hide();
-        },
-        error: function() {}
-      });
-    }
-  </script>
-  <!--Javascript for check email availability-->
-  <script>
-    function checkEmailAvailability() {
-      $("#loaderIcon").show();
-      jQuery.ajax({
-        url: "check_availability.php",
-        data: 'email=' + $("#email").val(),
-        type: "POST",
-        success: function(data) {
-          $("#email-availability-status").html(data);
-          $("#loaderIcon").hide();
-        },
-        error: function() {
-          event.preventDefault();
-        }
-      });
-    }
-  </script>
 <style>
 .input-container input{ 
 border:0;
@@ -120,7 +118,7 @@ text-align:left;
 
 margin-left: 138px;
 line-height: 70px;
-margin-top: 250px;
+margin-top: 450px;
 }
 th{
 width: 20%;
