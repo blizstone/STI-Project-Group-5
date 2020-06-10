@@ -94,7 +94,7 @@ if (!$con){
             <div class="wrap-input100 validate-input m-b-26"><input type="text" class="input100" placeholder="Username" name="UserName" required ></div>
             <div class="wrap-input100 validate-input m-b-26"><input type="email" class="input100" placeholder="Email address" name="UserEmail"></div>
             <div class="login100-form-btn"><button type="submit" name="password_recovery">Recover Password</button></div><br>
-            <a href="index.php" class="login100-form-btn">Cancel</a>
+            <a href="login.php" class="login100-form-btn">Cancel</a>
            <br>
     </div>
 </div>						
