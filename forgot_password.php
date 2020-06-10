@@ -55,7 +55,7 @@ if (!$con){
                 $mail->Subject = "Password reset request";
                 $mail->Body = "
                                             <h2>Follow the following link to reset password</h2>
-                                            <a href='localhost/STI-Project-Group-5/new_password.php?eid={$email}&token={$encode_token}&exd={$expire_date}'>Click here to create new password</a>
+                                            <a href='https://localhost/STI-Project-Group-5/new_password.php?eid={$email}&token={$encode_token}&exd={$expire_date}'>Click here to create new password</a>
                                             <p>This link will expire in 2 minutes.
                                             The expired link will redirect to home page</p>                    ";
             
@@ -89,7 +89,7 @@ if (!$con){
     
     <div class="login100-form validate-form">
     <form action="" method="POST">
-            <h2 class="sr-only">Login Form</h2>
+            <h2 class="sr-only"></h2>
            
             <div class="wrap-input100 validate-input m-b-26"><input type="text" class="input100" placeholder="Username" name="UserName" required ></div>
             <div class="wrap-input100 validate-input m-b-26"><input type="email" class="input100" placeholder="Email address" name="UserEmail"></div>
