@@ -118,10 +118,10 @@ if(isset($_SESSION["logged_in"])) {
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
 					<span class="login100-form-title-1">
-						Sign In
+						LOGIN
 					</span>
                 </div>
-                <h2 class="sr-only">Login Form</h2>
+                
                 <br>
             <?php if ($error) { ?><div>
             <strong>Verify </strong> : <?php echo htmlentities($error); ?></div>
