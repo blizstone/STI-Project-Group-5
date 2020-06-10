@@ -53,7 +53,7 @@ if (!$con){
 
     $mail->Subject = "Update verification";
     $mail->Body = "<h2></h2>
-                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$emailencoded}&token={$encode_token}'>Click here to verify</a>
+                  <a href='https://localhost/STI-Project-Group-5/activation.php?eid={$emailencoded}&token={$encode_token}'>Click here to verify</a>
                    <p></p>
                    ";
                    if($mail->send()) {
