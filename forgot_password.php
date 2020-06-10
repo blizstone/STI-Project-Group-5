@@ -74,7 +74,7 @@ if (!$con){
 <head>
     <meta charset="utf-8">
     <title>Password Recovery</title>      
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/login1.css">
     <link rel="stylesheet" href="css/login2.css">
 </head>
