@@ -12,12 +12,12 @@ getToken(32);
 
 if (isset($_POST['signup'])) {
   
-  $fullname = escape($_POST['fname']);
-  $username = escape($_POST['username']);
-  $mobile = escape($_POST['mobilenumber']);
-  $password = escape($_POST['password']);
-  $confirm = escape($_POST['password_confirm']);
-  $email = escape($_POST['email']);
+  $fullname = $_POST['fname'];
+  $username = $_POST['username'];
+  $mobile = $_POST['mobilenumber'];
+  $password = $_POST['password'];
+  $confirm = $_POST['password_confirm'];
+  $email = $_POST['email'];
 
   $hasedpassword = hash('sha256', $password);
  
@@ -146,7 +146,7 @@ if (isset($_POST['signup'])) {
         
         <div class="wrap-input100 validate-input m-b-26">
           <input type="password" id="password" name="password" placeholder="Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters" 
-          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$"  required  class="input100">        
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$"  required  class="input100">        
         </div>    
         <div class="wrap-input100 validate-input m-b-26">
           <input type="password" id="password_confirm" name="password_confirm" placeholder="Please confirm password" class="input100" required>          
