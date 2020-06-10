@@ -25,7 +25,7 @@ if ($Password == $confirm) {
         }
 else {
     echo "Password and confirm password dosen't match";
-    header("Refresh: 14; url='changepassword.php");
+    header("Refresh: 2; url='changepassword.php");
 
 }
 
