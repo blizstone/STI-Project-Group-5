@@ -20,27 +20,6 @@ if (!$con){
    
 
 
-
-    $query= $con->prepare("Select  UserName, UserEmail  from userdata");    
-    $result=$query->execute(); 
-    $query->store_result();
-    $query->bind_result($checkusername, $checkemail);
-
-    while($query->fetch())
-
-  
-    if ($UserName == $checkusername) {
-            echo "Username exist";
-        }
-        elseif ($UserEmail == $checkemail) {
-            echo "Email exist";
-        }
-        
-    else {
-
-
-    
-
     $query= $con->prepare("Select  UserEmail  from userdata where accountId ='".$_SESSION["accountId"]."'");    
     $result=$query->execute(); 
     $query->store_result();
@@ -84,7 +63,7 @@ if (!$con){
  
         
     }
-    }
+    
 
     
   ?>
