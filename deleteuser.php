@@ -63,8 +63,9 @@ else {
     <div class="hero-text">	<h1>Delete Your Digscam Account</h1> <p> By pressing delete your current account will be removed from Digiscam</div>
 
     <div class = "delete"><form action="deletecode.php" method ="POST">
+    <br>
 
-<td><input action="deletecode.php" method ="POST"  type="submit" value="Delete"/></td></div>
+<td><input action="deletecode.php" method ="POST"  type="submit" class="login100-form-btn" value="Delete"/></td></div>
 
 <style>
 
