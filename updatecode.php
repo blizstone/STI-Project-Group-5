@@ -13,10 +13,12 @@ if (!$con){
     die('Could not connect: ' . mysqli_connect_errno());
 }
 
-    $FullName = $_POST["FullName"];
-    $UserName = $_POST["UserName"];
-    $UserEmail = $_POST["UserEmail"];
-    $UserMobileNumber = $_POST["UserMobileNumber"];
+    $FullName = strip_tags($_POST["FullName"]);
+    $UserName = strip_tags($_POST["UserName"]);
+    $UserEmail = strip_tags($_POST["UserEmail"]);
+    $UserMobileNumber = strip_tags($_POST["UserMobileNumber"]);
+
+    
    
 
 
@@ -63,7 +65,7 @@ if (!$con){
  
         
     }
-    
+
 
     
   ?>

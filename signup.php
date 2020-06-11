@@ -12,12 +12,12 @@ getToken(32);
 
 if (isset($_POST['signup'])) {
   
-  $fullname = $_POST['fname'];
-  $username = $_POST['username'];
-  $mobile = $_POST['mobilenumber'];
-  $password = $_POST['password'];
-  $confirm = $_POST['password_confirm'];
-  $email = $_POST['email'];
+  $fullname = strip_tags($_POST['fname']);
+  $username = strip_tags($_POST['username']);
+  $mobile = strip_tags($_POST['mobilenumber']);
+  $password = strip_tags($_POST['password']);
+  $confirm = strip_tags($_POST['password_confirm']);
+  $email = strip_tags($_POST['email']);
 
   $hasedpassword = hash('sha256', $password);
  
@@ -63,9 +63,7 @@ if (isset($_POST['signup'])) {
 
     if ($sql) {
       $msg = "Please Verify your email to login";
-    } else {
-      $error = "Something went wrong.Please try again";
-    }
+    } 
   } else {
     $error = "Something went wrong.Please try again";
   }

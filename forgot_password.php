@@ -11,17 +11,11 @@ if (!$con){
     <div class="container">
         <div class="content">
             <h2 class="heading" style="font-family: Arial, Helvetica, sans-serif; margin-top:50px;">Password Recovery</h2> <br>
-
-
             <?php
 
                 if(isset($_POST['password_recovery'])) {
-                    $user_name = $_POST['UserName'];
-                    $user_email = $_POST['UserEmail'];
-                  
-
-                
-                
+                    $user_name = strip_tags($_POST['UserName']);
+                    $user_email = strip_tags($_POST['UserEmail']);    
         $query= $con->prepare("SELECT * FROM userdata WHERE UserName = '$user_name' AND UserEmail = '$user_email' AND is_active = 1");    
         $query->execute(); 
         $query->store_result();
@@ -37,20 +31,14 @@ if (!$con){
                 account passsword. Next request is possible only after 4 minutes. Thank You</div>";  
  
                 }
-
             if(!isset($_COOKIE['_unp_'])) {
-
-
                 date_default_timezone_set("asia/singapore");
-
                 $mail->addAddress($_POST['UserEmail']);
                 $token = getToken(32);
                 $encode_token = base64_encode(urlencode($token));
                 $email = base64_encode(urlencode($_POST['UserEmail']));
-
                 $expire_date = date("Y-m-d H:i:s", time() + 60 * 2);
                 $expire_date = base64_encode(urlencode($expire_date));   
-
                 $queryt = "UPDATE userdata SET validation_key = '$token' WHERE UserName = '$user_name' AND UserEmail = '$user_email' AND is_active = 1";
                 $mail->Subject = "Password reset request";
                 $mail->Body = "
@@ -86,6 +74,7 @@ if (!$con){
 						Reset Your Password
 					</span>
     </div>
+    
     
     <div class="login100-form validate-form">
     <form action="" method="POST">

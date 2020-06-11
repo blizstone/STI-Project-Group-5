@@ -35,18 +35,11 @@ if(isset($_SESSION["logged_in"])) {
         $text22=str_shuffle($res22);
         $_SESSION['randnum']= $text22;
     }
-    
-    
     // Getting username/ email and password
-    $uname=$_POST['username'];
-    $password=hash('sha256',$_POST['password']);
-   
-    
+    $uname=strip_tags($_POST['username']);
+    $password=strip_tags(hash('sha256',$_POST['password']));
     // Hashing with Random Number
     $saltedpasswrd=hash('sha256',$password.$_SESSION['randnum']);
-
-    
-
     // Fetch stored password  from database on the basis of username/email 
     $sql ="SELECT accountId,UserName,UserEmail,LoginPassword,Role,is_active FROM userdata WHERE (UserName=:usname || UserEmail=:usname)";
     $query= $dbh -> prepare($sql);
@@ -88,23 +81,24 @@ if(isset($_SESSION["logged_in"])) {
                 
             }
         }
-    }
-  
-    
-   
-}
-else{
+        }else{
 
+        echo "$invalid";
+        $invalid = "Invalid Details";
+        //echo "$uname";
+}
+ 
+}
+else {
     echo "$invalid";
     $invalid = "Invalid Details";
+    
+    //echo "$uname";
 }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
- 
-
 <head>
     <meta charset="utf-8">
     <title>Login form</title>
@@ -124,29 +118,27 @@ else{
 						LOGIN
 					</span>
                 </div>
-                
                 <br>
-            <?php if ($error) { ?><div>
+                <?php if ($error) { ?><div>
             <strong>Verify </strong> : <?php echo htmlentities($error); ?></div>
             <?php } ?>
             <?php if ($invalid) { ?><div>
             <strong>Sorry </strong> : <?php echo htmlentities($invalid); ?></div>
             <?php } ?>
+
+           
     <div class="login100-form validate-form">
         <form method="post">
-            
-           
             <div class="wrap-input100 validate-input m-b-26"><input type="text" class="input100" id="username" name="username"  title="Please enter you username" required placeholder="username" ></div>
             <div class="wrap-input100 validate-input m-b-26"><input type="password" class="input100" id="password" name="password" placeholder="Password" value="" required title="Please enter your password"></div>
             <div class="login100-form-btn"><button type="submit" name="login">Login</button></div><br>
             <a href="signup.php" class="login100-form-btn">Register</a>
            <br>
             <a href="forgot_password.php" class="txt1">Forgot Password ?</a>
-
 		</div>
-        </div>						
-							
-						
+        </div>	
+	</div>	
+</div>					
     </div>
 
 
