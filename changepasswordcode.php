@@ -9,9 +9,12 @@ if (!$con){
     die('Could not connect: ' . mysqli_connect_errno());
 }
 
-$Password = $_POST['LoginPassword'];
-$confirm = $_POST['confirmpassword'];
+$Password = strip_tags($_POST['LoginPassword']);
+$confirm = strip_tags($_POST['confirmpassword']);
 $hasedpassword=hash('sha256',$Password);
+
+
+echo "$Password";
 
 
 if ($Password == $confirm) {
@@ -28,6 +31,7 @@ else {
     header("Refresh: 2; url='changepassword.php");
 
 }
+
 
 
 ?>
