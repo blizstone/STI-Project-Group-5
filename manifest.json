@@ -1,0 +1,14 @@
+{
+  "name": "Digiscam",
+  "version": "1.0",
+  "description": "Antiscam website",
+  "permissions": [
+    "contextMenus"
+  ],
+  
+  "icons": {
+
+    "128": "images/icon.png"
+  },
+  "manifest_version": 2
+}
