@@ -13,8 +13,7 @@ $Password = strip_tags($_POST['LoginPassword']);
 $confirm = strip_tags($_POST['confirmpassword']);
 $hasedpassword=hash('sha256',$Password);
 
-
-echo "$Password";
+    
 
 
 if ($Password == $confirm) {
