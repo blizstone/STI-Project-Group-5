@@ -21,6 +21,7 @@ else {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
+	<link rel="shortcut icon" type="image/x-icon" href="favi.ico" />
   
 
   

@@ -86,7 +86,7 @@ if (isset($_POST['signup'])) {
    
   </style>
   <!--Javascript for check username availability-->
- 
+  <link rel="shortcut icon" type="image/x-icon" href="favi.ico" />
 </head>
 
 <body>

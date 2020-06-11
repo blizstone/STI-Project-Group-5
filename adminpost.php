@@ -21,6 +21,7 @@ else
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"><!-- navbar/voting stylesheet -->
   <link rel="stylesheet" href="css/login1.css">
     <link rel="stylesheet" href="css/login2.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favi.ico" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
     <link rel="stylesheet" href="dist/upvotejs/upvotejs.css">

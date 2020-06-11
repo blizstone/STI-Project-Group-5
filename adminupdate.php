@@ -19,7 +19,7 @@ else
   <link rel="stylesheet" href="css/login1.css">
     <link rel="stylesheet" href="css/login2.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
-
+  <link rel="shortcut icon" type="image/x-icon" href="favi.ico" />
     <link rel="stylesheet" href="dist/upvotejs/upvotejs.css">
 	<script>//navbar script
 		/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */

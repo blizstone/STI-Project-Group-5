@@ -65,6 +65,7 @@ if (!$con){
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/login1.css">
     <link rel="stylesheet" href="css/login2.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favi.ico" />
 </head>
 <div class="limiter ">
 		<div class="container-login100">

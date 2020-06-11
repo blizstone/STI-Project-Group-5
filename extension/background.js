@@ -1,23 +1,17 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
 
-'use strict';
-
-chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({color: '#3aa757'}, function() {
-    console.log('The color is green.');
-  });
-  chrome.contextMenus.onPageChanged.removeRules(undefined, function() {
-    chrome.contextMenus.onPageChanged.addRules([{
-      conditions: [new chrome.contextMenus.PageStateMatcher({
-        pageUrl: {hostEquals: 'https://*/*'||'http://*/*'},
-      })],
-      actions: [new chrome.contextMenus.ShowPageAction(
-        {
-          pageUrl:{host'https://localhost/STI-Project-Group-5/login.php'}
-        }
-      )]
-    }]);
-  });
+chrome.browserAction.onClicked.addListener(function(tab) {
+  chrome.debugger.attach({tabId:tab.id}, version,
+      onAttach.bind(null, tab.id));
 });
+
+var version = "1.0";
+
+function onAttach(tabId) {
+  if (chrome.runtime.lastError) {
+    alert(chrome.runtime.lastError.message);
+    return;
+  }
+
+  chrome.windows.create(
+      {url: "https://localhost/STI-Project-Group-5/index.php" + tabId, type: "popup", width: 800, height: 600});
+}

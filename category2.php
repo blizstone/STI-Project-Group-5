@@ -31,7 +31,7 @@ $categoryResult = $db_handle->runQuery("SELECT post.postId, post.title, post.con
   
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general/navbar stylesheet -->
 
-
+    <link rel="shortcut icon" type="image/x-icon" href="favi.ico" />
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 

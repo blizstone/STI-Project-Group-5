@@ -23,7 +23,7 @@ else {
   	<link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="stylesheet.css"> <!-- general stylesheet -->
 	 
-	
+	<link rel="shortcut icon" type="image/x-icon" href="favi.ico" />
     <link rel="stylesheet" href="css/login1.css">
     <link rel="stylesheet" href="css/login2.css">
 
