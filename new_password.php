@@ -42,7 +42,7 @@
                             if($user_pass == $user_con_pass) {
                                 //password validation
                                
-                                $pattern_up = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$^";
+                                $pattern_up = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$^";
                                 if(!preg_match($pattern_up, $user_pass)) {
                                     $errPass = "Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters";
                                 }

@@ -13,47 +13,44 @@ if (!$con){
     die('Could not connect: ' . mysqli_connect_errno());
 }
 
-    $FullName = $_POST["FullName"];
-    $UserName = $_POST["UserName"];
-    $UserEmail = $_POST["UserEmail"];
-    $UserMobileNumber = $_POST["UserMobileNumber"];
-    $LoginPassword = $_POST["LoginPassword"];
-    $confirm =$_POST['confirmpassword'];
-    $hasedpassword=hash('sha256',$LoginPassword);
+    $FullName = strip_tags($_POST["FullName"]);
+    $UserName = strip_tags($_POST["UserName"]);
+    $UserEmail = strip_tags($_POST["UserEmail"]);
+    $UserMobileNumber = strip_tags($_POST["UserMobileNumber"]);
 
-    $email = $_POST['UserEmail'];
     
+   
+
 
     $query= $con->prepare("Select  UserEmail  from userdata where accountId ='".$_SESSION["accountId"]."'");    
     $result=$query->execute(); 
     $query->store_result();
     $query->bind_result($Emailfromdb);
+
     while($query->fetch())
-    if($confirm != $LoginPassword){
-        
-        echo "Password and confirm password dosen't match";
-        header("Refresh: 1; url='updateuser.php");
-    } else {
+
+ 
     if ($Emailfromdb == $UserEmail) {
-        $query= $con->prepare("Update  userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, LoginPassword=? where accountId ='".$_SESSION["accountId"]."'");
-        $query->bind_param('sssis', $FullName, $UserName, $UserEmail, $UserMobileNumber, $hasedpassword);
+        $query= $con->prepare("Update  userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=? where accountId ='".$_SESSION["accountId"]."'");
+        $query->bind_param('sssi', $FullName, $UserName, $UserEmail, $UserMobileNumber);
         if ($query->execute()) {
             header("Location: viewprofile.php");
             } else {
                 echo "error";
             }
     } else {
-    $query= $con->prepare("Update  userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, LoginPassword=?, validation_key='$token', is_active=0 where accountId ='".$_SESSION["accountId"]."'");
-    $query->bind_param('sssis', $FullName, $UserName, $UserEmail, $UserMobileNumber, $hasedpassword);
+    $token = getToken(32);
+    $query= $con->prepare("Update  userdata SET FullName=?, UserName=?, UserEmail=?, UserMobileNumber=?, validation_key='$token', is_active=0 where accountId ='".$_SESSION["accountId"]."'");
+    $query->bind_param('sssi', $FullName, $UserName, $UserEmail, $UserMobileNumber);
     $mail->addAddress($_POST['UserEmail']);
 
-    $token = getToken(32);
+    
     $encode_token = base64_encode(urlencode($token));
     $emailencoded = base64_encode(urlencode($_POST['UserEmail']));
 
     $mail->Subject = "Update verification";
     $mail->Body = "<h2></h2>
-                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$emailencoded}&token={$encode_token}'>Click here to verify</a>
+                  <a href='https://localhost/STI-Project-Group-5/activation.php?eid={$emailencoded}&token={$encode_token}'>Click here to verify</a>
                    <p></p>
                    ";
                    if($mail->send()) {
@@ -68,7 +65,7 @@ if (!$con){
  
         
     }
-}
+
 
     
   ?>

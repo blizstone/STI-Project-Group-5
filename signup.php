@@ -12,12 +12,12 @@ getToken(32);
 
 if (isset($_POST['signup'])) {
   
-  $fullname = escape($_POST['fname']);
-  $username = escape($_POST['username']);
-  $mobile = escape($_POST['mobilenumber']);
-  $password = escape($_POST['password']);
-  $confirm = escape($_POST['password_confirm']);
-  $email = escape($_POST['email']);
+  $fullname = strip_tags($_POST['fname']);
+  $username = strip_tags($_POST['username']);
+  $mobile = strip_tags($_POST['mobilenumber']);
+  $password = strip_tags($_POST['password']);
+  $confirm = strip_tags($_POST['password_confirm']);
+  $email = strip_tags($_POST['email']);
 
   $hasedpassword = hash('sha256', $password);
  
@@ -45,7 +45,7 @@ if (isset($_POST['signup'])) {
  
     $mail->Subject = "Verify your email";
     $mail->Body = "<h2>Thank u for sign up</h2>
-                  <a href='localhost/STI-Project-Group-5/activation.php?eid={$emailencoded}&token={$encode_token}'>Click here to verify your account</a>
+                  <a href='https://localhost/STI-Project-Group-5/activation.php?eid={$emailencoded}&token={$encode_token}'>Click here to verify your account</a>
                   
                   ";
     //if mail send
@@ -63,9 +63,7 @@ if (isset($_POST['signup'])) {
 
     if ($sql) {
       $msg = "Please Verify your email to login";
-    } else {
-      $error = "Something went wrong.Please try again";
-    }
+    } 
   } else {
     $error = "Something went wrong.Please try again";
   }
@@ -95,8 +93,8 @@ if (isset($_POST['signup'])) {
   <form class="form-horizontal" action='' method="post">
     <fieldset>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
      
       <!--Error Message-->
      
@@ -146,7 +144,7 @@ if (isset($_POST['signup'])) {
         
         <div class="wrap-input100 validate-input m-b-26">
           <input type="password" id="password" name="password" placeholder="Password must be with 1 upper case, 1 lower case, 1 number and min 6 characters" 
-          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$"  required  class="input100">        
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$"  required  class="input100">        
         </div>    
         <div class="wrap-input100 validate-input m-b-26">
           <input type="password" id="password_confirm" name="password_confirm" placeholder="Please confirm password" class="input100" required>          

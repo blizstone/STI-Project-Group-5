@@ -13,7 +13,9 @@ To configure https in your XAMPP, please go to the C:\xampp\apache\conf\extra di
 
 •    If facing trouble to send the verification email and if you are using Avast as antivirus, should try disable the Mail shield. 
 
-Protection -> Core Shield -> Mail Shield  
+    Protection -> Core Shield -> Mail Shield  
+
+    If still facing error to recieve the email can try Allow less secure apps by going to  https://myaccount.google.com/lesssecureapps 
 
 •    To access the chatbot separately  - https://fathomless-plains-89933.herokuapp.com/  
 

@@ -22,7 +22,7 @@ else {
   
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- navbar stylesheet -->
 
-  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/login1.css">
     <link rel="stylesheet" href="css/login2.css">
 	<script>//navbar script
@@ -63,8 +63,9 @@ else {
     <div class="hero-text">	<h1>Delete Your Digscam Account</h1> <p> By pressing delete your current account will be removed from Digiscam</div>
 
     <div class = "delete"><form action="deletecode.php" method ="POST">
+    <br>
 
-<td><input action="deletecode.php" method ="POST"  type="submit" value="Delete"/></td></div>
+<td><input action="deletecode.php" method ="POST"  type="submit" class="login100-form-btn" value="Delete"/></td></div>
 
 <style>
 
