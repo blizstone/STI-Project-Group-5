@@ -84,7 +84,7 @@ $categoryResult = $db_handle->runQuery("SELECT post.postId, post.title, post.con
                 <tbody>
                 <?php
                     $query = "SELECT * FROM post";
-                    //$query = "SELECT * FROM post INNER JOIN userdata ON userdata.accountId=post.accountId GROUP BY category";
+                    //query = "SELECT post.postId, post.title, post.content, post.category, userdata.UserName, SUM(`category`) FROM post INNER JOIN userdata ON userdata.accountId=post.accountId INNER JOIN voting ON voting.postId=post.postId";
                     $i = 0;
                     $selectedOptionCount = count($_POST['Category']);
                     $selectedOption = "";
