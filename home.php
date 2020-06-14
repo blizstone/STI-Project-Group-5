@@ -75,9 +75,10 @@ $row = mysqli_fetch_assoc($result);
         <div class="info">
           <h4>Todays most posts comes under.....</h4>
           <div class="apple"><p><b><?=$row["category"];?></b></p></div>
+       
         </div>
       <form action="search2.php" method="POST">
-      <input type="text" name="search" placeholder="Search" div class ="search" id="searchkey" required pattern="[A-Za-z0-9]+[A-Za-z]{3}">
+      <input type="text" name="search" placeholder="Search" div class ="search" id="searchkey" img src="img\module_table_top.png" required >
       
       <button type="submit" name="submit-search">Search</button>
       </div>
