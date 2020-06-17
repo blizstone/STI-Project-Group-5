@@ -19,6 +19,17 @@ To configure https in your XAMPP, please go to the C:\xampp\apache\conf\extra di
 
 •    To access the chatbot separately  - https://fathomless-plains-89933.herokuapp.com/  
 
-•    To download the source code for chatbot run the following command in the terminal 
+•    To download the source code for chatbot 
+    
+    Install heroku CLI - https://devcenter.heroku.com/articles/heroku-cli#download-and-install
 
-# git clone https://git.heroku.com/fathomless-plains-89933.git 
+    Then run "heroku login" in the cmd
+
+    Now need to login to heroku with following credentials
+
+    Email - armondkjoy@gmail.com
+    Password - DigiscamPro1
+
+    Now run the following command to download the source code
+
+    # git clone https://git.heroku.com/fathomless-plains-89933.git 
