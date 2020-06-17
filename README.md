@@ -27,7 +27,7 @@ To configure https in your XAMPP, please go to the C:\xampp\apache\conf\extra di
 
     Now need to login to heroku with following credentials
 
-    Email - armondkjoy@gmail.com
+    Email - digiscamofficial@gmail.com
     Password - DigiscamPro1
 
     Now run the following command to download the source code
